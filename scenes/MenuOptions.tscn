@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://p2s3tvw76ykc"]
+
+[ext_resource type="Script" uid="uid://cjpxf8barriqh" path="res://scripts/MenuButtonControl.gd" id="1_w8jh7"]
+
+[node name="MenuOptions" type="Control" unique_id=2117867878]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w8jh7")
+
+[node name="VBoxContainer Slider" type="VBoxContainer" parent="." unique_id=1032092667]
+visible = false
+layout_mode = 0
+offset_left = -150.0
+offset_top = -144.0
+offset_bottom = -144.0
+
+[node name="Label" type="Label" parent="VBoxContainer Slider" unique_id=1827685162]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../VolumeHSlider")
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="VolumeHSlider" type="HSlider" parent="VBoxContainer Slider" unique_id=1813394058]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../BackButton")
+focus_mode = 1
+step = 10.0
+value = 100.0
+tick_count = 10
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="BackButton" type="Button" parent="VBoxContainer Slider" unique_id=642170885]
+layout_mode = 2
+focus_neighbor_top = NodePath("../VolumeHSlider")
+action_mode = 0
+text = "Home Screen"
+
+[node name="VBoxContainer Buttons" type="VBoxContainer" parent="." unique_id=1801812866]
+layout_mode = 0
+offset_left = -150.0
+offset_top = -296.0
+offset_bottom = -161.0
+
+[node name="StartButton" type="Button" parent="VBoxContainer Buttons" unique_id=1885118964]
+layout_mode = 2
+action_mode = 0
+text = "Play"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer Buttons" unique_id=1940267284]
+layout_mode = 2
+action_mode = 0
+text = "Options"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer Buttons" unique_id=931154516]
+layout_mode = 2
+text = "Credits"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer Buttons" unique_id=224845568]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../../VBoxContainer Slider/VolumeHSlider")
+action_mode = 0
+text = "Quit"
+
+[node name="VBoxContainerCredits" type="VBoxContainer" parent="." unique_id=1745231264]
+visible = false
+layout_mode = 0
+offset_left = -285.0
+offset_top = -117.0
+offset_right = 315.0
+offset_bottom = 129.0
+
+[node name="Label" type="Label" parent="VBoxContainerCredits" unique_id=1617388247]
+layout_mode = 2
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainerCredits" unique_id=1906393996]
+layout_mode = 2
+text = "Jade
+Maeve
+Ryan
+Joseph
+
+Made at Global Game Jam 2026."
+fit_content = true
+
+[node name="BackButton" type="Button" parent="VBoxContainerCredits" unique_id=675481801]
+layout_mode = 2
+action_mode = 0
+text = "Home Screen"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=682791999]
