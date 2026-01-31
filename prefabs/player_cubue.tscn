@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://cip42bjuvuqqx"]
+[gd_scene format=3 uid="uid://dtso5i50wi62y"]
 
 [ext_resource type="Script" uid="uid://dr2k7awy6p7n3" path="res://scripts/PlayerCube.gd" id="1_3cj4c"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7wrmn"]
 
-[node name="PlayerCube" type="Node3D" unique_id=1938742768 node_paths=PackedStringArray("cube", "pivot_point")]
+[node name="PlayerCube" type="Node3D" unique_id=1938742768 node_paths=PackedStringArray("cube", "pivot_point", "cube_sides")]
 rotation_edit_mode = 1
 script = ExtResource("1_3cj4c")
 cube_angles = Quaternion(0, 0, 0.7, 0)
@@ -12,6 +12,14 @@ cube = NodePath("CubeMesh/CubeFaces")
 pivot_point = NodePath("CubeMesh")
 cube_side_length = 1.0
 roll_speed = 1.0
+cube_sides = {
+Vector3i(-1, 0, 0): NodePath("CubeMesh/CubeFaces/CubeSide4"),
+Vector3i(0, -1, 0): NodePath("CubeMesh/CubeFaces/CubeBottom"),
+Vector3i(0, 0, -1): NodePath("CubeMesh/CubeFaces/CubeSide2"),
+Vector3i(0, 0, 1): NodePath("CubeMesh/CubeFaces/CubeSide1"),
+Vector3i(0, 1, 0): NodePath("CubeMesh/CubeFaces/CubeTop"),
+Vector3i(1, 0, 0): NodePath("CubeMesh/CubeFaces/CubeSide3")
+}
 
 [node name="CubeMesh" type="Node3D" parent="." unique_id=1323370807]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

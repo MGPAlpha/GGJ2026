@@ -53,6 +53,8 @@ func _ready() -> void:
 	player_node = player_prefab.instantiate()
 	player_node.position = get_player_pos_for_tile(player_tile)
 	add_child(player_node)
+	for side in player_colors:
+		player_node.set_face_color(side, colors[player_colors[side]])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

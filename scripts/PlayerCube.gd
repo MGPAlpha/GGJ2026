@@ -6,6 +6,20 @@ class_name PlayerCube extends Node3D
 @export var cube_side_length : float
 @export var roll_speed : float
 
+@export var cube_sides: Dictionary[Vector3i, MeshInstance3D] = {
+	Vector3i.UP: null,
+	Vector3i.DOWN: null,
+	Vector3i.LEFT: null,
+	Vector3i.RIGHT: null,
+	Vector3i.FORWARD: null,
+	Vector3i.BACK: null
+}
+
+func _ready() -> void:
+	print("Ran ready")
+	for side in cube_sides:
+		cube_sides[side].material_override = StandardMaterial3D.new()
+
 func rotate_cube(new_position : Vector3, new_quaternion : Quaternion):
 #	Implemented using this post as the basis.
 #	https://www.reddit.com/r/godot/comments/17pf75f/how_do_you_correctly_roll_a_cube_with_tweens_in/
@@ -35,9 +49,10 @@ func roll_height(w: float) -> void:
 	var h = cube_side_length / 2.0 * cosh(1) - cube_side_length / 2.0 * cosh(x / (cube_side_length / 2.0))
 	cube.transform.origin.y = h
 
-func set_face():
-#	Use local coordinates, or enum, 
-	printerr("set_face() not implemented")
+func set_face_color(face: Vector3i, color: Color):
+	print(face)
+	var material = cube_sides[face].material_override as StandardMaterial3D
+	material.albedo_color = color
 
 func wait():  
 	await get_tree().create_timer(2).timeout
