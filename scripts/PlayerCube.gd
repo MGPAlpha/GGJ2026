@@ -5,6 +5,7 @@ class_name PlayerCube extends Node3D
 @export var pivot_point : Node3D
 @export var cube_side_length : float
 @export var roll_speed : float
+@export var default_color: Color = Color.WHITE
 
 @export var cube_sides: Dictionary[Vector3i, MeshInstance3D] = {
 	Vector3i.UP: null,
@@ -49,8 +50,8 @@ func roll_height(w: float) -> void:
 	var h = cube_side_length / 2.0 * cosh(1) - cube_side_length / 2.0 * cosh(x / (cube_side_length / 2.0))
 	cube.transform.origin.y = h
 
-func set_face_color(face: Vector3i, color: Color):
-	print(face)
+func set_face_color(face: Vector3i, color_index: int, color_list: Array[Color]):
+	var color = color_list[color_index] if color_index >= 0 else default_color
 	var material = cube_sides[face].material_override as StandardMaterial3D
 	material.albedo_color = color
 
