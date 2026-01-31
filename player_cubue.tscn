@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cip42bjuvuqqx"]
+
+[ext_resource type="Script" uid="uid://dr2k7awy6p7n3" path="res://PlayerCube.gd" id="1_3cj4c"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7wrmn"]
+
+[node name="PlayerCube" type="Node3D" unique_id=1938742768 node_paths=PackedStringArray("cube_faces")]
+rotation_edit_mode = 1
+script = ExtResource("1_3cj4c")
+cube_angles = Quaternion(0, 0, 0.7, 0)
+cube_faces = NodePath("CubeFaces")
+
+[node name="CubeFaces" type="Node3D" parent="." unique_id=1446459861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+rotation_edit_mode = 1
+
+[node name="CubeBottom" type="MeshInstance3D" parent="CubeFaces" unique_id=1092660502]
+transform = Transform3D(0.5, 0, 0, 0, -0.5, 4.371139e-08, 0, -4.371139e-08, -0.5, 0, -0.5, 0)
+mesh = SubResource("PlaneMesh_7wrmn")
+
+[node name="CubeSide1" type="MeshInstance3D" parent="CubeFaces" unique_id=455131220]
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0, 0, 0.5)
+mesh = SubResource("PlaneMesh_7wrmn")
+
+[node name="CubeSide2" type="MeshInstance3D" parent="CubeFaces" unique_id=816697227]
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, 0.5, 0, -0.5, -2.1855694e-08, 0, 0, -0.5)
+mesh = SubResource("PlaneMesh_7wrmn")
+
+[node name="CubeSide3" type="MeshInstance3D" parent="CubeFaces" unique_id=400954160]
+transform = Transform3D(-2.1855694e-08, 0.5, 0, -0.5, -2.1855694e-08, 0, 0, 0, 0.5, 0.5, 0, 0)
+mesh = SubResource("PlaneMesh_7wrmn")
+
+[node name="CubeSide4" type="MeshInstance3D" parent="CubeFaces" unique_id=1455104940]
+transform = Transform3D(-2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0, 0, 0, 0.5, -0.5, 0, 0)
+mesh = SubResource("PlaneMesh_7wrmn")
+
+[node name="CubeTop" type="MeshInstance3D" parent="CubeFaces" unique_id=641634574]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
+mesh = SubResource("PlaneMesh_7wrmn")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=422687955]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48926336, 2.2850623)
