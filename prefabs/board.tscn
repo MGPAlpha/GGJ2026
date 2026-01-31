@@ -6,3 +6,11 @@
 [node name="Board" type="Node3D" unique_id=285819464]
 script = ExtResource("1_p0ybc")
 tile_prefab = ExtResource("2_psm7c")
+player_colors = Dictionary[Vector3i, int]({
+Vector3i(-1, 0, 0): -1,
+Vector3i(0, -1, 0): 2,
+Vector3i(0, 0, -1): -1,
+Vector3i(0, 0, 1): -1,
+Vector3i(0, 1, 0): 1,
+Vector3i(1, 0, 0): -1
+})
