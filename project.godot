@@ -15,6 +15,10 @@ run/main_scene="uid://dmv2foyrlfama"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[gui]
+
+theme/custom="uid://bx261f54lixg"
+
 [input]
 
 move_up={
