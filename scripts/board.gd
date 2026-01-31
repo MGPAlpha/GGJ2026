@@ -4,6 +4,7 @@ class_name Board extends Node3D
 @export var size: Vector2i = Vector2i(3,3)
 @export var start: Vector2i = Vector2i(0,0)
 @export var grid_tile_size: Vector2 = Vector2.ONE
+@export var colors : Array[Color] = [Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE, Color.PURPLE]
 
 # Prefabs
 @export var tile_prefab: PackedScene
@@ -12,6 +13,14 @@ class_name Board extends Node3D
 var tiles: Array[Array]
 var player_pos: Vector2i
 var player_rotation: Quaternion
+@export var player_colors: Dictionary[Vector3i, int] = {
+	Vector3i.UP: -1,
+	Vector3i.DOWN: -1,
+	Vector3i.LEFT: -1,
+	Vector3i.RIGHT: -1,
+	Vector3i.FORWARD: -1,
+	Vector3i.BACK: -1
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,6 +43,11 @@ func _ready() -> void:
 	
 	player_pos = start
 	player_rotation = Quaternion.IDENTITY
+	
+	var player_tile = tiles[player_pos.y][player_pos.x]
+	var down_color = player_colors[Vector3i.DOWN]
+	if down_color > -1:
+		paint_tile(player_tile, down_color)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -55,4 +69,16 @@ func try_move_player(direction: Vector2i) -> bool:
 	print(player_pos)
 	print(player_rotation.get_euler())
 	print("Player Cube Up is now ", player_rotation * Vector3.UP)
+	
+	# Apply color
+	var down_side = round(Vector3.DOWN * player_rotation)
+	print(player_colors[Vector3i.UP])
+	var down_color = player_colors[down_side]
+	if down_color > -1 and down_color != new_tile.color_index:
+		paint_tile(new_tile, down_color)
+	
 	return true
+	
+func paint_tile(tile: BoardTileData, color_index: int):
+	tile.color_index = color_index
+	tile.node.set_color(colors[color_index])

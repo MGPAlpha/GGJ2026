@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://80jnkij6f1xr"]
 
+[ext_resource type="Script" uid="uid://b52ybcjcb8kxn" path="res://scripts/boardtile.gd" id="1_nsn1e"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_yhqha"]
 size = Vector3(1, 0.2, 1)
 
-[node name="Tile" type="Node3D" unique_id=349656334]
+[node name="Tile" type="Node3D" unique_id=349656334 node_paths=PackedStringArray("mesh_renderer")]
+script = ExtResource("1_nsn1e")
+mesh_renderer = NodePath("MeshInstance3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1110047571]
 mesh = SubResource("BoxMesh_yhqha")
