@@ -1,16 +1,10 @@
-extends Node3D
+class_name PlayerCube extends Node3D
 
 @export var cube_angles : Quaternion
 @export var cube : Node3D
 @export var pivot_point : Node3D
 @export var cube_side_length : float
 @export var roll_speed : float
-
-func _enter_tree():
-	#await wait()
-	rotate_cube(Vector3(-1, 0, 0), Quaternion.from_euler(Vector3(0, 0, PI/2)))
-	await wait()
-	rotate_cube(Vector3(-2, 0, 0), Quaternion.from_euler(Vector3(0, 0, PI)))
 
 func rotate_cube(new_position : Vector3, new_quaternion : Quaternion):
 #	Implemented using this post as the basis.

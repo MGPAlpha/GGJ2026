@@ -5,14 +5,17 @@ class_name Board extends Node3D
 @export var start: Vector2i = Vector2i(0,0)
 @export var grid_tile_size: Vector2 = Vector2.ONE
 @export var colors : Array[Color] = [Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE, Color.PURPLE]
+@export var tile_height: float = .7
 
 # Prefabs
+@export var player_prefab: PackedScene
 @export var tile_prefab: PackedScene
 
 # Tracked Data
 var tiles: Array[Array]
 var player_pos: Vector2i
 var player_rotation: Quaternion
+var player_node: PlayerCube
 @export var player_colors: Dictionary[Vector3i, int] = {
 	Vector3i.UP: -1,
 	Vector3i.DOWN: -1,
@@ -43,11 +46,13 @@ func _ready() -> void:
 	
 	player_pos = start
 	player_rotation = Quaternion.IDENTITY
-	
 	var player_tile = tiles[player_pos.y][player_pos.x]
 	var down_color = player_colors[Vector3i.DOWN]
 	if down_color > -1:
 		paint_tile(player_tile, down_color)
+	player_node = player_prefab.instantiate()
+	player_node.position = get_player_pos_for_tile(player_tile)
+	add_child(player_node)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -63,7 +68,7 @@ func try_move_player(direction: Vector2i) -> bool:
 		return false
 	# Perform movement
 	player_pos = new_player_pos
-	var move_rotation = Quaternion.from_euler(Vector3(-PI/2*direction.y, 0, -PI/2*direction.x))
+	var move_rotation = Quaternion.from_euler(Vector3(PI/2*direction.y, 0, -PI/2*direction.x))
 	var new_rotation = move_rotation * player_rotation
 	player_rotation = new_rotation
 	print(player_pos)
@@ -76,9 +81,12 @@ func try_move_player(direction: Vector2i) -> bool:
 	var down_color = player_colors[down_side]
 	if down_color > -1 and down_color != new_tile.color_index:
 		paint_tile(new_tile, down_color)
-	
+	player_node.rotate_cube(get_player_pos_for_tile(new_tile), player_rotation)
 	return true
 	
 func paint_tile(tile: BoardTileData, color_index: int):
 	tile.color_index = color_index
 	tile.node.set_color(colors[color_index])
+
+func get_player_pos_for_tile(tile: BoardTileData):
+	return Vector3(0, tile_height/2, 0) + tile.node.position
