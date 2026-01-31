@@ -1,0 +1,37 @@
+[gd_resource type="VisualShader" format=3 uid="uid://dyltm5kjnxs6x"]
+
+[ext_resource type="Script" uid="uid://vblx8i1b5eiw" path="res://addons/shaderV/rgba/noise/generic2d.gd" id="1_01q1h"]
+
+[sub_resource type="VisualShaderNodeCustom" id="VisualShaderNodeCustom_svq0u"]
+default_input_values = [1, Vector3(-1.58, 0.19, 0.285), 2, 9.0]
+initialized = true
+script = ExtResource("1_01q1h")
+
+[sub_resource type="VisualShaderNodeCustom" id="VisualShaderNodeCustom_0obp0"]
+default_input_values = [1, Vector3(0.26, 0.315, -0.83), 2, 1.6]
+initialized = true
+script = ExtResource("1_01q1h")
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_cs2yq"]
+constant = Color(0.43392655, 0.27841046, 0.24998823, 1)
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_ronmi"]
+parameter_name = "ColorParameter"
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_8ar1w"]
+output_port_for_preview = 0
+
+[resource]
+nodes/vertex/0/position = Vector2(653.3333, 146.66667)
+nodes/fragment/0/position = Vector2(1973.3334, 413.33334)
+nodes/fragment/2/node = SubResource("VisualShaderNodeCustom_svq0u")
+nodes/fragment/2/position = Vector2(901.00006, 781.89136)
+nodes/fragment/3/node = SubResource("VisualShaderNodeCustom_0obp0")
+nodes/fragment/3/position = Vector2(1181, 835.22473)
+nodes/fragment/4/node = SubResource("VisualShaderNodeColorConstant_cs2yq")
+nodes/fragment/4/position = Vector2(1407.6667, 701.8914)
+nodes/fragment/5/node = SubResource("VisualShaderNodeColorParameter_ronmi")
+nodes/fragment/5/position = Vector2(1407.6667, 1035.2247)
+nodes/fragment/6/node = SubResource("VisualShaderNodeMix_8ar1w")
+nodes/fragment/6/position = Vector2(1687.6667, 701.8914)
+nodes/fragment/connections = PackedInt32Array(3, 0, 6, 1, 2, 0, 3, 0, 4, 0, 6, 0, 6, 0, 0, 0)

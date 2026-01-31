@@ -17,8 +17,8 @@ class_name PlayerCube extends Node3D
 
 func _ready() -> void:
 	print("Ran ready")
-	for side in cube_sides:
-		cube_sides[side].material_override = StandardMaterial3D.new()
+	#for side in cube_sides:
+		#cube_sides[side].material_override = StandardMaterial3D.new()
 
 func rotate_cube(new_position : Vector3, new_quaternion : Quaternion):
 #	Implemented using this post as the basis.
@@ -51,8 +51,8 @@ func roll_height(w: float) -> void:
 
 func set_face_color(face: Vector3i, color: Color):
 	print(face)
-	var material = cube_sides[face].material_override as StandardMaterial3D
-	material.albedo_color = color
+	var material = cube_sides[face].material_override as ShaderMaterial
+	material.set_shader_parameter("PaintColor", color)
 
 func wait():  
 	await get_tree().create_timer(2).timeout
