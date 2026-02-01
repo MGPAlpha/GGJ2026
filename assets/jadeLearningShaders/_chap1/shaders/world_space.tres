@@ -1,9 +1,0 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://dxgkm6bddt2ql"]
-
-[ext_resource type="Shader" uid="uid://jqji83urgu5v" path="res://assets/jadeLearningShaders/_chap1/shaders/world_space.gdshader" id="1_qc1aw"]
-[ext_resource type="Texture2D" uid="uid://bpd71dv5swlj" path="res://assets/jadeLearningShaders/_chap1/spaces/world_space/textures/tree_tex.jpg" id="2_5b0s1"]
-
-[resource]
-render_priority = 0
-shader = ExtResource("1_qc1aw")
-shader_parameter/_MainTex = ExtResource("2_5b0s1")

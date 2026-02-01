@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelList" format=3 uid="uid://cmpqqgv3qugn5"]
+
+[ext_resource type="Script" uid="uid://ci7osms5d8jri" path="res://scripts/new_script.gd" id="1_6o146"]
+[ext_resource type="PackedScene" uid="uid://6mm86g135l0u" path="res://scenes/Levels/Level 1 - Red March.tscn" id="1_tjj2h"]
+[ext_resource type="PackedScene" uid="uid://biim2qhebjlie" path="res://scenes/Levels/Level 2 - The Colorful Dragon.tscn" id="2_mqhrw"]
+[ext_resource type="PackedScene" uid="uid://o35p86cwfgfo" path="res://scenes/Levels/Level 3 - The Outcast.tscn" id="3_debq3"]
+
+[resource]
+script = ExtResource("1_6o146")
+level_list = Array[PackedScene]([ExtResource("1_tjj2h"), ExtResource("2_mqhrw"), ExtResource("3_debq3")])
+metadata/_custom_type_script = "uid://ci7osms5d8jri"

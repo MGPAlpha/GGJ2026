@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://dmv2foyrlfama"]
+[gd_scene format=3 uid="uid://c0m7kkq0jxfyv"]
 
 [ext_resource type="PackedScene" uid="uid://su36uk0e7wt" path="res://prefabs/board.tscn" id="1_uh120"]
 [ext_resource type="Script" uid="uid://c1jpop7rnvfvy" path="res://scripts/playercontroller.gd" id="2_xj5b5"]
+[ext_resource type="PackedScene" uid="uid://e050bqiinmgc" path="res://ui/text_button.tscn" id="3_ebt4o"]
 [ext_resource type="Script" path="res://scripts/goaldisplay.gd" id="3_xj5b5"]
 
 [sub_resource type="Environment" id="Environment_uh120"]
@@ -36,14 +37,43 @@ spot_angle_attenuation = 0.062500216
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1700375827]
 environment = SubResource("Environment_uh120")
 
-[node name="Control" type="Control" parent="." unique_id=392119172]
+[node name="UI" type="Control" parent="." unique_id=939112622]
 layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = -233.0
-offset_bottom = 233.0
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=861255345]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="Control2" parent="UI/MarginContainer" unique_id=440904901 node_paths=PackedStringArray("button") instance=ExtResource("3_ebt4o")]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+button = NodePath("TextureRect/Button")
+
+[node name="Button" parent="UI/MarginContainer/Control2/TextureRect" parent_id_path=PackedInt32Array(440904901, 1425206597) index="0" unique_id=2023860768]
+text = "Back"
+
+[node name="Control" type="Control" parent="UI/MarginContainer" unique_id=392119172]
+custom_minimum_size = Vector2(233, 233)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
 script = ExtResource("3_xj5b5")
 
-[connection signal="goal_set" from="Board" to="Control" method="_on_goal_set"]
+[connection signal="goal_set" from="Board" to="UI/MarginContainer/Control" method="_on_goal_set"]
+
+[editable path="UI/MarginContainer/Control2"]

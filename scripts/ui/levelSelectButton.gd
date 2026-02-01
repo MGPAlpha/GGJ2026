@@ -1,6 +1,6 @@
 extends Node
 
-@export var scene : String
+@export var button: Button
 
 # Called when the node enters the scene tree for the first time.
 #func _ready() -> void:
@@ -26,9 +26,6 @@ extends Node
 	#var tween := get_tree().create_tween()
 	#tween.tween_method(_set_shader_value, shaderMaterial.get_shader_parameter("amplitude"), 0.0, 2)
 	##shaderMaterial.set_shader_parameter("amplitude", 0.0)
-
-func _onSceneSelected() -> void:
-	get_tree().change_scene_to_file(scene)
 
 #func _set_shader_value(value: float):
 	#var shaderMaterial = background.material as ShaderMaterial
