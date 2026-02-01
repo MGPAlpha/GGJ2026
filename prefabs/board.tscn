@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://su36uk0e7wt"]
 
 [ext_resource type="Script" uid="uid://cs5ct73ai6dfm" path="res://scripts/board.gd" id="1_p0ybc"]
-[ext_resource type="PackedScene" uid="uid://dtso5i50wi62y" path="res://prefabs/player_cubue.tscn" id="2_87tqm"]
+[ext_resource type="PackedScene" uid="uid://bgy210lgh5ts7" path="res://prefabs/player_cubue.tscn" id="2_87tqm"]
 [ext_resource type="PackedScene" uid="uid://80jnkij6f1xr" path="res://prefabs/tile.tscn" id="2_psm7c"]
 
 [node name="Board" type="Node3D" unique_id=285819464]

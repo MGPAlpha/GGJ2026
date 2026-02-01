@@ -69,15 +69,17 @@ func load_level_file(path: String):
 		for i in len(line):
 			var tile_val = line[i]
 			match tile_val:
-				"P", "o", "S":
+				"P", "o", "S", "C":
 					var new_tile = BoardTileData.new()
 					new_tile.position = Vector2i(i,j)
 					new_tile.color_index = -1
 					match tile_val:
-						"o":
+						"o", "P":
 							new_tile.mode = BoardTileData.TileMode.BASIC
 						"S":
 							new_tile.mode = BoardTileData.TileMode.SOURCE
+						"C":
+							new_tile.mode = BoardTileData.TileMode.CLEAN
 					var new_tile_node = tile_prefab.instantiate()
 					new_tile_node.name = "Tile (" + str(i) + "," + str(j) + ")"
 					new_tile_node.position = Vector3(i*grid_tile_size.x, 0, j*grid_tile_size.y)
@@ -178,6 +180,9 @@ func try_move_player(direction: Vector2i) -> bool:
 			if new_face_color > -1:
 				player_colors[down_side] = new_face_color
 				player_node.set_face_color(down_side, new_face_color, colors)
+		BoardTileData.TileMode.CLEAN:
+			player_colors[down_side] = -1
+			player_node.set_face_color(down_side, -1, colors)
 	return true
 	
 func paint_tile(tile: BoardTileData, color_index: int):
