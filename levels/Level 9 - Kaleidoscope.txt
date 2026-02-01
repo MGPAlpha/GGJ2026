@@ -1,0 +1,21 @@
+ 2
+1x3x
+ 5
+
+ooooo
+oSoSo
+ooPoo
+oSoSo
+ooooo
+
+5xxxx
+30x1x
+0xxxx
+14x3x
+2xxxx
+
+51235
+30011
+03512
+14433
+21235

@@ -4,7 +4,7 @@ class_name Board extends Node3D
 @export var size: Vector2i = Vector2i(3,3)
 @export var start: Vector2i = Vector2i(0,0)
 @export var grid_tile_size: Vector2 = Vector2.ONE
-@export var colors : Array[Color] = [Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE, Color.PURPLE, Color.LIGHT_GRAY]
+@export var colors : Array[Color] = [Color.RED, Color.DARK_ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE, Color.PURPLE, Color.DARK_GRAY, Color.BLACK,Color.SADDLE_BROWN]
 @export var tile_height: float = .7
 
 @export_file("*.txt") var level: String
@@ -217,3 +217,21 @@ func paint_tile(tile: BoardTileData, color_index: int):
 
 func get_player_pos_for_tile(tile: BoardTileData):
 	return Vector3(0, tile_height/2, 0) + tile.node.position
+	
+var cube_display_rotation
+var cube_display_pos
+func display_cube():
+	var curr_tile = tiles[player_pos.y][player_pos.x]
+	cube_display_pos = get_player_pos_for_tile(curr_tile) + Vector3.UP*3
+	cube_display_rotation = player_rotation
+	player_node.pop_out_cube(cube_display_pos, cube_display_rotation)
+	
+func rotate_display_cube(direction: Vector2i):
+	cube_display_rotation = Quaternion.from_euler(Vector3(PI/2*sign(direction.y), PI/2*sign(direction.x), 0)) * cube_display_rotation
+	player_node.pop_out_cube(cube_display_pos, cube_display_rotation)
+	
+func end_display_cube():
+	var curr_tile = tiles[player_pos.y][player_pos.x]
+	cube_display_pos = get_player_pos_for_tile(curr_tile)
+	cube_display_rotation = player_rotation
+	player_node.pop_out_cube(cube_display_pos, cube_display_rotation)
