@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://dvkhcwu4xh7fv"]
+
+[ext_resource type="Texture2D" uid="uid://civxvbdi35i3p" path="res://ui/BackToLevelSelect.png" id="1_ln102"]
+[ext_resource type="Texture2D" uid="uid://c8otk1p6upkas" path="res://ui/Inspect Cube.png" id="1_y30fv"]
+[ext_resource type="Texture2D" uid="uid://cg3hvthlhtej1" path="res://ui/IsoCamera.png" id="3_fdvll"]
+[ext_resource type="Texture2D" uid="uid://b3khkxtecc0da" path="res://ui/Restart.png" id="4_duhvs"]
+[ext_resource type="Texture2D" uid="uid://c70xe3pwhsgqy" path="res://ui/TopCamera.png" id="4_vlcxo"]
+[ext_resource type="Texture2D" uid="uid://cnhi5tbn1cera" path="res://ui/Flips.png" id="5_vlcxo"]
+[ext_resource type="FontFile" uid="uid://ouq8xmk1258e" path="res://fonts/Darumadrop_One/DarumadropOne-Regular.ttf" id="6_fdvll"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_duhvs"]
+line_spacing = 0.0
+font = ExtResource("6_fdvll")
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[node name="UI" type="Control" unique_id=1699740536]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1262881788]
+layout_mode = 0
+offset_right = 919.0
+offset_bottom = 178.0
+
+[node name="Back_to_levels" type="TextureRect" parent="HBoxContainer" unique_id=1712808417]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_ln102")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Inspect" type="TextureRect" parent="HBoxContainer" unique_id=1019978825]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_y30fv")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="IsoCamera" type="TextureRect" parent="HBoxContainer" unique_id=107915691]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_fdvll")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TopCamera" type="TextureRect" parent="HBoxContainer" unique_id=1260563449]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_vlcxo")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Restart" type="TextureRect" parent="HBoxContainer" unique_id=242629271]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_duhvs")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Flip count" type="TextureRect" parent="HBoxContainer" unique_id=952285186]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_vlcxo")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="HBoxContainer/Flip count" unique_id=904716948]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 7.0
+offset_right = -27.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_duhvs")
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 1
