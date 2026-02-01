@@ -5,7 +5,7 @@ class_name GoalDisplay extends Control
 func _ready() -> void:
 	pass # Replace with function body.
 
-var colors
+var colors: Array[Array]
 var goal_colors
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,11 +26,11 @@ func _draw():
 	for j in goal_colors.size():
 		for i in goal_colors[j].size():
 			var color_index = goal_colors[j][i]
-			var color: Color = colors[color_index] if color_index != null and color_index > -1 else Color.WHITE 
+			var color: Color = colors[color_index][0] if color_index != null and color_index > -1 else Color.WHITE 
 			draw_rect(Rect2(start_pos + Vector2(i*d,j*d), Vector2(d,d)), color)
 
 
-func _on_goal_set(goal_colors: Array[Array], colors: Array[Color]) -> void:
+func _on_goal_set(goal_colors: Array[Array], colors: Array[Array]) -> void:
 	self.goal_colors = goal_colors
 	self.colors = colors
 	queue_redraw()

@@ -1,26 +1,31 @@
 class_name PlayerController extends Node
 
 @onready var board: Board = self.get_parent()
+@export var camera_manager: CameraManager
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 	
 
+var control_master_enable = true
 var move_busy = false
 var pop_out_active = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if !control_master_enable: return
 	if Input.is_action_just_pressed("return_to_level_select"):
 		LevelManager.return_to_menu()
 		return
 	if Input.is_action_just_pressed("reload"):
 		if LevelManager.reload_level(): return
-	if Input.is_action_just_pressed("camera_swap"):
-		pass
 	if move_busy: return
-	if !pop_out_active:
+	if Input.is_action_just_pressed("camera_swap"):
+		move_busy = true
+		await camera_manager.toggle_camera_mode()
+		move_busy = false
+	elif !pop_out_active:
 		if Input.is_action_just_pressed("move_up"):
 			move_busy = true
 			await board.try_move_player(Vector2i.UP)
