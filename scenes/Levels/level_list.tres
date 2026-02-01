@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://ci7osms5d8jri" path="res://scripts/new_script.gd" id="1_6o146"]
 [ext_resource type="PackedScene" uid="uid://dueuwmn20kjuf" path="res://scenes/Levels/Red March.tscn" id="1_x4krk"]
 [ext_resource type="PackedScene" uid="uid://biim2qhebjlie" path="res://scenes/Levels/The Colorful Dragon.tscn" id="2_tfrvq"]
-[ext_resource type="PackedScene" uid="uid://o35p86cwfgfo" path="res://scenes/Levels/The Outcasts.tscn" id="3_wxf5x"]
 [ext_resource type="PackedScene" uid="uid://dga2v4abt2dhv" path="res://scenes/Levels/The Outcasts 2.tscn" id="4_7kkan"]
 [ext_resource type="PackedScene" uid="uid://is5ism2qgby0" path="res://scenes/Levels/One Small Step For Cubes.tscn" id="5_melo0"]
 [ext_resource type="PackedScene" uid="uid://bxrdkpm20g6gs" path="res://scenes/Levels/Three Suns.tscn" id="6_nq71y"]
@@ -15,5 +14,5 @@
 
 [resource]
 script = ExtResource("1_6o146")
-level_list = Array[PackedScene]([ExtResource("1_x4krk"), ExtResource("2_tfrvq"), ExtResource("5_melo0"), ExtResource("6_nq71y"), ExtResource("9_vjsa3"), ExtResource("8_lhout"), ExtResource("3_wxf5x"), ExtResource("4_7kkan"), ExtResource("7_pi5if"), ExtResource("10_wxf5x"), ExtResource("10_tfrvq")])
+level_list = Array[PackedScene]([ExtResource("1_x4krk"), ExtResource("2_tfrvq"), ExtResource("5_melo0"), ExtResource("6_nq71y"), ExtResource("9_vjsa3"), ExtResource("8_lhout"), ExtResource("4_7kkan"), ExtResource("7_pi5if"), ExtResource("10_wxf5x"), ExtResource("10_tfrvq")])
 metadata/_custom_type_script = "uid://ci7osms5d8jri"
