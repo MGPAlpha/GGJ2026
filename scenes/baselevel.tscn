@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://c1jpop7rnvfvy" path="res://scripts/playercontroller.gd" id="2_xj5b5"]
 [ext_resource type="Script" uid="uid://ceatlx1culj2k" path="res://scripts/camera_manager.gd" id="3_08e4x"]
 [ext_resource type="Script" uid="uid://bjt515cbll8uh" path="res://scripts/goaldisplay.gd" id="3_xj5b5"]
-[ext_resource type="Script" uid="uid://dhh4ih0r8s4go" path="res://start_and_end_manager.gd" id="6_esn7c"]
+[ext_resource type="Script" path="res://start_and_end_manager.gd" id="6_esn7c"]
 
 [sub_resource type="Environment" id="Environment_uh120"]
 background_mode = 1

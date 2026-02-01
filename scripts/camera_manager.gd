@@ -7,6 +7,7 @@ class_name CameraManager extends Node3D
 @export var camera_move_time = .8
 
 var using_top_down: bool = false
+signal camera_mode_changed(top_down: bool)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -33,6 +34,7 @@ func _on_board_generated(board_center: Vector3):
 	
 func set_camera_mode(is_top_down: bool):
 	using_top_down = is_top_down
+	camera_mode_changed.emit(is_top_down)
 	var new_pos = top_down_pos if is_top_down else isometric_pos
 	var tween := create_tween()
 	tween.set_parallel()
@@ -42,6 +44,7 @@ func set_camera_mode(is_top_down: bool):
 	
 func set_camera_mode_instant(is_top_down: bool):
 	using_top_down = is_top_down
+	camera_mode_changed.emit(is_top_down)
 	var new_pos = top_down_pos if is_top_down else isometric_pos
 	camera.position = new_pos.position
 	camera.quaternion = new_pos.quaternion
