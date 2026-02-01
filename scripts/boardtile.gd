@@ -1,6 +1,10 @@
 class_name BoardTile extends Node3D
 
 @export var default_color: Color = Color.WHITE
+@export var default_pattern: Texture2D = preload("uid://bk45nmg2csjo3")
+@onready var basic_tile_sprite_3d: Sprite3D = $BasicTile/Sprite3D
+
+@onready var source_tile_sprite_3d: Sprite3D = $SourceTile/Sprite3D
 
 @export var basic_canvas: Node3D
 @export var basic_canvas_mesh: MeshInstance3D
@@ -23,12 +27,14 @@ func _ready() -> void:
 	basic_material = basic_canvas_mesh.material_override.duplicate()
 	basic_canvas_mesh.material_override = basic_material
 	basic_material.set_shader_parameter("CanvasColor", default_color)
+	basic_tile_sprite_3d.texture = default_pattern
 	basic_canvas.visible = false
 	
 	source_material = source_basin_mesh.material_override.duplicate()
 	source_basin_mesh.material_override = source_material
 	source_material.set_shader_parameter("PaintColor", default_color)
 	source_material.set_shader_parameter("RandomID", randf())
+	source_tile_sprite_3d.texture = default_pattern
 	source_basin.visible = false
 	
 	clean_tile.visible = false
@@ -42,10 +48,14 @@ func _ready() -> void:
 	preview_material = preview_mesh.material_override.duplicate()
 	preview_mesh.material_override = preview_material
 
-func set_color(color: Color):
+func set_color(color: Color, pattern: Texture):
 	basic_material.set_shader_parameter("CanvasColor", color)
 	source_material.set_shader_parameter("PaintColor", color)
 	inert_material.set_shader_parameter("CanvasColor", color)
+	
+	basic_tile_sprite_3d.texture = pattern
+	source_tile_sprite_3d.texture = pattern
+
 	
 func set_mode(mode: BoardTileData.TileMode):
 	print(mode)
