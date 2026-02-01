@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b52ybcjcb8kxn" path="res://scripts/boardtile.gd" id="1_nsn1e"]
 [ext_resource type="Shader" uid="uid://cybhflb3s8ofd" path="res://materials/paint_basin.tres" id="2_g4m2s"]
 [ext_resource type="Texture2D" uid="uid://14yqfa5iq66y" path="res://materials/wood1.jpg" id="3_fns28"]
-[ext_resource type="PackedScene" uid="uid://chj4ky77hj1qb" path="res://models/basin_canvas_tile.glb" id="3_g4m2s"]
+[ext_resource type="PackedScene" uid="uid://d3ifrdqm1iqy0" path="res://models/basin_canvas_tile2.glb" id="3_g4m2s"]
 [ext_resource type="PackedScene" uid="uid://c3d1geeg3i3o6" path="res://models/canvas_tile.glb" id="5_pa3ds"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_nsn1e"]
@@ -42,12 +42,12 @@ transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70
 visible = false
 mesh = SubResource("BoxMesh_awyw7")
 
-[node name="SourceBasinTileMesh" parent="." unique_id=526049243 instance=ExtResource("3_g4m2s")]
+[node name="SourceBasinTileMesh" parent="." unique_id=267073316 instance=ExtResource("3_g4m2s")]
 
-[node name="Cube" parent="SourceBasinTileMesh" index="0" unique_id=137920780]
+[node name="Cube" parent="SourceBasinTileMesh" index="0" unique_id=1527552185]
 material_override = SubResource("StandardMaterial3D_mekmq")
 
-[node name="Cube_001" parent="SourceBasinTileMesh" index="1" unique_id=1651175283]
+[node name="Cube_001" parent="SourceBasinTileMesh" index="1" unique_id=684760368]
 material_override = SubResource("ShaderMaterial_fns28")
 
 [editable path="BasicTileMesh"]
