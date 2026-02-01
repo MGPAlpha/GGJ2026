@@ -8,11 +8,13 @@ func _ready() -> void:
 	pass # Replace with function body.
 	
 
+var control_master_enable = true
 var move_busy = false
 var pop_out_active = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if !control_master_enable: return
 	if Input.is_action_just_pressed("return_to_level_select"):
 		LevelManager.return_to_menu()
 		return

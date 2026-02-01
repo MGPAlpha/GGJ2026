@@ -40,5 +40,11 @@ func set_camera_mode(is_top_down: bool):
 	tween.tween_property(camera, "quaternion", new_pos.quaternion, camera_move_time)
 	await tween.finished
 	
+func set_camera_mode_instant(is_top_down: bool):
+	using_top_down = is_top_down
+	var new_pos = top_down_pos if is_top_down else isometric_pos
+	camera.position = new_pos.position
+	camera.quaternion = new_pos.quaternion
+	
 func toggle_camera_mode():
 	await set_camera_mode(!using_top_down)

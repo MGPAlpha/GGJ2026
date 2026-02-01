@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c1jpop7rnvfvy" path="res://scripts/playercontroller.gd" id="2_xj5b5"]
 [ext_resource type="Script" uid="uid://ceatlx1culj2k" path="res://scripts/camera_manager.gd" id="3_08e4x"]
 [ext_resource type="Script" uid="uid://bjt515cbll8uh" path="res://scripts/goaldisplay.gd" id="3_xj5b5"]
+[ext_resource type="Script" uid="uid://dhh4ih0r8s4go" path="res://start_and_end_manager.gd" id="6_esn7c"]
 
 [sub_resource type="Environment" id="Environment_uh120"]
 background_mode = 1
@@ -88,7 +89,14 @@ script = ExtResource("3_xj5b5")
 [node name="UI2" parent="UI/MarginContainer" unique_id=1699740536 instance=ExtResource("1_esn7c")]
 layout_mode = 2
 
+[node name="StartAndEndManager" type="Node" parent="." unique_id=228062131 node_paths=PackedStringArray("cam_manager", "controller", "spotlight")]
+script = ExtResource("6_esn7c")
+cam_manager = NodePath("../CameraManager")
+controller = NodePath("../Board/Node")
+spotlight = NodePath("../SpotLight3D")
+
 [connection signal="board_generated" from="Board" to="CameraManager" method="_on_board_generated"]
 [connection signal="goal_set" from="Board" to="UI/MarginContainer/Control" method="_on_goal_set"]
+[connection signal="solved" from="Board" to="StartAndEndManager" method="_on_solved"]
 
 [editable path="UI/MarginContainer/UI2"]

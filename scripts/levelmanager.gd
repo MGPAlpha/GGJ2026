@@ -28,6 +28,13 @@ func play_level(index):
 	get_tree().change_scene_to_packed(curr_level)
 	SettingsManager.startLevelMusic()
 	
+func play_next_level():
+	var new_index = curr_level_index + 1
+	if new_index >= levels.size():
+		return_to_menu()
+	else:
+		play_level(new_index)
+	
 func return_to_menu() -> void:
 	curr_level_index = -1
 	curr_level = null
