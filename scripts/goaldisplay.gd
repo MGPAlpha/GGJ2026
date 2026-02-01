@@ -1,5 +1,6 @@
 class_name GoalDisplay extends Control
 
+const SNOW_FLAKE = preload("uid://bk45nmg2csjo3")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,7 +28,11 @@ func _draw():
 		for i in goal_colors[j].size():
 			var color_index = goal_colors[j][i]
 			var color: Color = colors[color_index][0] if color_index != null and color_index > -1 else Color.WHITE 
+			var pattern: Texture2D = colors[color_index][1] if color_index != null and color_index > -1 else SNOW_FLAKE
 			draw_rect(Rect2(start_pos + Vector2(i*d,j*d), Vector2(d,d)), color)
+			
+			if (SettingsManager.is_colorblind):
+				draw_texture_rect(pattern, Rect2(start_pos + Vector2(i*d,j*d), Vector2(d,d)), false)
 
 
 func _on_goal_set(goal_colors: Array[Array], colors: Array[Array]) -> void:
