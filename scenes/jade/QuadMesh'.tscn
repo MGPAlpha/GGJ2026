@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://dyeue3s7bepxd"]
-
-[ext_resource type="ArrayMesh" uid="uid://dijqte6lbiu54" path="res://assets/jadeLearningShaders/_chap1/custom_mesh/QuadMesh.obj" id="1_oy70w"]
-
-[node name="Node3D" type="Node3D" unique_id=1845634989]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1740192815]
-mesh = ExtResource("1_oy70w")
