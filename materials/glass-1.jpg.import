@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm80h3p70frmm"
-path="res://.godot/imported/levelButton.png-f87a62d3aede2367eecba691ee77e11b.ctex"
+uid="uid://cfrgmx7vluhub"
+path.s3tc="res://.godot/imported/glass-1.jpg-e4258da092a469c525a9ded5d4654b6c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://ui/levelButton.png"
-dest_files=["res://.godot/imported/levelButton.png-f87a62d3aede2367eecba691ee77e11b.ctex"]
+source_file="res://materials/glass-1.jpg"
+dest_files=["res://.godot/imported/glass-1.jpg-e4258da092a469c525a9ded5d4654b6c.s3tc.ctex"]
 
 [params]
 

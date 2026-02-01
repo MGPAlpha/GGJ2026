@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm80h3p70frmm"
-path="res://.godot/imported/levelButton.png-f87a62d3aede2367eecba691ee77e11b.ctex"
+uid="uid://6cvvdl6tr3i1"
+path.s3tc="res://.godot/imported/metal.jpg-784977517a07bf339e08c6dd547d8da0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://ui/levelButton.png"
-dest_files=["res://.godot/imported/levelButton.png-f87a62d3aede2367eecba691ee77e11b.ctex"]
+source_file="res://materials/metal.jpg"
+dest_files=["res://.godot/imported/metal.jpg-784977517a07bf339e08c6dd547d8da0.s3tc.ctex"]
 
 [params]
 

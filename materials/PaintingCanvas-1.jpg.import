@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm80h3p70frmm"
-path="res://.godot/imported/levelButton.png-f87a62d3aede2367eecba691ee77e11b.ctex"
+uid="uid://c4fxxx8xlf456"
+path.s3tc="res://.godot/imported/PaintingCanvas-1.jpg-5fa77357be7d07e72fc24bec5eb9f9fe.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://ui/levelButton.png"
-dest_files=["res://.godot/imported/levelButton.png-f87a62d3aede2367eecba691ee77e11b.ctex"]
+source_file="res://materials/PaintingCanvas-1.jpg"
+dest_files=["res://.godot/imported/PaintingCanvas-1.jpg-5fa77357be7d07e72fc24bec5eb9f9fe.s3tc.ctex"]
 
 [params]
 

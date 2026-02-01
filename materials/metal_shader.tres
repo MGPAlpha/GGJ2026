@@ -1,0 +1,18 @@
+[gd_resource type="VisualShader" format=3 uid="uid://brrug7thx0442"]
+
+[ext_resource type="Texture2D" uid="uid://14yqfa5iq66y" path="res://materials/wood1.jpg" id="1_8utrm"]
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_p5tte"]
+parameter_name = "FloatParameter"
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_5a7od"]
+texture = ExtResource("1_8utrm")
+
+[resource]
+nodes/fragment/3/node = SubResource("VisualShaderNodeFloatParameter_p5tte")
+nodes/fragment/3/position = Vector2(-333.33334, 666.6667)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_5a7od")
+nodes/fragment/4/position = Vector2(-240, 333.33334)
+nodes/fragment/connections = PackedInt32Array(3, 0, 0, 2, 4, 0, 0, 0)
