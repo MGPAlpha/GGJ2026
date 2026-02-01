@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://babldjjtciciv"
-path.s3tc="res://.godot/imported/Sponge__Normal.jpg-51d19f887be428974943931e905378f3.s3tc.ctex"
+uid="uid://cw4bq4gup85tv"
+path.s3tc="res://.godot/imported/broken_glass-normal.jpg-a248b1eae5e58b8809a5cca8dffd865d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://models/textures/Sponge__Normal.jpg"
-dest_files=["res://.godot/imported/Sponge__Normal.jpg-51d19f887be428974943931e905378f3.s3tc.ctex"]
+source_file="res://materials/broken_glass-normal.jpg"
+dest_files=["res://.godot/imported/broken_glass-normal.jpg-a248b1eae5e58b8809a5cca8dffd865d.s3tc.ctex"]
 
 [params]
 

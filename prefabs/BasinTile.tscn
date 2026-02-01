@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c7ioi55tw7e22" path="res://models/basin.glb" id="2_3tpai"]
 [ext_resource type="Texture2D" uid="uid://14yqfa5iq66y" path="res://materials/wood1.jpg" id="2_4hy77"]
-[ext_resource type="Shader" uid="uid://cybhflb3s8ofd" path="res://materials/paint_basin.tres" id="3_4hy77"]
+[ext_resource type="Shader" uid="uid://dnhundremme0n" path="res://materials/water.gdshader" id="3_3tpai"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mrcix"]
 albedo_color = Color(0.5075915, 0.5075915, 0.5075915, 1)
@@ -10,9 +10,14 @@ albedo_texture = ExtResource("2_4hy77")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mrcix"]
 render_priority = 0
-shader = ExtResource("3_4hy77")
-shader_parameter/PaintColor = Color(0.666683, 0, 0, 1)
-shader_parameter/RandomID = 0.0
+shader = ExtResource("3_3tpai")
+shader_parameter/primary_color = Color(0, 0, 0, 1)
+shader_parameter/roughness = 0.2
+shader_parameter/normalmap_a_strength = 0.3
+shader_parameter/normalmap_b_strength = 0.4
+shader_parameter/movement_direction = Vector2(0.1, 0.1)
+shader_parameter/movement_strength = 0.5
+shader_parameter/uv_scale = 1.0
 
 [node name="BasinTile" type="Node3D" unique_id=349656334]
 
