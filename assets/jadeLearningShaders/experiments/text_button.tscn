@@ -1,15 +1,26 @@
 [gd_scene format=3 uid="uid://e050bqiinmgc"]
 
 [ext_resource type="Material" uid="uid://bjh5oqtwq4bi2" path="res://assets/jadeLearningShaders/experiments/materials/shaders/button_material.tres" id="1_kxq0e"]
+[ext_resource type="Texture2D" uid="uid://cijc44xov1ypy" path="res://assets/jadeLearningShaders/experiments/materials/paint_button.png" id="2_e6fh8"]
 
-[node name="Control" type="MarginContainer" unique_id=1795515865]
+[node name="Control" type="AspectRatioContainer" unique_id=440904901]
 custom_minimum_size = Vector2(100, 50)
-offset_right = 200.0
-offset_bottom = 57.0
+anchors_preset = -1
+anchor_right = 0.3125
+anchor_bottom = 0.18518518
+size_flags_horizontal = 3
+size_flags_vertical = 3
+ratio = 3.0
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=2025034685]
+[node name="ColorRect" type="TextureRect" parent="." unique_id=1425206597]
 material = ExtResource("1_kxq0e")
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
+texture = ExtResource("2_e6fh8")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Button" type="Button" parent="ColorRect" unique_id=2023860768]
 layout_mode = 1

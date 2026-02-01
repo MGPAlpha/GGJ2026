@@ -2,66 +2,73 @@
 
 [ext_resource type="Texture2D" uid="uid://dcxl84ipc0h14" path="res://assets/jadeLearningShaders/experiments/materials/splatter background.png" id="1_6y4c4"]
 [ext_resource type="Texture2D" uid="uid://damqlesax2tjr" path="res://assets/jadeLearningShaders/experiments/materials/logo.png" id="2_7o5cp"]
+[ext_resource type="PackedScene" uid="uid://e050bqiinmgc" path="res://assets/jadeLearningShaders/experiments/text_button.tscn" id="3_7o5cp"]
 
-[node name="MainMenu" type="Control" unique_id=2140101077]
-layout_mode = 3
-anchor_right = 1.667
-anchor_bottom = 1.667
-offset_right = -0.3840332
-offset_bottom = -0.21606445
+[node name="MainMenu" type="MarginContainer" unique_id=1317189709]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Background" type="ColorRect" parent="." unique_id=479412727]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 color = Color(0.13333334, 0.13333334, 0.23137255, 1)
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=1903281317]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=1440848573]
+layout_mode = 2
 ratio = 1.7778
-stretch_mode = 3
-metadata/_edit_use_anchors_ = true
+stretch_mode = 0
 
 [node name="Control" type="Control" parent="AspectRatioContainer" unique_id=1474327804]
 layout_mode = 2
 
 [node name="Splatter" type="TextureRect" parent="AspectRatioContainer/Control" unique_id=1098095936]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.021874968
-anchor_top = -0.12130402
-anchor_right = 1.021875
-anchor_bottom = 0.6962987
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -34.64801
+offset_top = -146.60065
+offset_right = 38.88452
+offset_bottom = 732.7566
 grow_horizontal = 2
 texture = ExtResource("1_6y4c4")
 expand_mode = 5
 stretch_mode = 4
-metadata/_edit_use_anchors_ = true
 
 [node name="Logo" type="TextureRect" parent="AspectRatioContainer/Control" unique_id=112591739]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.13403705
-anchor_top = 0.14723676
-anchor_right = 0.8921165
-anchor_bottom = 0.57766294
-offset_left = 6.1035156e-05
-offset_top = -0.006713867
-offset_bottom = 0.006713867
+anchor_left = 0.14865914
+anchor_top = 0.13733436
+anchor_right = 0.8630675
+anchor_bottom = 0.5507905
+offset_left = 1.5258789e-05
 grow_horizontal = 2
-grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("2_7o5cp")
 expand_mode = 1
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=701520228]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 150
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1327763828]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Control" parent="MarginContainer/HBoxContainer" unique_id=1795515865 instance=ExtResource("3_7o5cp")]
+layout_mode = 2
+
+[node name="Control2" parent="MarginContainer/HBoxContainer" unique_id=1588871351 instance=ExtResource("3_7o5cp")]
+layout_mode = 2
+
+[node name="Control3" parent="MarginContainer/HBoxContainer" unique_id=69184226 instance=ExtResource("3_7o5cp")]
+layout_mode = 2

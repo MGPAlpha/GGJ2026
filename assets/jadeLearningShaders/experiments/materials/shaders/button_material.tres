@@ -6,4 +6,3 @@
 shader = ExtResource("1_bkgy4")
 shader_parameter/speed = 0.4
 shader_parameter/amplitude = 0.0
-shader_parameter/color = Color(0.733697, 0.123054, 0.366429, 1)
