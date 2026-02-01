@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cgwaeaetsqb0h" path="res://models/Sponge.glb" id="2_njf18"]
 [ext_resource type="Texture2D" uid="uid://14yqfa5iq66y" path="res://materials/wood1.jpg" id="3_wtdy0"]
 [ext_resource type="Shader" uid="uid://04xacuu2abva" path="res://materials/sponge.tres" id="4_oyako"]
-[ext_resource type="AudioStream" uid="uid://qi7hvkps431k" path="res://assets/music/sax_honk_short.wav" id="5_oyako"]
+[ext_resource type="AudioStream" uid="uid://qi7hvkps431k" path="res://music/sax_honk_short.wav" id="5_oyako"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_71dh6"]
 albedo_texture = ExtResource("3_wtdy0")

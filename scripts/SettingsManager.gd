@@ -10,8 +10,8 @@ var music_level : AudioStream
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	music_main_menu = load("res://assets/music/Trouble Makers (Loopable).wav")
-	music_level = load("res://assets/music/crow theme draft loopable.mp3")
+	music_main_menu = load("res://music/Trouble Makers (Loopable).wav")
+	music_level = load("res://music/crow theme draft loopable.mp3")
 	
 	music_player = AudioStreamPlayer.new()
 	music_player.bus = "Music"

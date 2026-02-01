@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://damqlesax2tjr"
-path="res://.godot/imported/logo.png-dee291acbda6217380ead90fb6059f69.ctex"
+uid="uid://bqt6og5lgd7y2"
+path="res://.godot/imported/x.png-bd3871023e392357336ccab0d940e9ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/jadeLearningShaders/experiments/materials/logo.png"
-dest_files=["res://.godot/imported/logo.png-dee291acbda6217380ead90fb6059f69.ctex"]
+source_file="res://ui/x.png"
+dest_files=["res://.godot/imported/x.png-bd3871023e392357336ccab0d940e9ed.ctex"]
 
 [params]
 

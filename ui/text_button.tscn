@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://e050bqiinmgc"]
 
 [ext_resource type="Script" uid="uid://e7wyhbhqf6ck" path="res://scripts/ui/mainMenuButton.gd" id="1_jc7yw"]
-[ext_resource type="Material" uid="uid://bjh5oqtwq4bi2" path="res://assets/jadeLearningShaders/experiments/materials/shaders/button_material.tres" id="1_kxq0e"]
-[ext_resource type="Texture2D" uid="uid://cijc44xov1ypy" path="res://assets/jadeLearningShaders/experiments/materials/paint_button.png" id="2_e6fh8"]
+[ext_resource type="Material" uid="uid://bjh5oqtwq4bi2" path="res://materials/shaders/button_material.tres" id="1_kxq0e"]
+[ext_resource type="Texture2D" uid="uid://cijc44xov1ypy" path="res://ui/paint_button.png" id="2_e6fh8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jc7yw"]
 

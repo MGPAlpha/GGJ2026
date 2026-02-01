@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cqg6m66bw5kpj"]
 
-[ext_resource type="AudioStream" uid="uid://y6xkwawugtg0" path="res://assets/music/Trouble Makers (Loopable).wav" id="1_mksvt"]
+[ext_resource type="AudioStream" uid="uid://y6xkwawugtg0" path="res://music/Trouble Makers (Loopable).wav" id="1_mksvt"]
 
 [node name="MusicStreamer" type="AudioStreamPlayer" unique_id=1518269514]
 stream = ExtResource("1_mksvt")

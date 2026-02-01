@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://bx261f54lixg"]
 
-[ext_resource type="FontFile" uid="uid://5rdfk4x5lf2f" path="res://assets/jadeLearningShaders/experiments/Drybrush.ttf" id="1_0ymyj"]
+[ext_resource type="FontFile" uid="uid://5rdfk4x5lf2f" path="res://ui/Drybrush.ttf" id="1_0ymyj"]
 
 [resource]
 Button/colors/font_color = Color(0.9490196, 0.9137255, 0.89411765, 1)

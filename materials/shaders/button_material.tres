@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://bjh5oqtwq4bi2"]
 
-[ext_resource type="Shader" uid="uid://563ovduk8xam" path="res://assets/jadeLearningShaders/experiments/materials/shaders/button_paint.tres" id="1_bkgy4"]
+[ext_resource type="Shader" uid="uid://563ovduk8xam" path="res://materials/shaders/button_paint.tres" id="1_bkgy4"]
 
 [resource]
 shader = ExtResource("1_bkgy4")

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://daipsmbmt536g"
-path="res://.godot/imported/sax_honk.wav-33855dab350740b7fa54465edca3c2e0.sample"
+path="res://.godot/imported/sax_honk.wav-e1b641f29e7b79e00f7bad4910804062.sample"
 
 [deps]
 
-source_file="res://assets/music/sax_honk.wav"
-dest_files=["res://.godot/imported/sax_honk.wav-33855dab350740b7fa54465edca3c2e0.sample"]
+source_file="res://music/sax_honk.wav"
+dest_files=["res://.godot/imported/sax_honk.wav-e1b641f29e7b79e00f7bad4910804062.sample"]
 
 [params]
 

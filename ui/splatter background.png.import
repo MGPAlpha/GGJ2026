@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqt6og5lgd7y2"
-path="res://.godot/imported/x.png-1bb98c1b74a992f4e861211d8ba70791.ctex"
+uid="uid://dcxl84ipc0h14"
+path="res://.godot/imported/splatter background.png-099ca30924192669e08bd2148e5c63d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/jadeLearningShaders/experiments/materials/x.png"
-dest_files=["res://.godot/imported/x.png-1bb98c1b74a992f4e861211d8ba70791.ctex"]
+source_file="res://ui/splatter background.png"
+dest_files=["res://.godot/imported/splatter background.png-099ca30924192669e08bd2148e5c63d6.ctex"]
 
 [params]
 

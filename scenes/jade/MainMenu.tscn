@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://dp73w0bf04wqq"]
 
-[ext_resource type="Texture2D" uid="uid://dcxl84ipc0h14" path="res://assets/jadeLearningShaders/experiments/materials/splatter background.png" id="1_6y4c4"]
+[ext_resource type="Texture2D" uid="uid://dcxl84ipc0h14" path="res://ui/splatter background.png" id="1_6y4c4"]
 [ext_resource type="Script" uid="uid://cyxfsttj4ei1j" path="res://scripts/ui/FocusGrabber.gd" id="1_jsu6h"]
-[ext_resource type="Texture2D" uid="uid://damqlesax2tjr" path="res://assets/jadeLearningShaders/experiments/materials/logo.png" id="2_7o5cp"]
+[ext_resource type="Texture2D" uid="uid://damqlesax2tjr" path="res://ui/logo.png" id="2_7o5cp"]
 [ext_resource type="PackedScene" uid="uid://e050bqiinmgc" path="res://ui/text_button.tscn" id="3_7o5cp"]
-[ext_resource type="FontFile" uid="uid://bb8oel34x8uv4" path="res://assets/jadeLearningShaders/experiments/Painter Dude.otf" id="5_2mj0p"]
+[ext_resource type="FontFile" uid="uid://bb8oel34x8uv4" path="res://ui/Painter Dude.otf" id="5_2mj0p"]
 [ext_resource type="Script" uid="uid://bb3f8kaiioxah" path="res://scripts/ui/optionsMenu.gd" id="5_6pirr"]
-[ext_resource type="FontFile" uid="uid://5rdfk4x5lf2f" path="res://assets/jadeLearningShaders/experiments/Drybrush.ttf" id="6_6pirr"]
-[ext_resource type="Texture2D" uid="uid://bqt6og5lgd7y2" path="res://assets/jadeLearningShaders/experiments/materials/x.png" id="8_emtem"]
+[ext_resource type="FontFile" uid="uid://5rdfk4x5lf2f" path="res://ui/Drybrush.ttf" id="6_6pirr"]
+[ext_resource type="Texture2D" uid="uid://bqt6og5lgd7y2" path="res://ui/x.png" id="8_emtem"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emtem"]
 bg_color = Color(0.13333334, 0.13333334, 0.23137255, 1)

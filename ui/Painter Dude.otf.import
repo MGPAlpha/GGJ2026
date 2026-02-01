@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bb8oel34x8uv4"
-path="res://.godot/imported/Painter Dude.otf-2e6ae5097eebb86e6e62cf97a4cb73e4.fontdata"
+path="res://.godot/imported/Painter Dude.otf-14040544e71cb4b2306f8c58be53dfd8.fontdata"
 
 [deps]
 
-source_file="res://assets/jadeLearningShaders/experiments/Painter Dude.otf"
-dest_files=["res://.godot/imported/Painter Dude.otf-2e6ae5097eebb86e6e62cf97a4cb73e4.fontdata"]
+source_file="res://ui/Painter Dude.otf"
+dest_files=["res://.godot/imported/Painter Dude.otf-14040544e71cb4b2306f8c58be53dfd8.fontdata"]
 
 [params]
 

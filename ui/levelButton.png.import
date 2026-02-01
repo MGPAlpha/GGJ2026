@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cijc44xov1ypy"
-path="res://.godot/imported/paint_button.png-6f17e8c19b7f98eb8d8922df50d05600.ctex"
+uid="uid://cm80h3p70frmm"
+path="res://.godot/imported/levelButton.png-f87a62d3aede2367eecba691ee77e11b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/jadeLearningShaders/experiments/materials/paint_button.png"
-dest_files=["res://.godot/imported/paint_button.png-6f17e8c19b7f98eb8d8922df50d05600.ctex"]
+source_file="res://ui/levelButton.png"
+dest_files=["res://.godot/imported/levelButton.png-f87a62d3aede2367eecba691ee77e11b.ctex"]
 
 [params]
 

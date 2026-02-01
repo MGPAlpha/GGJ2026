@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://5rdfk4x5lf2f"
-path="res://.godot/imported/Drybrush.ttf-35288c6d73c0316c6d26d5adb46792af.fontdata"
+path="res://.godot/imported/Drybrush.ttf-99b8921b17eecbeb1047df8cd870f5cd.fontdata"
 
 [deps]
 
-source_file="res://assets/jadeLearningShaders/experiments/Drybrush.ttf"
-dest_files=["res://.godot/imported/Drybrush.ttf-35288c6d73c0316c6d26d5adb46792af.fontdata"]
+source_file="res://ui/Drybrush.ttf"
+dest_files=["res://.godot/imported/Drybrush.ttf-99b8921b17eecbeb1047df8cd870f5cd.fontdata"]
 
 [params]
 

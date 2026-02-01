@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhsngqautd8ah"
-path="res://.godot/imported/levelSelectBackground.png-21fa51b8b69e3798615767bad04acfe2.ctex"
+uid="uid://damqlesax2tjr"
+path="res://.godot/imported/logo.png-16835c693f64f9c3f42182ea44006861.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/jadeLearningShaders/experiments/materials/levelSelectBackground.png"
-dest_files=["res://.godot/imported/levelSelectBackground.png-21fa51b8b69e3798615767bad04acfe2.ctex"]
+source_file="res://ui/logo.png"
+dest_files=["res://.godot/imported/logo.png-16835c693f64f9c3f42182ea44006861.ctex"]
 
 [params]
 

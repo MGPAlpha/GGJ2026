@@ -1,6 +1,6 @@
 [gd_resource type="VisualShader" format=3 uid="uid://563ovduk8xam"]
 
-[ext_resource type="Texture2D" uid="uid://cijc44xov1ypy" path="res://assets/jadeLearningShaders/experiments/materials/paint_button.png" id="1_fpd8c"]
+[ext_resource type="Texture2D" uid="uid://cijc44xov1ypy" path="res://ui/paint_button.png" id="1_fpd8c"]
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_4ar0x"]
 texture = ExtResource("1_fpd8c")

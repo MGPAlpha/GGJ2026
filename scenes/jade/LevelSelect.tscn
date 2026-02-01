@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://djga7buyfsv0q"]
+[gd_scene format=3 uid="uid://doawyu7jcn5xs"]
 
-[ext_resource type="Texture2D" uid="uid://bhsngqautd8ah" path="res://assets/jadeLearningShaders/experiments/materials/levelSelectBackground.png" id="1_ct0ao"]
-[ext_resource type="Script" uid="uid://c3ax51yr655rf" path="res://scripts/ui/level_select_builder.gd" id="1_lr35k"]
+[ext_resource type="Texture2D" uid="uid://bhsngqautd8ah" path="res://ui/levelSelectBackground.png" id="1_ct0ao"]
+[ext_resource type="Script" path="res://scripts/ui/level_select_builder.gd" id="1_lr35k"]
 [ext_resource type="Script" uid="uid://cyxfsttj4ei1j" path="res://scripts/ui/FocusGrabber.gd" id="1_v2dnw"]
-[ext_resource type="FontFile" uid="uid://bb8oel34x8uv4" path="res://assets/jadeLearningShaders/experiments/Painter Dude.otf" id="2_ktsqk"]
+[ext_resource type="FontFile" uid="uid://bb8oel34x8uv4" path="res://ui/Painter Dude.otf" id="2_ktsqk"]
 [ext_resource type="PackedScene" uid="uid://cyfrcl713bjwu" path="res://ui/LevelButton.tscn" id="3_ktsqk"]
 [ext_resource type="PackedScene" uid="uid://e050bqiinmgc" path="res://ui/text_button.tscn" id="5_kvd6m"]
 [ext_resource type="Script" uid="uid://desto8mysbhyq" path="res://scripts/ui/levelSelectButton.gd" id="6_kvd6m"]
