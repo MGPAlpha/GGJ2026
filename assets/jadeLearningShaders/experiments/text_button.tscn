@@ -1,14 +1,26 @@
 [gd_scene format=3 uid="uid://e050bqiinmgc"]
 
-[node name="Control" type="Control" unique_id=214463343]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="Material" uid="uid://bjh5oqtwq4bi2" path="res://assets/jadeLearningShaders/experiments/materials/shaders/button_material.tres" id="1_kxq0e"]
 
-[node name="Button" type="Button" parent="." unique_id=930032392]
-layout_mode = 0
-offset_right = 215.0
-offset_bottom = 59.0
+[node name="Control" type="MarginContainer" unique_id=1795515865]
+custom_minimum_size = Vector2(100, 50)
+offset_right = 200.0
+offset_bottom = 57.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2025034685]
+material = ExtResource("1_kxq0e")
+layout_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect" unique_id=2023860768]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.083000004
+anchor_top = 0.083000004
+anchor_right = 0.92100006
+anchor_bottom = 0.91800004
+offset_left = -0.3000002
+offset_top = -0.1500001
+offset_right = -0.1000061
+offset_bottom = 0.099998474
+text = "Text"
+flat = true
