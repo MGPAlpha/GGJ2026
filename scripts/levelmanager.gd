@@ -1,7 +1,6 @@
 extends Node
 
 var levels: Array[PackedScene]
-
 var curr_level: PackedScene
 var curr_level_index: int = -1
 
@@ -28,7 +27,10 @@ func play_level(index):
 	print(curr_level)
 	get_tree().change_scene_to_packed(curr_level)
 	SettingsManager.startLevelMusic()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	
+func return_to_menu() -> void:
+	curr_level_index = -1
+	curr_level = null
+	var main_menu = load("uid://doawyu7jcn5xs")
+	get_tree().change_scene_to_packed(main_menu)
+	SettingsManager._startMainMenuMusic()

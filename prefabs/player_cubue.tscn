@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cgwaeaetsqb0h" path="res://models/Sponge.glb" id="2_njf18"]
 [ext_resource type="Texture2D" uid="uid://14yqfa5iq66y" path="res://materials/wood1.jpg" id="3_wtdy0"]
 [ext_resource type="Shader" uid="uid://04xacuu2abva" path="res://materials/sponge.tres" id="4_oyako"]
+[ext_resource type="Texture2D" uid="uid://db4kki21ptgot" path="res://ui/Patterns/Circle.png" id="5_71dh6"]
 [ext_resource type="AudioStream" uid="uid://qi7hvkps431k" path="res://music/sax_honk_short.wav" id="5_oyako"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_71dh6"]
@@ -331,33 +332,57 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 [node name="NewCubeFaces" parent="CubeMesh" unique_id=1367083900 instance=ExtResource("2_njf18")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
-[node name="Cube" parent="CubeMesh/NewCubeFaces" index="0" unique_id=1140083342]
+[node name="Cube" parent="CubeMesh/NewCubeFaces" index="0" unique_id=704395998]
 material_override = SubResource("StandardMaterial3D_71dh6")
 mesh = SubResource("ArrayMesh_cronv")
 
-[node name="SpongeSide1" parent="CubeMesh/NewCubeFaces" index="1" unique_id=1513592383]
+[node name="SpongeSide1" parent="CubeMesh/NewCubeFaces" index="1" unique_id=904456171]
 material_override = SubResource("ShaderMaterial_t241o")
 mesh = SubResource("ArrayMesh_qitry")
 
-[node name="SpongeSide2" parent="CubeMesh/NewCubeFaces" index="2" unique_id=1055875876]
+[node name="Sprite3D2" type="Sprite3D" parent="CubeMesh/NewCubeFaces/SpongeSide1" index="0" unique_id=408232555]
+transform = Transform3D(0.44000006, 0, 0, 0, 0.44000006, 0, 0, 0, 1, 0, 0, 1.1516571)
+texture = ExtResource("5_71dh6")
+
+[node name="SpongeSide2" parent="CubeMesh/NewCubeFaces" index="2" unique_id=1204313363]
 material_override = SubResource("ShaderMaterial_wtdy0")
 mesh = SubResource("ArrayMesh_fshxg")
 
-[node name="SpongeSide3" parent="CubeMesh/NewCubeFaces" index="3" unique_id=156273048]
+[node name="Sprite3D" type="Sprite3D" parent="CubeMesh/NewCubeFaces/SpongeSide2" index="0" unique_id=1849868788]
+transform = Transform3D(0.44000003, 0, 0, 0, 0.44000003, 0, 0, 0, 1, 0, 0, -1.0254536)
+texture = ExtResource("5_71dh6")
+
+[node name="SpongeSide3" parent="CubeMesh/NewCubeFaces" index="3" unique_id=178481088]
 material_override = SubResource("ShaderMaterial_oyako")
 mesh = SubResource("ArrayMesh_mgsj1")
 
-[node name="SpongSide4" parent="CubeMesh/NewCubeFaces" index="4" unique_id=48232894]
+[node name="Sprite3D2" type="Sprite3D" parent="CubeMesh/NewCubeFaces/SpongeSide3" index="0" unique_id=1082447763]
+transform = Transform3D(0.44000006, 0, 0, 0, 0.44000006, 0, 0, 0, 1, 0, 0, 1.0117464)
+texture = ExtResource("5_71dh6")
+
+[node name="SpongSide4" parent="CubeMesh/NewCubeFaces" index="4" unique_id=1221584541]
 material_override = SubResource("ShaderMaterial_71dh6")
 mesh = SubResource("ArrayMesh_t85h6")
 
-[node name="SpongeTop" parent="CubeMesh/NewCubeFaces" index="5" unique_id=1976549600]
+[node name="Sprite3D3" type="Sprite3D" parent="CubeMesh/NewCubeFaces/SpongSide4" index="0" unique_id=192352789]
+transform = Transform3D(0.44000006, 0, 0, 0, 0.44000006, 0, 0, 0, 1, 0, 0, -1.0201216)
+texture = ExtResource("5_71dh6")
+
+[node name="SpongeTop" parent="CubeMesh/NewCubeFaces" index="5" unique_id=254289463]
 material_override = SubResource("ShaderMaterial_0vob3")
 mesh = SubResource("ArrayMesh_d1vxw")
 
-[node name="SpongeBot" parent="CubeMesh/NewCubeFaces" index="6" unique_id=347924803]
+[node name="Sprite3D4" type="Sprite3D" parent="CubeMesh/NewCubeFaces/SpongeTop" index="0" unique_id=726915866]
+transform = Transform3D(0.44000006, 0, 0, 0, 0.44000006, 0, 0, 0, 1, 0, 0, -1.0216122)
+texture = ExtResource("5_71dh6")
+
+[node name="SpongeBot" parent="CubeMesh/NewCubeFaces" index="6" unique_id=1144109069]
 material_override = SubResource("ShaderMaterial_06wr6")
 mesh = SubResource("ArrayMesh_cxg6n")
+
+[node name="Sprite3D5" type="Sprite3D" parent="CubeMesh/NewCubeFaces/SpongeBot" index="0" unique_id=865889933]
+transform = Transform3D(0.44000006, 0, 0, 0, 0.44000006, 0, 0, 0, 1, 0, 0, 1.1919179)
+texture = ExtResource("5_71dh6")
 
 [node name="SpongeSide4" type="MeshInstance3D" parent="CubeMesh/NewCubeFaces" unique_id=1978323928]
 transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.1, 0, 0, 0.95)

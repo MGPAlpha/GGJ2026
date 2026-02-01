@@ -1,10 +1,32 @@
 class_name Board extends Node3D
 
+# Patterns
+const CIRCLE = preload("uid://db4kki21ptgot")
+const TRIANGLE = preload("uid://bc42bkntj7ij")
+const SQUARE = preload("uid://drthutae6a45s")
+const STAR = preload("uid://dkdgvxyhjgm50")
+const HAT = preload("uid://divyoxuxu37e4")
+const MAGNIFYING_GLASS = preload("uid://cwtik0lrqfvn")
+const PAW = preload("uid://dhwei0sk7slb8")
+const SNOW_FLAKE = preload("uid://bk45nmg2csjo3")
+const SPIDER = preload("uid://coap5uey4gv4a")
+
 # Map Info
+
 @export var size: Vector2i = Vector2i(3,3)
 @export var start: Vector2i = Vector2i(0,0)
 @export var grid_tile_size: Vector2 = Vector2.ONE
-@export var colors : Array[Color] = [Color.RED, Color.DARK_ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE, Color.PURPLE, Color.WHITE, Color.DARK_GREEN, Color.SADDLE_BROWN]
+@export var colors : Array[Array] = [
+	[Color.RED, CIRCLE],
+	[Color.DARK_ORANGE, TRIANGLE],
+	[Color.YELLOW, SQUARE], 
+	[Color.GREEN, STAR], 
+	[Color.BLUE, PAW], 
+	[Color.PURPLE, SPIDER], 
+	[Color.WHITE, SNOW_FLAKE], 
+	[Color.DARK_GREEN, MAGNIFYING_GLASS], 
+	[Color.SADDLE_BROWN, HAT]
+]
 @export var tile_height: float = .7
 
 @export_file("*.txt") var level: String
@@ -225,7 +247,7 @@ func check_for_solve():
 	
 func paint_tile(tile: BoardTileData, color_index: int):
 	tile.color_index = color_index
-	tile.node.set_color(colors[color_index])
+	tile.node.set_color(colors[color_index][0], colors[color_index][1])
 
 func get_player_pos_for_tile(tile: BoardTileData):
 	return Vector3(0, tile_height/2, 0) + tile.node.position
@@ -261,7 +283,7 @@ func activate_preview():
 		var back_side = round(Vector3.FORWARD * player_rotation)
 		var back_color = player_colors[back_side]
 		var tile_material = tile.preview_mesh.material_override as StandardMaterial3D
-		tile_material.albedo_color = colors[back_color] if back_color != -1 else Color.WHITE
+		tile_material.albedo_color = colors[back_color][0] if back_color != -1 else Color.WHITE
 		tile.preview.visible = true;
 	if (check_tile(down)):
 		var tile_data = tiles[down.y][down.x] as BoardTileData
@@ -269,7 +291,7 @@ func activate_preview():
 		preview_cells[1] = down
 		var front_side = round(Vector3.BACK * player_rotation)
 		var front_color = player_colors[front_side]
-		tile.preview_mesh.material_override.albedo_color = colors[front_color] if front_color != -1 else Color.WHITE
+		tile.preview_mesh.material_override.albedo_color = colors[front_color][0] if front_color != -1 else Color.WHITE
 		tile.preview.visible = true;
 	if (check_tile(left)):
 		var tile_data = tiles[left.y][left.x] as BoardTileData
@@ -277,7 +299,7 @@ func activate_preview():
 		preview_cells[2] = left
 		var left_side = round(Vector3.LEFT * player_rotation)
 		var left_color = player_colors[left_side]
-		tile.preview_mesh.material_override.albedo_color = colors[left_color] if left_color != -1 else Color.WHITE
+		tile.preview_mesh.material_override.albedo_color = colors[left_color][0] if left_color != -1 else Color.WHITE
 		tile.preview.visible = true;
 	if (check_tile(right)):
 		var tile_data = tiles[right.y][right.x] as BoardTileData
@@ -285,7 +307,7 @@ func activate_preview():
 		preview_cells[3] = right
 		var right_side = round(Vector3.RIGHT * player_rotation)
 		var right_color = player_colors[right_side]
-		tile.preview_mesh.material_override.albedo_color = colors[right_color] if right_color != -1 else Color.WHITE
+		tile.preview_mesh.material_override.albedo_color = colors[right_color][0] if right_color != -1 else Color.WHITE
 		tile.preview.visible = true;
 
 func check_tile(pos: Vector2i) -> bool:

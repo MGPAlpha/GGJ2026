@@ -5,12 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://14yqfa5iq66y" path="res://materials/wood1.jpg" id="3_fns28"]
 [ext_resource type="PackedScene" uid="uid://chj4ky77hj1qb" path="res://models/basin_canvas_tile.glb" id="3_g4m2s"]
 [ext_resource type="Shader" uid="uid://621pavsppj0w" path="res://materials/canvas_tile.tres" id="3_pa3ds"]
+[ext_resource type="Texture2D" uid="uid://dhwei0sk7slb8" path="res://ui/Patterns/Paw.png" id="3_uaumx"]
 [ext_resource type="PackedScene" uid="uid://c3d1geeg3i3o6" path="res://models/canvas_tile.glb" id="5_pa3ds"]
 [ext_resource type="PackedScene" uid="uid://d3ifrdqm1iqy0" path="res://models/basin_canvas_tile2.glb" id="7_pa3ds"]
-[ext_resource type="Shader" path="res://materials/water.gdshader" id="8_msfd0"]
+[ext_resource type="Shader" uid="uid://dnhundremme0n" path="res://materials/water.gdshader" id="8_msfd0"]
 [ext_resource type="Texture2D" uid="uid://babldjjtciciv" path="res://models/textures/Sponge__Normal.jpg" id="9_x1or4"]
 [ext_resource type="Texture2D" uid="uid://6cvvdl6tr3i1" path="res://materials/metal.jpg" id="10_etwfe"]
-[ext_resource type="Shader" path="res://materials/glass.gdshader" id="10_x1or4"]
+[ext_resource type="Shader" uid="uid://bgri64qnv5olr" path="res://materials/glass.gdshader" id="10_x1or4"]
 [ext_resource type="Texture2D" uid="uid://cvgk1a6oueyvp" path="res://materials/glass-1.png" id="11_0d73y"]
 [ext_resource type="Texture2D" uid="uid://ctkppytmh57rn" path="res://materials/GridOutline.png" id="13_w87tx"]
 
@@ -115,28 +116,34 @@ preview = NodePath("Grid")
 preview_mesh = NodePath("Grid/MeshInstance3D")
 
 [node name="BasicTile" parent="." unique_id=2039495511 instance=ExtResource("5_pa3ds")]
-visible = false
 
-[node name="Cube" parent="BasicTile" index="0" unique_id=1066149515]
+[node name="Sprite3D" type="Sprite3D" parent="BasicTile" unique_id=190016327]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, 0, 0.1066255, 0)
+texture = ExtResource("3_uaumx")
+
+[node name="Cube" parent="BasicTile" index="1" unique_id=1139412234]
 material_override = SubResource("ShaderMaterial_msfd0")
 
 [node name="SourceTile" parent="." unique_id=267073316 instance=ExtResource("7_pa3ds")]
-visible = false
 
-[node name="Cube" parent="SourceTile" index="0" unique_id=1215990698]
+[node name="Sprite3D" type="Sprite3D" parent="SourceTile" unique_id=856601992]
+transform = Transform3D(0.15, 0, 0, 0, -6.5567085e-09, 0.15, 0, -0.15, -6.5567085e-09, 0, 0.10391691, 0)
+texture = ExtResource("3_uaumx")
+
+[node name="Cube" parent="SourceTile" index="1" unique_id=563668116]
 material_override = SubResource("StandardMaterial3D_msfd0")
 
-[node name="Cube_001" parent="SourceTile" index="1" unique_id=326218583]
+[node name="Cube_001" parent="SourceTile" index="2" unique_id=992555556]
 material_override = SubResource("ShaderMaterial_x1or4")
 
 [node name="CleanTile" parent="." unique_id=610791707 instance=ExtResource("7_pa3ds")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
 visible = false
 
-[node name="Cube" parent="CleanTile" index="0" unique_id=1215990698]
+[node name="Cube" parent="CleanTile" index="0" unique_id=563668116]
 material_override = SubResource("StandardMaterial3D_pa3ds")
 
-[node name="Cube_001" parent="CleanTile" index="1" unique_id=326218583]
+[node name="Cube_001" parent="CleanTile" index="1" unique_id=992555556]
 transform = Transform3D(0.4108031, 0, 0, 0, 0.08516651, 0, 0, 0, 0.4108031, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_jtu3l")
 
@@ -146,11 +153,12 @@ material_override = SubResource("StandardMaterial3D_jtu3l")
 mesh = SubResource("ArrayMesh_nkdtg")
 
 [node name="InertTile" parent="." unique_id=526049243 instance=ExtResource("3_g4m2s")]
+visible = false
 
-[node name="Cube" parent="InertTile" index="0" unique_id=1444987366]
+[node name="Cube" parent="InertTile" index="0" unique_id=12429473]
 material_override = SubResource("StandardMaterial3D_w87tx")
 
-[node name="Cube_001" parent="InertTile" index="1" unique_id=423701999]
+[node name="Cube_001" parent="InertTile" index="1" unique_id=1019428878]
 transform = Transform3D(0.48, 0, 0, 0, 0.1, 0, 0, 0, 0.48, 0, -0.012322571, 0)
 material_override = SubResource("ShaderMaterial_pu20o")
 

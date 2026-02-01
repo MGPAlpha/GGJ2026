@@ -9,6 +9,7 @@ class_name PlayerCube extends Node3D
 @export var roll_speed : float
 @export var rotate_speed : float
 @export var default_color: Color = Color.WHITE
+@export var default_pattern: Texture2D = preload("uid://bk45nmg2csjo3")
 
 @export var cube_sides: Dictionary[Vector3i, MeshInstance3D] = {
 	Vector3i.UP: null,
@@ -45,11 +46,15 @@ func roll_height(w: float) -> void:
 	var h = cube_side_length / 2.0 * cosh(1) - cube_side_length / 2.0 * cosh(x / (cube_side_length / 2.0))
 	cube.transform.origin.y = h
 
-func set_face_color(face: Vector3i, color_index: int, color_list: Array[Color]):
-	var color = color_list[color_index] if color_index >= 0 else default_color
+func set_face_color(face: Vector3i, color_index: int, color_list: Array[Array]):
+	var color = color_list[color_index][0] if color_index >= 0 else default_color
+	var pattern = color_list[color_index][1] if color_index >= 0 else default_pattern
+	
 	var material = cube_sides[face].material_override as ShaderMaterial
-
 	material.set_shader_parameter("PaintColor", color)
+	
+	var sprite = cube_sides[face].get_child(0) as Sprite3D
+	sprite.texture = pattern
 
 func wait():  
 	await get_tree().create_timer(2).timeout
