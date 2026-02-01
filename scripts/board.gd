@@ -163,14 +163,21 @@ func try_move_player(direction: Vector2i) -> bool:
 	print(player_pos)
 	print(player_rotation.get_euler())
 	print("Player Cube Up is now ", player_rotation * Vector3.UP)
-	
-	# Apply color
-	var down_side = round(Vector3.DOWN * player_rotation)
-	print(player_colors[Vector3i.UP])
-	var down_color = player_colors[down_side]
-	if down_color > -1 and down_color != new_tile.color_index:
-		paint_tile(new_tile, down_color)
 	player_node.rotate_cube(get_player_pos_for_tile(new_tile), player_rotation)
+	
+	# Color Logic
+	var down_side = round(Vector3.DOWN * player_rotation)
+	match new_tile.mode:
+		BoardTileData.TileMode.BASIC:
+			print(player_colors[Vector3i.UP])
+			var down_color = player_colors[down_side]
+			if down_color > -1 and down_color != new_tile.color_index:
+				paint_tile(new_tile, down_color)
+		BoardTileData.TileMode.SOURCE:
+			var new_face_color = new_tile.color_index
+			if new_face_color > -1:
+				player_colors[down_side] = new_face_color
+				player_node.set_face_color(down_side, new_face_color, colors)
 	return true
 	
 func paint_tile(tile: BoardTileData, color_index: int):
