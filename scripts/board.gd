@@ -55,6 +55,7 @@ var preview_cells: Array[Vector2i]
 signal goal_set(goal_colors: Array[Array], colors: Array[Color])
 signal board_generated(center: Vector3)
 signal solved
+signal player_moved
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -229,7 +230,9 @@ func try_move_player(direction: Vector2i) -> bool:
 		BoardTileData.TileMode.CLEAN:
 			player_colors[down_side] = -1
 			player_node.set_face_color(down_side, -1, colors)
-			
+	
+	player_moved.emit()		
+	
 	var is_solved = check_for_solve()
 	if !is_solved:
 		activate_preview()

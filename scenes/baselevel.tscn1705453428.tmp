@@ -90,10 +90,8 @@ script = ExtResource("3_xj5b5")
 [node name="UI2" parent="UI/MarginContainer" unique_id=1699740536 instance=ExtResource("1_esn7c")]
 layout_mode = 2
 
-[node name="Flip count" parent="UI/MarginContainer/UI2/HBoxContainer" parent_id_path=PackedInt32Array(1699740536, 1262881788) index="5" unique_id=952285186 node_paths=PackedStringArray("move_label", "top_camera")]
+[node name="Flip count" parent="UI/MarginContainer/UI2/HBoxContainer" parent_id_path=PackedInt32Array(1699740536, 1262881788) index="5" unique_id=952285186]
 script = ExtResource("6_0nebb")
-move_label = NodePath("Label")
-top_camera = NodePath("../TopCamera")
 
 [node name="StartAndEndManager" type="Node" parent="." unique_id=228062131 node_paths=PackedStringArray("cam_manager", "controller", "spotlight")]
 script = ExtResource("6_esn7c")
