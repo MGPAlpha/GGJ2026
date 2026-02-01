@@ -3,7 +3,8 @@ class_name BoardTileData extends Object
 enum TileMode {
 	BASIC,
 	SOURCE,
-	CLEAN
+	CLEAN,
+	INERT
 }
 	
 

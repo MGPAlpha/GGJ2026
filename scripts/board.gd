@@ -69,15 +69,19 @@ func load_level_file(path: String):
 		for i in len(line):
 			var tile_val = line[i]
 			match tile_val:
-				"P", "o", "S":
+				"P", "o", "S", "C", "I":
 					var new_tile = BoardTileData.new()
 					new_tile.position = Vector2i(i,j)
 					new_tile.color_index = -1
 					match tile_val:
-						"o":
+						"o", "P":
 							new_tile.mode = BoardTileData.TileMode.BASIC
 						"S":
 							new_tile.mode = BoardTileData.TileMode.SOURCE
+						"C":
+							new_tile.mode = BoardTileData.TileMode.CLEAN
+						"I":
+							new_tile.mode = BoardTileData.TileMode.INERT
 					var new_tile_node = tile_prefab.instantiate()
 					new_tile_node.name = "Tile (" + str(i) + "," + str(j) + ")"
 					new_tile_node.position = Vector3(i*grid_tile_size.x, 0, j*grid_tile_size.y)
@@ -163,14 +167,24 @@ func try_move_player(direction: Vector2i) -> bool:
 	print(player_pos)
 	print(player_rotation.get_euler())
 	print("Player Cube Up is now ", player_rotation * Vector3.UP)
-	
-	# Apply color
-	var down_side = round(Vector3.DOWN * player_rotation)
-	print(player_colors[Vector3i.UP])
-	var down_color = player_colors[down_side]
-	if down_color > -1 and down_color != new_tile.color_index:
-		paint_tile(new_tile, down_color)
 	player_node.rotate_cube(get_player_pos_for_tile(new_tile), player_rotation)
+	
+	# Color Logic
+	var down_side = round(Vector3.DOWN * player_rotation)
+	match new_tile.mode:
+		BoardTileData.TileMode.BASIC:
+			print(player_colors[Vector3i.UP])
+			var down_color = player_colors[down_side]
+			if down_color > -1 and down_color != new_tile.color_index:
+				paint_tile(new_tile, down_color)
+		BoardTileData.TileMode.SOURCE:
+			var new_face_color = new_tile.color_index
+			if new_face_color > -1:
+				player_colors[down_side] = new_face_color
+				player_node.set_face_color(down_side, new_face_color, colors)
+		BoardTileData.TileMode.CLEAN:
+			player_colors[down_side] = -1
+			player_node.set_face_color(down_side, -1, colors)
 	return true
 	
 func paint_tile(tile: BoardTileData, color_index: int):
