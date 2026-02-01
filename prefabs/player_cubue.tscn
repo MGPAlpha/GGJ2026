@@ -307,9 +307,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7mykx")
 
-[node name="PlayerCube" type="Node3D" unique_id=1938742768 node_paths=PackedStringArray("audio_player", "cube", "pivot_point", "cube_sides")]
+[node name="PlayerCube" type="Node3D" unique_id=1938742768 node_paths=PackedStringArray("accessibility_textures", "audio_player", "cube", "pivot_point", "cube_sides")]
 rotation_edit_mode = 1
 script = ExtResource("1_3cj4c")
+accessibility_textures = [NodePath("CubeMesh/NewCubeFaces/SpongeSide1/Sprite3D2"), NodePath("CubeMesh/NewCubeFaces/SpongeSide2/Sprite3D"), NodePath("CubeMesh/NewCubeFaces/SpongeSide3/Sprite3D2"), NodePath("CubeMesh/NewCubeFaces/SpongSide4/Sprite3D3"), NodePath("CubeMesh/NewCubeFaces/SpongeTop/Sprite3D4"), NodePath("CubeMesh/NewCubeFaces/SpongeBot/Sprite3D5")]
 audio_player = NodePath("AudioStreamPlayer3D")
 cube_angles = Quaternion(0, 0, 0.7, 0)
 cube = NodePath("CubeMesh/NewCubeFaces")
@@ -332,11 +333,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 [node name="NewCubeFaces" parent="CubeMesh" unique_id=1367083900 instance=ExtResource("2_njf18")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
-[node name="Cube" parent="CubeMesh/NewCubeFaces" index="0" unique_id=704395998]
+[node name="Cube" parent="CubeMesh/NewCubeFaces" index="0" unique_id=1140083342]
 material_override = SubResource("StandardMaterial3D_71dh6")
 mesh = SubResource("ArrayMesh_cronv")
 
-[node name="SpongeSide1" parent="CubeMesh/NewCubeFaces" index="1" unique_id=904456171]
+[node name="SpongeSide1" parent="CubeMesh/NewCubeFaces" index="1" unique_id=1513592383]
 material_override = SubResource("ShaderMaterial_t241o")
 mesh = SubResource("ArrayMesh_qitry")
 
@@ -344,7 +345,7 @@ mesh = SubResource("ArrayMesh_qitry")
 transform = Transform3D(0.44000006, 0, 0, 0, 0.44000006, 0, 0, 0, 1, 0, 0, 1.1516571)
 texture = ExtResource("5_71dh6")
 
-[node name="SpongeSide2" parent="CubeMesh/NewCubeFaces" index="2" unique_id=1204313363]
+[node name="SpongeSide2" parent="CubeMesh/NewCubeFaces" index="2" unique_id=1055875876]
 material_override = SubResource("ShaderMaterial_wtdy0")
 mesh = SubResource("ArrayMesh_fshxg")
 
@@ -352,7 +353,7 @@ mesh = SubResource("ArrayMesh_fshxg")
 transform = Transform3D(0.44000003, 0, 0, 0, 0.44000003, 0, 0, 0, 1, 0, 0, -1.0254536)
 texture = ExtResource("5_71dh6")
 
-[node name="SpongeSide3" parent="CubeMesh/NewCubeFaces" index="3" unique_id=178481088]
+[node name="SpongeSide3" parent="CubeMesh/NewCubeFaces" index="3" unique_id=156273048]
 material_override = SubResource("ShaderMaterial_oyako")
 mesh = SubResource("ArrayMesh_mgsj1")
 
@@ -360,7 +361,7 @@ mesh = SubResource("ArrayMesh_mgsj1")
 transform = Transform3D(0.44000006, 0, 0, 0, 0.44000006, 0, 0, 0, 1, 0, 0, 1.0117464)
 texture = ExtResource("5_71dh6")
 
-[node name="SpongSide4" parent="CubeMesh/NewCubeFaces" index="4" unique_id=1221584541]
+[node name="SpongSide4" parent="CubeMesh/NewCubeFaces" index="4" unique_id=48232894]
 material_override = SubResource("ShaderMaterial_71dh6")
 mesh = SubResource("ArrayMesh_t85h6")
 
@@ -368,7 +369,7 @@ mesh = SubResource("ArrayMesh_t85h6")
 transform = Transform3D(0.44000006, 0, 0, 0, 0.44000006, 0, 0, 0, 1, 0, 0, -1.0201216)
 texture = ExtResource("5_71dh6")
 
-[node name="SpongeTop" parent="CubeMesh/NewCubeFaces" index="5" unique_id=254289463]
+[node name="SpongeTop" parent="CubeMesh/NewCubeFaces" index="5" unique_id=1976549600]
 material_override = SubResource("ShaderMaterial_0vob3")
 mesh = SubResource("ArrayMesh_d1vxw")
 
@@ -376,7 +377,7 @@ mesh = SubResource("ArrayMesh_d1vxw")
 transform = Transform3D(0.44000006, 0, 0, 0, 0.44000006, 0, 0, 0, 1, 0, 0, -1.0216122)
 texture = ExtResource("5_71dh6")
 
-[node name="SpongeBot" parent="CubeMesh/NewCubeFaces" index="6" unique_id=1144109069]
+[node name="SpongeBot" parent="CubeMesh/NewCubeFaces" index="6" unique_id=347924803]
 material_override = SubResource("ShaderMaterial_06wr6")
 mesh = SubResource("ArrayMesh_cxg6n")
 

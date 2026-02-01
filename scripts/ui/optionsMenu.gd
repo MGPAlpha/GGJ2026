@@ -45,3 +45,6 @@ func _changeVolume(volume : float, bus : String) -> void:
 	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index(bus), volume)
 	print(bus, " Volume: ", AudioServer.get_bus_volume_linear(AudioServer.get_bus_index(bus)))
 	
+func _toggleColorblind(toggle: bool) -> void:
+	SettingsManager.is_colorblind = toggle
+	

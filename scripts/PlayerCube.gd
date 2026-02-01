@@ -1,5 +1,7 @@
 class_name PlayerCube extends Node3D
 
+@export var accessibility_textures : Array[Node3D]
+
 @export var audio_player : AudioStreamPlayer3D
 
 @export var cube_angles : Quaternion
@@ -22,6 +24,9 @@ class_name PlayerCube extends Node3D
 
 func _ready() -> void:
 	print("Ran ready")
+	for i in range(accessibility_textures.size()):
+		accessibility_textures[i].visible = SettingsManager.is_colorblind
+		
 	#for side in cube_sides:
 		#cube_sides[side].material_override = StandardMaterial3D.new()
 

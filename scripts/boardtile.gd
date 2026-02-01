@@ -6,6 +6,8 @@ class_name BoardTile extends Node3D
 
 @onready var source_tile_sprite_3d: Sprite3D = $SourceTile/Sprite3D
 
+@export var accessibility_textures : Array[Node3D]
+
 @export var basic_canvas: Node3D
 @export var basic_canvas_mesh: MeshInstance3D
 @export var source_basin: Node3D
@@ -47,6 +49,9 @@ func _ready() -> void:
 	preview.visible = false
 	preview_material = preview_mesh.material_override.duplicate()
 	preview_mesh.material_override = preview_material
+	
+	for i in range(accessibility_textures.size()):
+		accessibility_textures[i].visible = SettingsManager.is_colorblind
 
 func set_color(color: Color, pattern: Texture):
 	basic_material.set_shader_parameter("CanvasColor", color)

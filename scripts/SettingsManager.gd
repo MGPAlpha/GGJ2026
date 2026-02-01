@@ -8,6 +8,8 @@ var music_player : AudioStreamPlayer
 var music_main_menu : AudioStream
 var music_level : AudioStream
 
+var is_colorblind : bool
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	music_main_menu = load("res://music/Trouble Makers (Loopable).wav")
@@ -33,3 +35,6 @@ func startLevelMusic() -> void:
 	music_player.stop()
 	music_player.stream = music_level
 	music_player.play()
+	
+func toggleColorblind(toggle : bool) -> void:
+	is_colorblind = toggle
