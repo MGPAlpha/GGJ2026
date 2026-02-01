@@ -31,6 +31,6 @@ func play_level(index):
 func return_to_menu() -> void:
 	curr_level_index = -1
 	curr_level = null
-	var main_menu = load("uid://doawyu7jcn5xs")
+	var main_menu = load("res://scenes/jade/MainMenu.tscn")
 	get_tree().change_scene_to_packed(main_menu)
 	SettingsManager._startMainMenuMusic()

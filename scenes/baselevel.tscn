@@ -19,15 +19,15 @@ volumetric_fog_enabled = true
 [node name="Board" parent="." unique_id=285819464 instance=ExtResource("1_uh120")]
 level = "res://levels/testlevel.txt"
 
-[node name="Node" type="Node" parent="Board" unique_id=1132342733]
+[node name="Node" type="Node" parent="Board" unique_id=1132342733 node_paths=PackedStringArray("camera_manager")]
 script = ExtResource("2_xj5b5")
+camera_manager = NodePath("../../CameraManager")
 
 [node name="CameraManager" type="Node3D" parent="." unique_id=330635 node_paths=PackedStringArray("camera", "top_down_pos", "isometric_pos")]
 script = ExtResource("3_08e4x")
 camera = NodePath("Camera3D")
 top_down_pos = NodePath("TopDownCameraPos")
 isometric_pos = NodePath("IsometricCameraPos")
-camera_move_time = null
 
 [node name="Camera3D" type="Camera3D" parent="CameraManager" unique_id=1366276693]
 transform = Transform3D(0.9688733, -7.2186688e-09, 0.24755709, -0.15397938, 0.78302085, 0.6026348, -0.19384237, -0.62199545, 0.75864804, 4.514702, 9.796441, 12.090926)
