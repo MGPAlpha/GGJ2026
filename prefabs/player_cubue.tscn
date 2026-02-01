@@ -366,5 +366,6 @@ mesh = SubResource("ArrayMesh_qitry")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1053450864]
 stream = ExtResource("5_oyako")
+bus = &"Player"
 
 [editable path="CubeMesh/NewCubeFaces"]
