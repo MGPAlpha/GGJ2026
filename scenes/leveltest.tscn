@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://su36uk0e7wt" path="res://prefabs/board.tscn" id="1_uh120"]
 [ext_resource type="Script" uid="uid://c1jpop7rnvfvy" path="res://scripts/playercontroller.gd" id="2_xj5b5"]
+[ext_resource type="Script" uid="uid://bjt515cbll8uh" path="res://scripts/goaldisplay.gd" id="3_xj5b5"]
 
 [sub_resource type="Environment" id="Environment_uh120"]
 volumetric_fog_enabled = true
@@ -34,3 +35,15 @@ spot_angle_attenuation = 0.062500216
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1700375827]
 environment = SubResource("Environment_uh120")
+
+[node name="Control" type="Control" parent="." unique_id=392119172]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -233.0
+offset_bottom = 233.0
+grow_horizontal = 0
+script = ExtResource("3_xj5b5")
+
+[connection signal="goal_set" from="Board" to="Control" method="_on_goal_set"]

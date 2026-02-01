@@ -28,6 +28,9 @@ var player_node: PlayerCube
 	Vector3i.BACK: -1
 }
 
+signal goal_set(goal_colors: Array[Array], colors: Array[Color])
+signal solved
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	load_level_file(level)
@@ -136,14 +139,18 @@ func load_level_file(path: String):
 		goal_colors[j] = new_row
 		for i in len(curr_line):
 			if i >= size.x: break
-			if curr_line[i].is_valid_int():
-				var color = parse_color_index(curr_line[i])
+			if curr_line[i].is_valid_int() and tiles[j][i]:
+				var color
+				match tiles[j][i].mode:
+					BoardTileData.TileMode.BASIC, BoardTileData.TileMode.SOURCE:
+						color = parse_color_index(curr_line[i])
 				new_row[i] = color
 			
 		curr_line = file.get_line()
 		j += 1
 		
 	print(goal_colors)
+	goal_set.emit(goal_colors, colors)
 	
 func parse_color_index(color: String):
 	if color.is_valid_int():
@@ -186,7 +193,22 @@ func try_move_player(direction: Vector2i) -> bool:
 		BoardTileData.TileMode.CLEAN:
 			player_colors[down_side] = -1
 			player_node.set_face_color(down_side, -1, colors)
+			
+	check_for_solve()
 	
+	return true
+	
+func check_for_solve():
+	for j in tiles.size():
+		var row = tiles[j]
+		for i in row.size():
+			var tile = row[i]
+			if tile and tile.mode == BoardTileData.TileMode.BASIC:
+				if goal_colors[j][i] > -1 and goal_colors[j][i] != tile.color_index:
+					print("Failed solve at (", i, ",", j, ") Color is ", tile.color_index, " and should be ", goal_colors[j][i])
+					return false
+	solved.emit()
+	print("Solved!")
 	return true
 	
 func paint_tile(tile: BoardTileData, color_index: int):
