@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://doawyu7jcn5xs"]
 
 [ext_resource type="Texture2D" uid="uid://bhsngqautd8ah" path="res://assets/jadeLearningShaders/experiments/materials/levelSelectBackground.png" id="1_ct0ao"]
-[ext_resource type="Script" uid="uid://cyxfsttj4ei1j" path="res://FocusGrabber.gd" id="1_v2dnw"]
+[ext_resource type="Script" uid="uid://cyxfsttj4ei1j" path="res://scripts/ui/FocusGrabber.gd" id="1_v2dnw"]
 [ext_resource type="FontFile" uid="uid://bb8oel34x8uv4" path="res://assets/jadeLearningShaders/experiments/Painter Dude.otf" id="2_ktsqk"]
 [ext_resource type="PackedScene" uid="uid://cyfrcl713bjwu" path="res://assets/jadeLearningShaders/experiments/LevelButton.tscn" id="3_ktsqk"]
 [ext_resource type="PackedScene" uid="uid://e050bqiinmgc" path="res://assets/jadeLearningShaders/experiments/text_button.tscn" id="5_kvd6m"]
@@ -76,54 +76,63 @@ columns = 5
 
 [node name="LevelButtonContainer" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=1337617322 instance=ExtResource("3_ktsqk")]
 layout_mode = 2
+scene = "res://scenes/Levels/Level 1 - Red March.tscn"
 
 [node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer/TextureRect" parent_id_path=PackedInt32Array(1337617322, 223155095) index="0" unique_id=2052369212]
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 
 [node name="LevelButtonContainer2" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=410175266 instance=ExtResource("3_ktsqk")]
 layout_mode = 2
+scene = "res://scenes/Levels/Level 2 - The Colorful Dragon.tscn"
 
 [node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer2/TextureRect" parent_id_path=PackedInt32Array(410175266, 223155095) index="0" unique_id=2052369212]
 text = "2"
 
 [node name="LevelButtonContainer3" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=1739438811 instance=ExtResource("3_ktsqk")]
 layout_mode = 2
+scene = "res://scenes/Levels/Level 3 - The Outcast.tscn"
 
 [node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer3/TextureRect" parent_id_path=PackedInt32Array(1739438811, 223155095) index="0" unique_id=2052369212]
 text = "3"
 
 [node name="LevelButtonContainer4" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=578031238 instance=ExtResource("3_ktsqk")]
 layout_mode = 2
+scene = "res://scenes/Levels/Level 4 - The Outcasts, 2.tscn"
 
 [node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer4/TextureRect" parent_id_path=PackedInt32Array(578031238, 223155095) index="0" unique_id=2052369212]
 text = "4"
 
 [node name="LevelButtonContainer5" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=660683365 instance=ExtResource("3_ktsqk")]
 layout_mode = 2
+scene = "res://scenes/Levels/Level 5 - One Small Step For Cubes.tscn"
 
 [node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer5/TextureRect" parent_id_path=PackedInt32Array(660683365, 223155095) index="0" unique_id=2052369212]
 text = "5"
 
 [node name="LevelButtonContainer6" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=1405313634 instance=ExtResource("3_ktsqk")]
 layout_mode = 2
+scene = "res://scenes/Levels/Level 6 - Three Suns.tscn"
 
 [node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer6/TextureRect" parent_id_path=PackedInt32Array(1405313634, 223155095) index="0" unique_id=2052369212]
 text = "6"
 
 [node name="LevelButtonContainer7" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=1468229855 instance=ExtResource("3_ktsqk")]
 layout_mode = 2
+scene = "res://scenes/Levels/Level 7 - Clean Duck.tscn"
 
 [node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer7/TextureRect" parent_id_path=PackedInt32Array(1468229855, 223155095) index="0" unique_id=2052369212]
 text = "7"
 
 [node name="LevelButtonContainer8" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=1085552545 instance=ExtResource("3_ktsqk")]
 layout_mode = 2
+scene = "res://scenes/Levels/Level 8 - Interlocked.tscn"
 
 [node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer8/TextureRect" parent_id_path=PackedInt32Array(1085552545, 223155095) index="0" unique_id=2052369212]
 text = "8"
 
 [node name="LevelButtonContainer9" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=1781913195 instance=ExtResource("3_ktsqk")]
 layout_mode = 2
+scene = "res://scenes/Levels/Level 9 - Kaleidoscope.tscn"
 
 [node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer9/TextureRect" parent_id_path=PackedInt32Array(1781913195, 223155095) index="0" unique_id=2052369212]
 text = "9"

@@ -27,3 +27,5 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "1"
 flat = true
+
+[connection signal="pressed" from="TextureRect/Button" to="." method="_onSceneSelected"]

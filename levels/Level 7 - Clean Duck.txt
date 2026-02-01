@@ -10,6 +10,6 @@ xxx
 xxx
 xxx
 
-3xx
+300
 888
-x2x
+020

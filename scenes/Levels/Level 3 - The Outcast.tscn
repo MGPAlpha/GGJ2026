@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://o35p86cwfgfo"]
+
+[ext_resource type="PackedScene" uid="uid://su36uk0e7wt" path="res://prefabs/board.tscn" id="1_bk7an"]
+[ext_resource type="Script" uid="uid://c1jpop7rnvfvy" path="res://scripts/playercontroller.gd" id="2_xgher"]
+[ext_resource type="Script" path="res://scripts/goaldisplay.gd" id="3_7y5aj"]
+
+[sub_resource type="Environment" id="Environment_uh120"]
+volumetric_fog_enabled = true
+
+[node name="Leveltest" type="Node3D" unique_id=1059751183]
+
+[node name="Board" parent="." unique_id=285819464 instance=ExtResource("1_bk7an")]
+level = "res://levels/Level 3 - The Outcast.txt"
+
+[node name="Node" type="Node" parent="Board" unique_id=1132342733]
+script = ExtResource("2_xgher")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1366276693]
+transform = Transform3D(0.9688733, -7.2186688e-09, 0.24755709, -0.15397938, 0.78302085, 0.6026348, -0.19384237, -0.62199545, 0.75864804, 2.8010406, 5.6248302, 6.839347)
+projection = 1
+size = 12.0
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=135356185]
+transform = Transform3D(-0.9688734, -4.5941903e-08, -0.247557, -0.15397938, 0.7830209, 0.60263485, 0.19384219, 0.62199575, -0.7586479, -3.047193, 0, 6.605297)
+light_energy = 3.385
+light_volumetric_fog_energy = 0.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1171788602]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.390832, 9.337826, 0.13924217)
+light_energy = 5.0
+shadow_enabled = true
+spot_range = 18.217
+spot_angle = 31.01
+spot_angle_attenuation = 0.062500216
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1700375827]
+environment = SubResource("Environment_uh120")
+
+[node name="Control" type="Control" parent="." unique_id=392119172]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -233.0
+offset_bottom = 233.0
+grow_horizontal = 0
+script = ExtResource("3_7y5aj")
+
+[connection signal="goal_set" from="Board" to="Control" method="_on_goal_set"]

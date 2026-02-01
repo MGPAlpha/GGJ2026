@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://50fflfoc5tv8"
-path="res://.godot/imported/NoPassableTile.blend-3ef28299a172be404350080fdebeb3b5.scn"
+valid=false
 
 [deps]
 
 source_file="res://models/NoPassableTile.blend"
-dest_files=["res://.godot/imported/NoPassableTile.blend-3ef28299a172be404350080fdebeb3b5.scn"]
 
 [params]
 
