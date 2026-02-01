@@ -10,3 +10,4 @@ func _ready():
 		new_button.button.pressed.connect(func(): LevelManager.play_level(i))
 		new_button.button.text = str(i+1)
 		level_button_grid.add_child(new_button)
+	level_button_grid.get_child(0).get_child(0).get_child(0).grab_focus()

@@ -4,7 +4,7 @@ class_name Board extends Node3D
 @export var size: Vector2i = Vector2i(3,3)
 @export var start: Vector2i = Vector2i(0,0)
 @export var grid_tile_size: Vector2 = Vector2.ONE
-@export var colors : Array[Color] = [Color.RED, Color.DARK_ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE, Color.PURPLE, Color.DARK_GRAY, Color.BLACK,Color.SADDLE_BROWN]
+@export var colors : Array[Color] = [Color.RED, Color.DARK_ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE, Color.PURPLE, Color.WHITE, Color.DARK_GREEN, Color.SADDLE_BROWN]
 @export var tile_height: float = .7
 
 @export_file("*.txt") var level: String
@@ -204,7 +204,7 @@ func check_for_solve():
 		for i in row.size():
 			var tile = row[i]
 			if tile and tile.mode == BoardTileData.TileMode.BASIC:
-				if goal_colors[j][i] > -1 and goal_colors[j][i] != tile.color_index:
+				if (goal_colors[j][i] is int and goal_colors[j][i] > -1) and goal_colors[j][i] != tile.color_index:
 					print("Failed solve at (", i, ",", j, ") Color is ", tile.color_index, " and should be ", goal_colors[j][i])
 					return false
 	solved.emit()
