@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://biflqvp1kmsl4"]
 
 [ext_resource type="Script" uid="uid://desto8mysbhyq" path="res://scripts/ui/levelSelectButton.gd" id="1_83i0v"]
-[ext_resource type="Texture2D" uid="uid://cm80h3p70frmm" path="res://assets/jadeLearningShaders/experiments/materials/levelButton.png" id="1_tt3xn"]
+[ext_resource type="Texture2D" uid="uid://cm80h3p70frmm" path="res://ui/levelButton.png" id="1_tt3xn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_83i0v"]
 

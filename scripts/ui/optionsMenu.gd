@@ -4,6 +4,9 @@ extends Control
 @export var music_slider : HSlider
 @export var sound_effects_slider : HSlider
 
+@export var options_container : Control
+@export var credits_container : Control
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,6 +22,15 @@ func _showOptionsMenu() -> void:
 	
 func _hideOptionsMenu() -> void:
 	visible = false
+	_hideCredits()
+	
+func _showCredits() -> void:
+	options_container.visible = false
+	credits_container.visible = true
+	
+func _hideCredits() -> void:
+	options_container.visible = true
+	credits_container.visible = false
 	
 func _changeMasterVolume(volume : float) -> void:
 	_changeVolume(volume, "Master")
