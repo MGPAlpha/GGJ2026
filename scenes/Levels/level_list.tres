@@ -11,8 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://cfdwbpblhylyn" path="res://scenes/Levels/The Kaleidoscope.tscn" id="8_lhout"]
 [ext_resource type="PackedScene" uid="uid://bhw43a6afb2ow" path="res://scenes/Levels/Snake.tscn" id="9_vjsa3"]
 [ext_resource type="PackedScene" uid="uid://qjm83ycqm0sf" path="res://scenes/Levels/Flowers.tscn" id="10_tfrvq"]
+[ext_resource type="PackedScene" uid="uid://buagg7eycwoyh" path="res://scenes/Levels/The Girl and Her Bow.tscn" id="10_wxf5x"]
 
 [resource]
 script = ExtResource("1_6o146")
-level_list = Array[PackedScene]([ExtResource("1_x4krk"), ExtResource("2_tfrvq"), ExtResource("5_melo0"), ExtResource("6_nq71y"), ExtResource("9_vjsa3"), ExtResource("8_lhout"), ExtResource("3_wxf5x"), ExtResource("7_pi5if"), ExtResource("4_7kkan"), ExtResource("10_tfrvq")])
+level_list = Array[PackedScene]([ExtResource("1_x4krk"), ExtResource("2_tfrvq"), ExtResource("5_melo0"), ExtResource("6_nq71y"), ExtResource("9_vjsa3"), ExtResource("8_lhout"), ExtResource("3_wxf5x"), ExtResource("4_7kkan"), ExtResource("7_pi5if"), ExtResource("10_wxf5x"), ExtResource("10_tfrvq")])
 metadata/_custom_type_script = "uid://ci7osms5d8jri"
