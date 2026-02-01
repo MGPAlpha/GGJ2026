@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://s4oclnudewsw"]
+
+[ext_resource type="PackedScene" uid="uid://c7ioi55tw7e22" path="res://models/basin.glb" id="2_3tpai"]
+[ext_resource type="Texture2D" uid="uid://14yqfa5iq66y" path="res://materials/wood1.jpg" id="2_4hy77"]
+[ext_resource type="Shader" uid="uid://cybhflb3s8ofd" path="res://materials/paint_basin.tres" id="3_4hy77"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mrcix"]
+albedo_color = Color(0.5075915, 0.5075915, 0.5075915, 1)
+albedo_texture = ExtResource("2_4hy77")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mrcix"]
+render_priority = 0
+shader = ExtResource("3_4hy77")
+shader_parameter/ColorParameter = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yhqha"]
+size = Vector3(1, 0.2, 1)
+
+[node name="BasinTile" type="Node3D" unique_id=349656334]
+
+[node name="basin" parent="." unique_id=85902822 instance=ExtResource("2_3tpai")]
+transform = Transform3D(0.435, 0, 0, 0, 0.995, 0, 0, 0, 0.435, 0, 0, 0)
+
+[node name="Cube" parent="basin" index="0" unique_id=534716950]
+material_override = SubResource("StandardMaterial3D_mrcix")
+
+[node name="Cube_001" parent="basin" index="1" unique_id=1031486539]
+material_override = SubResource("ShaderMaterial_mrcix")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1110047571]
+visible = false
+mesh = SubResource("BoxMesh_yhqha")
+
+[editable path="basin"]

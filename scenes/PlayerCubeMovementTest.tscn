@@ -1,10 +1,18 @@
-[gd_scene format=3 uid="uid://cvfltu4t4b374"]
+[gd_scene format=3 uid="uid://odgsptb22b3o"]
 
-[ext_resource type="PackedScene" uid="uid://cip42bjuvuqqx" path="res://prefabs/player_cubue.tscn" id="1_j62ry"]
+[ext_resource type="PackedScene" uid="uid://bgy210lgh5ts7" path="res://prefabs/player_cubue.tscn" id="1_j62ry"]
 
 [node name="PlayerCubeMovementTest" type="Node3D" unique_id=1725359515]
 
-[node name="PlayerCube" parent="." unique_id=1938742768 instance=ExtResource("1_j62ry")]
+[node name="PlayerCube" parent="." unique_id=1938742768 node_paths=PackedStringArray("cube_sides") instance=ExtResource("1_j62ry")]
+cube_sides = {
+Vector3i(-1, 0, 0): NodePath("CubeMesh/NewCubeFaces/SpongSide4"),
+Vector3i(0, -1, 0): NodePath("CubeMesh/NewCubeFaces/SpongeBot"),
+Vector3i(0, 0, -1): NodePath("CubeMesh/NewCubeFaces/SpongeSide2"),
+Vector3i(0, 0, 1): NodePath("CubeMesh/NewCubeFaces/SpongeSide1"),
+Vector3i(0, 1, 0): NodePath("CubeMesh/NewCubeFaces/SpongeTop"),
+Vector3i(1, 0, 0): NodePath("CubeMesh/NewCubeFaces/SpongeSide3")
+}
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1703102584]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42366534, 1.6827905)

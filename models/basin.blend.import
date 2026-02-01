@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c2r0is103d278"
-path="res://.godot/imported/Sponge.blend-794b063943e3b7f3b8746e54658c0924.scn"
+uid="uid://dhf1pttv3cblf"
+path="res://.godot/imported/basin.blend-6473c738ff51ea3cb0314fc97f6880bb.scn"
 
 [deps]
 
-source_file="res://models/Sponge.blend"
-dest_files=["res://.godot/imported/Sponge.blend-794b063943e3b7f3b8746e54658c0924.scn"]
+source_file="res://models/basin.blend"
+dest_files=["res://.godot/imported/basin.blend-6473c738ff51ea3cb0314fc97f6880bb.scn"]
 
 [params]
 
