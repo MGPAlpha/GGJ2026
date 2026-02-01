@@ -6,7 +6,7 @@
 [node name="Leveltest" type="Node3D" unique_id=1059751183]
 
 [node name="Board" parent="." unique_id=285819464 instance=ExtResource("1_uh120")]
-level = "res://levels/Level 2 - The Colorful Dragon.txt"
+level = "res://levels/Level 5 - One Small Step for Cubes.txt"
 
 [node name="Node" type="Node" parent="Board" unique_id=1132342733]
 script = ExtResource("2_xj5b5")

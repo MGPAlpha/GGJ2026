@@ -107,7 +107,7 @@ func load_level_file(path: String):
 		for i in len(curr_line):
 			if i >= size.x: break
 			if curr_line[i].is_valid_int():
-				var tile = tiles[i][j]
+				var tile = tiles[j][i]
 				if !tile: continue
 				var color = parse_color_index(curr_line[i])
 				paint_tile(tile, color)
