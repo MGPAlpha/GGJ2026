@@ -5,6 +5,7 @@ class_name BoardTile extends Node3D
 @export var basic_mesh: MeshInstance3D
 @export var source_mesh: MeshInstance3D
 @export var clean_mesh: MeshInstance3D
+@export var inert_mesh: MeshInstance3D
 
 var basic_material: StandardMaterial3D
 var source_material: StandardMaterial3D
@@ -25,6 +26,7 @@ func _ready() -> void:
 	clean_mesh.material_override = clean_material
 	clean_material.albedo_color = default_color
 	clean_mesh.visible = false
+	inert_mesh.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -43,3 +45,5 @@ func set_mode(mode: BoardTileData.TileMode):
 			source_mesh.visible = true
 		BoardTileData.TileMode.CLEAN:
 			clean_mesh.visible = true
+		BoardTileData.TileMode.INERT:
+			inert_mesh.visible = true

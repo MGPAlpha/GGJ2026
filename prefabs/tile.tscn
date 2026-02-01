@@ -11,11 +11,15 @@ size = Vector3(1, 0.3, 1)
 [sub_resource type="CylinderMesh" id="CylinderMesh_nsn1e"]
 height = 0.2
 
-[node name="Tile" type="Node3D" unique_id=349656334 node_paths=PackedStringArray("basic_mesh", "source_mesh", "clean_mesh")]
+[sub_resource type="BoxMesh" id="BoxMesh_awyw7"]
+size = Vector3(0.75, 0.2, 0.75)
+
+[node name="Tile" type="Node3D" unique_id=349656334 node_paths=PackedStringArray("basic_mesh", "source_mesh", "clean_mesh", "inert_mesh")]
 script = ExtResource("1_nsn1e")
 basic_mesh = NodePath("BasicTileMesh")
 source_mesh = NodePath("SourceTileMesh")
 clean_mesh = NodePath("CleanTileMesh")
+inert_mesh = NodePath("InertTileMesh")
 
 [node name="BasicTileMesh" type="MeshInstance3D" parent="." unique_id=1110047571]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
@@ -30,3 +34,7 @@ mesh = SubResource("BoxMesh_nsn1e")
 [node name="CleanTileMesh" type="MeshInstance3D" parent="." unique_id=873354267]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 mesh = SubResource("CylinderMesh_nsn1e")
+
+[node name="InertTileMesh" type="MeshInstance3D" parent="." unique_id=2127790849]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0.1, 0)
+mesh = SubResource("BoxMesh_awyw7")

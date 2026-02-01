@@ -69,7 +69,7 @@ func load_level_file(path: String):
 		for i in len(line):
 			var tile_val = line[i]
 			match tile_val:
-				"P", "o", "S", "C":
+				"P", "o", "S", "C", "I":
 					var new_tile = BoardTileData.new()
 					new_tile.position = Vector2i(i,j)
 					new_tile.color_index = -1
@@ -80,6 +80,8 @@ func load_level_file(path: String):
 							new_tile.mode = BoardTileData.TileMode.SOURCE
 						"C":
 							new_tile.mode = BoardTileData.TileMode.CLEAN
+						"I":
+							new_tile.mode = BoardTileData.TileMode.INERT
 					var new_tile_node = tile_prefab.instantiate()
 					new_tile_node.name = "Tile (" + str(i) + "," + str(j) + ")"
 					new_tile_node.position = Vector3(i*grid_tile_size.x, 0, j*grid_tile_size.y)
