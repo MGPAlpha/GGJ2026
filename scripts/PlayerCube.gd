@@ -9,7 +9,7 @@ class_name PlayerCube extends Node3D
 @export var roll_speed : float
 @export var rotate_speed : float
 @export var default_color: Color = Color.WHITE
-@export var default_pattern: Texture2D
+@export var default_pattern: Texture2D = preload("uid://bk45nmg2csjo3")
 
 @export var cube_sides: Dictionary[Vector3i, MeshInstance3D] = {
 	Vector3i.UP: null,
