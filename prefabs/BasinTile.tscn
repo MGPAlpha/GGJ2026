@@ -11,24 +11,18 @@ albedo_texture = ExtResource("2_4hy77")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mrcix"]
 render_priority = 0
 shader = ExtResource("3_4hy77")
-shader_parameter/ColorParameter = Color(0, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_yhqha"]
-size = Vector3(1, 0.2, 1)
+shader_parameter/PaintColor = Color(0.666683, 0, 0, 1)
+shader_parameter/RandomID = 0.0
 
 [node name="BasinTile" type="Node3D" unique_id=349656334]
 
-[node name="basin" parent="." unique_id=85902822 instance=ExtResource("2_3tpai")]
+[node name="basin" parent="." unique_id=599942945 instance=ExtResource("2_3tpai")]
 transform = Transform3D(0.435, 0, 0, 0, 0.995, 0, 0, 0, 0.435, 0, 0, 0)
 
-[node name="Cube" parent="basin" index="0" unique_id=534716950]
+[node name="Cube" parent="basin" index="0" unique_id=1552736795]
 material_override = SubResource("StandardMaterial3D_mrcix")
 
-[node name="Cube_001" parent="basin" index="1" unique_id=1031486539]
+[node name="Cube_001" parent="basin" index="1" unique_id=1299655878]
 material_override = SubResource("ShaderMaterial_mrcix")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1110047571]
-visible = false
-mesh = SubResource("BoxMesh_yhqha")
 
 [editable path="basin"]

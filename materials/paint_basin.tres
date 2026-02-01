@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://vblx8i1b5eiw" path="res://addons/shaderV/rgba/noise/generic2d.gd" id="1_w725s"]
 [ext_resource type="Script" uid="uid://5op3frt7lil7" path="res://addons/shaderV/rgba/noise/perlin2d.gd" id="2_0y8oq"]
+[ext_resource type="Script" uid="uid://ch18kc76yfipt" path="res://addons/shaderV/tools/random/hash2d.gd" id="3_41r8j"]
 
 [sub_resource type="VisualShaderNodeCustom" id="VisualShaderNodeCustom_0yvpl"]
 default_input_values = [1, Vector3(0, 0, 0), 2, 5.0]
@@ -12,14 +13,14 @@ script = ExtResource("1_w725s")
 operator = 2
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_41r8j"]
-constant = 0.01
+constant = 0.071
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_w725s"]
 constant = 0.5
 
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_0y8oq"]
 expanded_output_ports = [0]
-parameter_name = "ColorParameter"
+parameter_name = "PaintColor"
 default_value_enabled = true
 default_value = Color(0.66668326, 0, 0, 1)
 
@@ -66,9 +67,20 @@ output_port_for_preview = 0
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_0y8oq"]
 constant = 0.5
 
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_0y8oq"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(2, 2, 2)]
+operator = 3
+
+[sub_resource type="VisualShaderNodeCustom" id="VisualShaderNodeCustom_olvck"]
+initialized = true
+script = ExtResource("3_41r8j")
+
 [sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_xlptt"]
 parameter_name = "Paint"
 color_default = 1
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_umm80"]
+parameter_name = "RandomID"
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_0yvpl"]
 input_name = "uv"
@@ -117,7 +129,7 @@ nodes/fragment/13/position = Vector2(666.6667, 373.33334)
 nodes/fragment/14/node = SubResource("VisualShaderNodeFloatConstant_w725s")
 nodes/fragment/14/position = Vector2(666.6667, 586.6667)
 nodes/fragment/15/node = SubResource("VisualShaderNodeColorParameter_0y8oq")
-nodes/fragment/15/position = Vector2(520, 0)
+nodes/fragment/15/position = Vector2(200, -26.666666)
 nodes/fragment/16/node = SubResource("VisualShaderNodeCustom_41r8j")
 nodes/fragment/16/position = Vector2(-1266.6666, 813.3333)
 nodes/fragment/17/node = SubResource("VisualShaderNodeVectorCompose_olvck")
@@ -142,4 +154,10 @@ nodes/fragment/26/node = SubResource("VisualShaderNodeVectorCompose_m0h1r")
 nodes/fragment/26/position = Vector2(706.6667, 973.3333)
 nodes/fragment/27/node = SubResource("VisualShaderNodeFloatConstant_0y8oq")
 nodes/fragment/27/position = Vector2(626.6667, 733.3333)
-nodes/fragment/connections = PackedInt32Array(2, 0, 5, 2, 4, 0, 5, 0, 3, 0, 6, 2, 4, 0, 6, 0, 5, 0, 7, 0, 6, 0, 7, 1, 6, 4, 7, 2, 6, 0, 8, 0, 10, 0, 9, 1, 8, 0, 9, 0, 9, 0, 11, 0, 6, 4, 11, 1, 13, 0, 0, 3, 14, 0, 0, 4, 15, 0, 0, 0, 16, 0, 19, 1, 16, 0, 22, 0, 20, 0, 23, 0, 23, 0, 21, 1, 17, 0, 18, 0, 18, 0, 24, 0, 25, 0, 26, 0, 25, 1, 26, 2, 25, 2, 26, 1, 24, 0, 25, 0, 22, 0, 17, 0, 23, 0, 17, 2, 26, 0, 0, 9, 27, 0, 0, 10)
+nodes/fragment/28/node = SubResource("VisualShaderNodeVectorOp_0y8oq")
+nodes/fragment/28/position = Vector2(586.6667, -40)
+nodes/fragment/29/node = SubResource("VisualShaderNodeCustom_olvck")
+nodes/fragment/29/position = Vector2(-1573.3334, 1093.3334)
+nodes/fragment/30/node = SubResource("VisualShaderNodeFloatParameter_umm80")
+nodes/fragment/30/position = Vector2(-1866.6666, 1040)
+nodes/fragment/connections = PackedInt32Array(2, 0, 5, 2, 4, 0, 5, 0, 3, 0, 6, 2, 4, 0, 6, 0, 5, 0, 7, 0, 6, 0, 7, 1, 6, 4, 7, 2, 6, 0, 8, 0, 10, 0, 9, 1, 8, 0, 9, 0, 9, 0, 11, 0, 6, 4, 11, 1, 13, 0, 0, 3, 14, 0, 0, 4, 16, 0, 19, 1, 16, 0, 22, 0, 20, 0, 23, 0, 23, 0, 21, 1, 17, 0, 18, 0, 18, 0, 24, 0, 25, 0, 26, 0, 25, 1, 26, 2, 25, 2, 26, 1, 24, 0, 25, 0, 22, 0, 17, 0, 23, 0, 17, 2, 26, 0, 0, 9, 27, 0, 0, 10, 15, 0, 28, 0, 28, 0, 0, 0, 30, 0, 29, 0, 29, 0, 16, 1, 29, 0, 20, 1)

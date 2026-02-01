@@ -1,12 +1,19 @@
 [gd_scene format=3 uid="uid://80jnkij6f1xr"]
 
 [ext_resource type="Script" uid="uid://b52ybcjcb8kxn" path="res://scripts/boardtile.gd" id="1_nsn1e"]
+[ext_resource type="Shader" uid="uid://cybhflb3s8ofd" path="res://materials/paint_basin.tres" id="2_g4m2s"]
+[ext_resource type="PackedScene" uid="uid://by7im1i4lippo" path="res://models/basin_canvas_tile.blend" id="2_mekmq"]
+[ext_resource type="Texture2D" uid="uid://14yqfa5iq66y" path="res://materials/wood1.jpg" id="3_fns28"]
+[ext_resource type="PackedScene" uid="uid://c3d1geeg3i3o6" path="res://models/canvas_tile.glb" id="5_pa3ds"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_yhqha"]
-size = Vector3(1, 0.2, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_msfd0"]
+albedo_texture = ExtResource("3_fns28")
 
-[sub_resource type="BoxMesh" id="BoxMesh_nsn1e"]
-size = Vector3(1, 0.3, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jtu3l"]
+render_priority = 0
+shader = ExtResource("2_g4m2s")
+shader_parameter/PaintColor = Color(0.666683, 0, 0, 1)
+shader_parameter/RandomID = 0.0
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_nsn1e"]
 height = 0.2
@@ -14,27 +21,34 @@ height = 0.2
 [sub_resource type="BoxMesh" id="BoxMesh_awyw7"]
 size = Vector3(0.75, 0.2, 0.75)
 
-[node name="Tile" type="Node3D" unique_id=349656334 node_paths=PackedStringArray("basic_mesh", "source_mesh", "clean_mesh", "inert_mesh")]
+[node name="Tile" type="Node3D" unique_id=349656334 node_paths=PackedStringArray("basic_mesh", "basic_canvas_mesh", "source_mesh", "source_basin_mesh", "clean_mesh", "inert_mesh")]
 script = ExtResource("1_nsn1e")
 basic_mesh = NodePath("BasicTileMesh")
+basic_canvas_mesh = NodePath("BasicTileMesh/Cube")
 source_mesh = NodePath("SourceTileMesh")
+source_basin_mesh = NodePath("SourceTileMesh/Cube_001")
 clean_mesh = NodePath("CleanTileMesh")
 inert_mesh = NodePath("InertTileMesh")
 
-[node name="BasicTileMesh" type="MeshInstance3D" parent="." unique_id=1110047571]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-visible = false
-mesh = SubResource("BoxMesh_yhqha")
+[node name="SourceTileMesh" parent="." unique_id=1457927722 instance=ExtResource("2_mekmq")]
 
-[node name="SourceTileMesh" type="MeshInstance3D" parent="." unique_id=1025773180]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+[node name="Cube" parent="SourceTileMesh" index="0" unique_id=309692344]
+material_override = SubResource("StandardMaterial3D_msfd0")
+
+[node name="Cube_001" parent="SourceTileMesh" index="1" unique_id=459545424]
+material_override = SubResource("ShaderMaterial_jtu3l")
+
+[node name="BasicTileMesh" parent="." unique_id=2039495511 instance=ExtResource("5_pa3ds")]
 visible = false
-mesh = SubResource("BoxMesh_nsn1e")
 
 [node name="CleanTileMesh" type="MeshInstance3D" parent="." unique_id=873354267]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+visible = false
 mesh = SubResource("CylinderMesh_nsn1e")
 
 [node name="InertTileMesh" type="MeshInstance3D" parent="." unique_id=2127790849]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0.1, 0)
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
+visible = false
 mesh = SubResource("BoxMesh_awyw7")
+
+[editable path="SourceTileMesh"]
+[editable path="BasicTileMesh"]
