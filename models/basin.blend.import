@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dhf1pttv3cblf"
-valid=false
+path="res://.godot/imported/basin.blend-6473c738ff51ea3cb0314fc97f6880bb.scn"
 
 [deps]
 
 source_file="res://models/basin.blend"
+dest_files=["res://.godot/imported/basin.blend-6473c738ff51ea3cb0314fc97f6880bb.scn"]
 
 [params]
 

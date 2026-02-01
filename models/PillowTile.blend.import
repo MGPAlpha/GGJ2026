@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bvsh12oie40j2"
-valid=false
+path="res://.godot/imported/PillowTile.blend-95ea415f95a3f3ffe763b91cc6102c6c.scn"
 
 [deps]
 
 source_file="res://models/PillowTile.blend"
+dest_files=["res://.godot/imported/PillowTile.blend-95ea415f95a3f3ffe763b91cc6102c6c.scn"]
 
 [params]
 

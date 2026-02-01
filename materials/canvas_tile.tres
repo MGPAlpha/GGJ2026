@@ -1,0 +1,19 @@
+[gd_resource type="VisualShader" format=3 uid="uid://621pavsppj0w"]
+
+[ext_resource type="Script" uid="uid://8m073yiwneks" path="res://addons/shaderV/rgba/noise/worley2d.gd" id="1_m6grl"]
+
+[sub_resource type="VisualShaderNodeCustom" id="VisualShaderNodeCustom_yeqjb"]
+output_port_for_preview = 0
+default_input_values = [1, Vector3(0, 0, 0), 2, 5.0, 3, 1.0]
+initialized = true
+script = ExtResource("1_m6grl")
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_flefl"]
+constant = Color(0.60166705, 0.37280786, 0.8512916, 1)
+
+[resource]
+nodes/fragment/2/node = SubResource("VisualShaderNodeCustom_yeqjb")
+nodes/fragment/2/position = Vector2(-360, 533.3333)
+nodes/fragment/3/node = SubResource("VisualShaderNodeColorConstant_flefl")
+nodes/fragment/3/position = Vector2(-13.333333, 306.66666)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 9, 3, 0, 0, 0)

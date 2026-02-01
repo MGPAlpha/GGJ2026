@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://doawyu7jcn5xs"]
+[gd_scene format=3 uid="uid://djga7buyfsv0q"]
 
 [ext_resource type="Texture2D" uid="uid://bhsngqautd8ah" path="res://assets/jadeLearningShaders/experiments/materials/levelSelectBackground.png" id="1_ct0ao"]
 [ext_resource type="Script" uid="uid://cyxfsttj4ei1j" path="res://scripts/ui/FocusGrabber.gd" id="1_v2dnw"]
 [ext_resource type="FontFile" uid="uid://bb8oel34x8uv4" path="res://assets/jadeLearningShaders/experiments/Painter Dude.otf" id="2_ktsqk"]
-[ext_resource type="PackedScene" uid="uid://cyfrcl713bjwu" path="res://assets/jadeLearningShaders/experiments/LevelButton.tscn" id="3_ktsqk"]
+[ext_resource type="PackedScene" path="res://assets/jadeLearningShaders/experiments/LevelButton.tscn" id="3_ktsqk"]
 [ext_resource type="PackedScene" uid="uid://e050bqiinmgc" path="res://assets/jadeLearningShaders/experiments/text_button.tscn" id="5_kvd6m"]
 [ext_resource type="Script" uid="uid://desto8mysbhyq" path="res://scripts/ui/levelSelectButton.gd" id="6_kvd6m"]
 
@@ -173,13 +173,14 @@ layout_mode = 2
 [node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer15/TextureRect" parent_id_path=PackedInt32Array(1320398199, 223155095) index="0" unique_id=2052369212]
 text = "15"
 
-[node name="Control" parent="VBoxContainer" unique_id=440904901 instance=ExtResource("5_kvd6m")]
+[node name="Control" parent="VBoxContainer" unique_id=440904901 node_paths=PackedStringArray("button") instance=ExtResource("5_kvd6m")]
 layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 8
 ratio = 0.5
 stretch_mode = 1
 alignment_vertical = 0
+button = NodePath("TextureRect/Button")
 
 [node name="Button" parent="VBoxContainer/Control/TextureRect" parent_id_path=PackedInt32Array(440904901, 1425206597) index="0" unique_id=2023860768]
 scale = Vector2(1, 0.93453956)

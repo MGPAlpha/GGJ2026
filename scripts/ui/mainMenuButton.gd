@@ -1,10 +1,13 @@
 extends Node
 
 @export var background : TextureRect
+@export var button : Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	background.material = background.material.duplicate()
+	button.add_theme_color_override("font_focus_color", Color.RED)
+	button.add_theme_color_override("font_hover_color", Color.RED)
 	_offHover()
 
 
@@ -14,6 +17,7 @@ func _process(delta: float) -> void:
 	
 func _onHover() -> void:
 	var shaderMaterial = background.material as ShaderMaterial
+	
 	#shaderMaterial.set_shader_parameter("amplitude", 0.0)
 	#print(shaderMaterial.get_shader_parameter("amplitude"))
 	
