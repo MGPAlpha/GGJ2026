@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cgwaeaetsqb0h" path="res://models/Sponge.glb" id="2_njf18"]
 [ext_resource type="Texture2D" uid="uid://14yqfa5iq66y" path="res://materials/wood1.jpg" id="3_wtdy0"]
 [ext_resource type="Shader" uid="uid://04xacuu2abva" path="res://materials/sponge.tres" id="4_oyako"]
+[ext_resource type="AudioStream" uid="uid://qi7hvkps431k" path="res://assets/music/sax_honk_short.wav" id="5_oyako"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_71dh6"]
 albedo_texture = ExtResource("3_wtdy0")
@@ -305,9 +306,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7mykx")
 
-[node name="PlayerCube" type="Node3D" unique_id=1938742768 node_paths=PackedStringArray("cube", "pivot_point", "cube_sides")]
+[node name="PlayerCube" type="Node3D" unique_id=1938742768 node_paths=PackedStringArray("audio_player", "cube", "pivot_point", "cube_sides")]
 rotation_edit_mode = 1
 script = ExtResource("1_3cj4c")
+audio_player = NodePath("AudioStreamPlayer3D")
 cube_angles = Quaternion(0, 0, 0.7, 0)
 cube = NodePath("CubeMesh/NewCubeFaces")
 pivot_point = NodePath("CubeMesh")
@@ -329,31 +331,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 [node name="NewCubeFaces" parent="CubeMesh" unique_id=1367083900 instance=ExtResource("2_njf18")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
-[node name="Cube" parent="CubeMesh/NewCubeFaces" index="0" unique_id=1028148159]
+[node name="Cube" parent="CubeMesh/NewCubeFaces" index="0" unique_id=1140083342]
 material_override = SubResource("StandardMaterial3D_71dh6")
 mesh = SubResource("ArrayMesh_cronv")
 
-[node name="SpongeSide1" parent="CubeMesh/NewCubeFaces" index="1" unique_id=825238151]
+[node name="SpongeSide1" parent="CubeMesh/NewCubeFaces" index="1" unique_id=1513592383]
 material_override = SubResource("ShaderMaterial_t241o")
 mesh = SubResource("ArrayMesh_qitry")
 
-[node name="SpongeSide2" parent="CubeMesh/NewCubeFaces" index="2" unique_id=199691992]
+[node name="SpongeSide2" parent="CubeMesh/NewCubeFaces" index="2" unique_id=1055875876]
 material_override = SubResource("ShaderMaterial_wtdy0")
 mesh = SubResource("ArrayMesh_fshxg")
 
-[node name="SpongeSide3" parent="CubeMesh/NewCubeFaces" index="3" unique_id=2100937750]
+[node name="SpongeSide3" parent="CubeMesh/NewCubeFaces" index="3" unique_id=156273048]
 material_override = SubResource("ShaderMaterial_oyako")
 mesh = SubResource("ArrayMesh_mgsj1")
 
-[node name="SpongSide4" parent="CubeMesh/NewCubeFaces" index="4" unique_id=388909239]
+[node name="SpongSide4" parent="CubeMesh/NewCubeFaces" index="4" unique_id=48232894]
 material_override = SubResource("ShaderMaterial_71dh6")
 mesh = SubResource("ArrayMesh_t85h6")
 
-[node name="SpongeTop" parent="CubeMesh/NewCubeFaces" index="5" unique_id=1680050860]
+[node name="SpongeTop" parent="CubeMesh/NewCubeFaces" index="5" unique_id=1976549600]
 material_override = SubResource("ShaderMaterial_0vob3")
 mesh = SubResource("ArrayMesh_d1vxw")
 
-[node name="SpongeBot" parent="CubeMesh/NewCubeFaces" index="6" unique_id=967577561]
+[node name="SpongeBot" parent="CubeMesh/NewCubeFaces" index="6" unique_id=347924803]
 material_override = SubResource("ShaderMaterial_06wr6")
 mesh = SubResource("ArrayMesh_cxg6n")
 
@@ -361,5 +363,8 @@ mesh = SubResource("ArrayMesh_cxg6n")
 transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.1, 0, 0, 0.95)
 material_override = SubResource("ShaderMaterial_t241o")
 mesh = SubResource("ArrayMesh_qitry")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1053450864]
+stream = ExtResource("5_oyako")
 
 [editable path="CubeMesh/NewCubeFaces"]

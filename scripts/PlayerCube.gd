@@ -1,5 +1,7 @@
 class_name PlayerCube extends Node3D
 
+@export var audio_player : AudioStreamPlayer3D
+
 @export var cube_angles : Quaternion
 @export var cube : Node3D
 @export var pivot_point : Node3D
@@ -32,6 +34,8 @@ func rotate_cube(new_position : Vector3, new_quaternion : Quaternion):
 	tween.tween_property(cube, "quaternion", new_quaternion, roll_speed)
 	tween.tween_method(roll_height, 0.0, 1.0, roll_speed)
 	await tween.finished
+	playNote()
+	
 
 func roll(w: float, f: Basis, t: Basis) -> void:
 	cube.global_transform.basis = f.slerp(t, w)
@@ -57,3 +61,9 @@ func pop_out_cube(new_position: Vector3, new_rotation: Quaternion):
 	tween.tween_property(self, "position", new_position, rotate_speed)
 	tween.tween_property(cube, "quaternion", new_rotation, rotate_speed)
 	await tween.finished
+	
+func playNote() -> void:
+	var rand_pitch = 1.0 + (float(randi_range(-6, 6)) * pow(2.0, 1.0/12.0)) / 12.0
+	audio_player.pitch_scale = rand_pitch;
+	audio_player.play(0.0)
+	print("Honk Pitch: ", rand_pitch)
