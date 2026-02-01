@@ -1,27 +1,31 @@
-[gd_scene format=3 uid="uid://doawyu7jcn5xs"]
+[gd_scene format=3 uid="uid://djga7buyfsv0q"]
 
 [ext_resource type="Texture2D" uid="uid://bhsngqautd8ah" path="res://assets/jadeLearningShaders/experiments/materials/levelSelectBackground.png" id="1_ct0ao"]
-[ext_resource type="Script" path="res://scripts/ui/FocusGrabber.gd" id="1_v2dnw"]
+[ext_resource type="Script" uid="uid://c3ax51yr655rf" path="res://scripts/ui/level_select_builder.gd" id="1_lr35k"]
+[ext_resource type="Script" uid="uid://cyxfsttj4ei1j" path="res://scripts/ui/FocusGrabber.gd" id="1_v2dnw"]
 [ext_resource type="FontFile" uid="uid://bb8oel34x8uv4" path="res://assets/jadeLearningShaders/experiments/Painter Dude.otf" id="2_ktsqk"]
 [ext_resource type="PackedScene" uid="uid://cyfrcl713bjwu" path="res://ui/LevelButton.tscn" id="3_ktsqk"]
 [ext_resource type="PackedScene" uid="uid://e050bqiinmgc" path="res://ui/text_button.tscn" id="5_kvd6m"]
-[ext_resource type="Script" path="res://scripts/ui/levelSelectButton.gd" id="6_kvd6m"]
+[ext_resource type="Script" uid="uid://desto8mysbhyq" path="res://scripts/ui/levelSelectButton.gd" id="6_kvd6m"]
 
-[node name="LevelSelect" type="MarginContainer" unique_id=1469199937 node_paths=PackedStringArray("control_to_focus")]
+[node name="LevelSelect" type="MarginContainer" unique_id=1469199937 node_paths=PackedStringArray("level_button_grid")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_v2dnw")
-control_to_focus = NodePath("VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer/TextureRect/Button")
+script = ExtResource("1_lr35k")
+level_button_grid = NodePath("VBoxContainer/MarginContainer/GridContainer")
+level_button_prefab = ExtResource("3_ktsqk")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=451428666]
 layout_mode = 2
 color = Color(0.13333334, 0.13333334, 0.23137255, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1234319481]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1234319481 node_paths=PackedStringArray("control_to_focus")]
 layout_mode = 2
+script = ExtResource("1_v2dnw")
+control_to_focus = NodePath(".")
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=469912301]
 custom_minimum_size = Vector2(0, 300)
@@ -62,7 +66,6 @@ vertical_alignment = 1
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=136350869]
 layout_mode = 2
 size_flags_stretch_ratio = 6.0
-theme_override_constants/margin_left = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 30
 
@@ -72,105 +75,6 @@ size_flags_stretch_ratio = 5.0
 theme_override_constants/h_separation = 200
 theme_override_constants/v_separation = 20
 columns = 5
-
-[node name="LevelButtonContainer" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=1337617322 instance=ExtResource("3_ktsqk")]
-layout_mode = 2
-scene = "res://scenes/Levels/Level 1 - Red March.tscn"
-
-[node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer/TextureRect" parent_id_path=PackedInt32Array(1337617322, 223155095) index="0" unique_id=2052369212]
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-
-[node name="LevelButtonContainer2" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=410175266 instance=ExtResource("3_ktsqk")]
-layout_mode = 2
-scene = "res://scenes/Levels/Level 2 - The Colorful Dragon.tscn"
-
-[node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer2/TextureRect" parent_id_path=PackedInt32Array(410175266, 223155095) index="0" unique_id=2052369212]
-text = "2"
-
-[node name="LevelButtonContainer3" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=1739438811 instance=ExtResource("3_ktsqk")]
-layout_mode = 2
-scene = "res://scenes/Levels/Level 3 - The Outcast.tscn"
-
-[node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer3/TextureRect" parent_id_path=PackedInt32Array(1739438811, 223155095) index="0" unique_id=2052369212]
-text = "3"
-
-[node name="LevelButtonContainer4" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=578031238 instance=ExtResource("3_ktsqk")]
-layout_mode = 2
-scene = "res://scenes/Levels/Level 4 - The Outcasts, 2.tscn"
-
-[node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer4/TextureRect" parent_id_path=PackedInt32Array(578031238, 223155095) index="0" unique_id=2052369212]
-text = "4"
-
-[node name="LevelButtonContainer5" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=660683365 instance=ExtResource("3_ktsqk")]
-layout_mode = 2
-scene = "res://scenes/Levels/Level 5 - One Small Step For Cubes.tscn"
-
-[node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer5/TextureRect" parent_id_path=PackedInt32Array(660683365, 223155095) index="0" unique_id=2052369212]
-text = "5"
-
-[node name="LevelButtonContainer6" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=1405313634 instance=ExtResource("3_ktsqk")]
-layout_mode = 2
-scene = "res://scenes/Levels/Level 6 - Three Suns.tscn"
-
-[node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer6/TextureRect" parent_id_path=PackedInt32Array(1405313634, 223155095) index="0" unique_id=2052369212]
-text = "6"
-
-[node name="LevelButtonContainer7" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=1468229855 instance=ExtResource("3_ktsqk")]
-layout_mode = 2
-scene = "res://scenes/Levels/Level 7 - Clean Duck.tscn"
-
-[node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer7/TextureRect" parent_id_path=PackedInt32Array(1468229855, 223155095) index="0" unique_id=2052369212]
-text = "7"
-
-[node name="LevelButtonContainer8" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=1085552545 instance=ExtResource("3_ktsqk")]
-layout_mode = 2
-scene = "res://scenes/Levels/Level 8 - Interlocked.tscn"
-
-[node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer8/TextureRect" parent_id_path=PackedInt32Array(1085552545, 223155095) index="0" unique_id=2052369212]
-text = "8"
-
-[node name="LevelButtonContainer9" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=1781913195 instance=ExtResource("3_ktsqk")]
-layout_mode = 2
-scene = "res://scenes/Levels/Level 9 - Kaleidoscope.tscn"
-
-[node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer9/TextureRect" parent_id_path=PackedInt32Array(1781913195, 223155095) index="0" unique_id=2052369212]
-text = "9"
-
-[node name="LevelButtonContainer10" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=607265272 instance=ExtResource("3_ktsqk")]
-layout_mode = 2
-
-[node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer10/TextureRect" parent_id_path=PackedInt32Array(607265272, 223155095) index="0" unique_id=2052369212]
-text = "10"
-
-[node name="LevelButtonContainer11" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=1522875679 instance=ExtResource("3_ktsqk")]
-layout_mode = 2
-
-[node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer11/TextureRect" parent_id_path=PackedInt32Array(1522875679, 223155095) index="0" unique_id=2052369212]
-text = "11"
-
-[node name="LevelButtonContainer12" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=1817404332 instance=ExtResource("3_ktsqk")]
-layout_mode = 2
-
-[node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer12/TextureRect" parent_id_path=PackedInt32Array(1817404332, 223155095) index="0" unique_id=2052369212]
-text = "12"
-
-[node name="LevelButtonContainer13" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=1366850080 instance=ExtResource("3_ktsqk")]
-layout_mode = 2
-
-[node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer13/TextureRect" parent_id_path=PackedInt32Array(1366850080, 223155095) index="0" unique_id=2052369212]
-text = "13"
-
-[node name="LevelButtonContainer14" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=234643312 instance=ExtResource("3_ktsqk")]
-layout_mode = 2
-
-[node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer14/TextureRect" parent_id_path=PackedInt32Array(234643312, 223155095) index="0" unique_id=2052369212]
-text = "14"
-
-[node name="LevelButtonContainer15" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=1320398199 instance=ExtResource("3_ktsqk")]
-layout_mode = 2
-
-[node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer15/TextureRect" parent_id_path=PackedInt32Array(1320398199, 223155095) index="0" unique_id=2052369212]
-text = "15"
 
 [node name="Control" parent="VBoxContainer" unique_id=440904901 node_paths=PackedStringArray("button") instance=ExtResource("5_kvd6m")]
 custom_minimum_size = Vector2(100, 100)
@@ -193,24 +97,8 @@ offset_bottom = 5.482315
 scale = Vector2(1, 0.93453956)
 text = "Home"
 script = ExtResource("6_kvd6m")
-scene = "res://scenes/jade/MainMenu.tscn"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="VBoxContainer/Control/TextureRect/Button" to="VBoxContainer/Control/TextureRect/Button" method="_onSceneSelected"]
 
-[editable path="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer"]
-[editable path="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer2"]
-[editable path="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer3"]
-[editable path="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer4"]
-[editable path="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer5"]
-[editable path="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer6"]
-[editable path="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer7"]
-[editable path="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer8"]
-[editable path="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer9"]
-[editable path="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer10"]
-[editable path="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer11"]
-[editable path="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer12"]
-[editable path="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer13"]
-[editable path="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer14"]
-[editable path="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer15"]
 [editable path="VBoxContainer/Control"]

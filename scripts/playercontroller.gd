@@ -12,6 +12,8 @@ var pop_out_active = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("reload"):
+		if LevelManager.reload_level(): return
 	if move_busy: return
 	if !pop_out_active:
 		if Input.is_action_just_pressed("move_up"):
