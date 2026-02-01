@@ -5,9 +5,18 @@
 [sub_resource type="BoxMesh" id="BoxMesh_yhqha"]
 size = Vector3(1, 0.2, 1)
 
-[node name="Tile" type="Node3D" unique_id=349656334 node_paths=PackedStringArray("mesh_renderer")]
-script = ExtResource("1_nsn1e")
-mesh_renderer = NodePath("MeshInstance3D")
+[sub_resource type="BoxMesh" id="BoxMesh_nsn1e"]
+size = Vector3(1, 0.3, 1)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1110047571]
+[node name="Tile" type="Node3D" unique_id=349656334 node_paths=PackedStringArray("basic_mesh", "source_mesh")]
+script = ExtResource("1_nsn1e")
+basic_mesh = NodePath("BasicTileMesh")
+source_mesh = NodePath("SourceTileMesh")
+
+[node name="BasicTileMesh" type="MeshInstance3D" parent="." unique_id=1110047571]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 mesh = SubResource("BoxMesh_yhqha")
+
+[node name="SourceTileMesh" type="MeshInstance3D" parent="." unique_id=1025773180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+mesh = SubResource("BoxMesh_nsn1e")
