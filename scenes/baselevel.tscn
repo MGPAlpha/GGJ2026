@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://d26dnrkjxx3rm"]
 
+[ext_resource type="PackedScene" uid="uid://dvkhcwu4xh7fv" path="res://scenes/LevelUI.tscn" id="1_esn7c"]
 [ext_resource type="PackedScene" uid="uid://su36uk0e7wt" path="res://prefabs/board.tscn" id="1_uh120"]
 [ext_resource type="Script" uid="uid://c1jpop7rnvfvy" path="res://scripts/playercontroller.gd" id="2_xj5b5"]
 [ext_resource type="Script" uid="uid://ceatlx1culj2k" path="res://scripts/camera_manager.gd" id="3_08e4x"]
-[ext_resource type="PackedScene" uid="uid://e050bqiinmgc" path="res://ui/text_button.tscn" id="3_ebt4o"]
 [ext_resource type="Script" uid="uid://bjt515cbll8uh" path="res://scripts/goaldisplay.gd" id="3_xj5b5"]
 
 [sub_resource type="Environment" id="Environment_uh120"]
@@ -73,20 +73,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 100
-
-[node name="Control2" parent="UI/MarginContainer" unique_id=440904901 node_paths=PackedStringArray("button") instance=ExtResource("3_ebt4o")]
-custom_minimum_size = Vector2(300, 50)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-button = NodePath("TextureRect/Button")
-
-[node name="Button" parent="UI/MarginContainer/Control2/TextureRect" parent_id_path=PackedInt32Array(440904901, 1425206597) index="0" unique_id=2023860768]
-text = "Back"
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
 
 [node name="Control" type="Control" parent="UI/MarginContainer" unique_id=392119172]
 custom_minimum_size = Vector2(233, 233)
@@ -95,7 +85,10 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 script = ExtResource("3_xj5b5")
 
+[node name="UI2" parent="UI/MarginContainer" unique_id=1699740536 instance=ExtResource("1_esn7c")]
+layout_mode = 2
+
 [connection signal="board_generated" from="Board" to="CameraManager" method="_on_board_generated"]
 [connection signal="goal_set" from="Board" to="UI/MarginContainer/Control" method="_on_goal_set"]
 
-[editable path="UI/MarginContainer/Control2"]
+[editable path="UI/MarginContainer/UI2"]
