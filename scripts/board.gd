@@ -4,7 +4,7 @@ class_name Board extends Node3D
 @export var size: Vector2i = Vector2i(3,3)
 @export var start: Vector2i = Vector2i(0,0)
 @export var grid_tile_size: Vector2 = Vector2.ONE
-@export var colors : Array[Color] = [Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE, Color.PURPLE]
+@export var colors : Array[Color] = [Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE, Color.PURPLE, Color.LIGHT_GRAY]
 @export var tile_height: float = .7
 
 @export_file("*.txt") var level: String
@@ -91,7 +91,7 @@ func load_level_file(path: String):
 			if tile_val == "P":
 				player_pos = Vector2i(i,j)
 				player_rotation = Quaternion.IDENTITY
-				player_tile = tiles[i][j]
+				player_tile = tiles[j][i]
 				player_node = player_prefab.instantiate()
 				player_node.position = get_player_pos_for_tile(player_tile)
 				add_child(player_node)
@@ -107,7 +107,7 @@ func load_level_file(path: String):
 		for i in len(curr_line):
 			if i >= size.x: break
 			if curr_line[i].is_valid_int():
-				var tile = tiles[i][j]
+				var tile = tiles[j][i]
 				if !tile: continue
 				var color = parse_color_index(curr_line[i])
 				paint_tile(tile, color)
