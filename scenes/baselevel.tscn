@@ -3,9 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://dvkhcwu4xh7fv" path="res://scenes/LevelUI.tscn" id="1_esn7c"]
 [ext_resource type="PackedScene" uid="uid://su36uk0e7wt" path="res://prefabs/board.tscn" id="1_uh120"]
 [ext_resource type="Script" uid="uid://c1jpop7rnvfvy" path="res://scripts/playercontroller.gd" id="2_xj5b5"]
-[ext_resource type="Script" path="res://scripts/camera_manager.gd" id="3_08e4x"]
+[ext_resource type="Script" uid="uid://ceatlx1culj2k" path="res://scripts/camera_manager.gd" id="3_08e4x"]
 [ext_resource type="Script" uid="uid://bjt515cbll8uh" path="res://scripts/goaldisplay.gd" id="3_xj5b5"]
-[ext_resource type="Script" uid="uid://iirkl1jo6kvv" path="res://scenes/flip_count.gd" id="6_0nebb"]
+[ext_resource type="Script" path="res://scenes/flip_count.gd" id="6_0nebb"]
+[ext_resource type="Script" uid="uid://cm2ensdmqbd8w" path="res://scenes/level_ui.gd" id="6_341j3"]
 [ext_resource type="Script" path="res://start_and_end_manager.gd" id="6_esn7c"]
 
 [sub_resource type="Environment" id="Environment_uh120"]
@@ -89,11 +90,11 @@ script = ExtResource("3_xj5b5")
 
 [node name="UI2" parent="UI/MarginContainer" unique_id=1699740536 instance=ExtResource("1_esn7c")]
 layout_mode = 2
+script = ExtResource("6_341j3")
 
-[node name="Flip count" parent="UI/MarginContainer/UI2/HBoxContainer" parent_id_path=PackedInt32Array(1699740536, 1262881788) index="5" unique_id=952285186 node_paths=PackedStringArray("move_label", "top_camera")]
+[node name="Flip count" parent="UI/MarginContainer/UI2/HBoxContainer" parent_id_path=PackedInt32Array(1699740536, 1262881788) index="5" unique_id=952285186 node_paths=PackedStringArray("move_label")]
 script = ExtResource("6_0nebb")
 move_label = NodePath("Label")
-top_camera = NodePath("../TopCamera")
 
 [node name="StartAndEndManager" type="Node" parent="." unique_id=228062131 node_paths=PackedStringArray("cam_manager", "controller", "spotlight")]
 script = ExtResource("6_esn7c")
@@ -105,5 +106,6 @@ spotlight = NodePath("../SpotLight3D")
 [connection signal="goal_set" from="Board" to="UI/MarginContainer/Control" method="_on_goal_set"]
 [connection signal="player_moved" from="Board" to="UI/MarginContainer/UI2/HBoxContainer/Flip count" method="_increaseMoveCount"]
 [connection signal="solved" from="Board" to="StartAndEndManager" method="_on_solved"]
+[connection signal="camera_mode_changed" from="CameraManager" to="UI/MarginContainer/UI2" method="_on_camera_manager_camera_mode_changed"]
 
 [editable path="UI/MarginContainer/UI2"]

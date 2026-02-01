@@ -1,8 +1,6 @@
 extends TextureRect
 
 @export var move_label: Label
-@export var top_camera: TextureRect
-
 
 var move_count : int
 
