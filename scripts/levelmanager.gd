@@ -27,6 +27,7 @@ func play_level(index):
 	curr_level = levels[index]
 	print(curr_level)
 	get_tree().change_scene_to_packed(curr_level)
+	SettingsManager.startLevelMusic()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -2,6 +2,7 @@ extends Node
 
 @export var background : TextureRect
 @export var button : Button
+@export var optionMenu : PopupMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -38,7 +39,8 @@ func _onStart() -> void:
 
 func _onOptions() -> void:
 #	Some functionality to open up the options here
-	print("Options Loaded")
+	# optionMenu.popup_exclusive_centered()
+	pass
 
 func _set_shader_value(value: float):
 	var shaderMaterial = background.material as ShaderMaterial

@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rvm0wd86tfj3"
-path.s3tc="res://.godot/imported/eye_colorful_color.png-4e5be5cf148de3b1c79c8f761cddb223.s3tc.ctex"
+uid="uid://bqt6og5lgd7y2"
+path="res://.godot/imported/x.png-1bb98c1b74a992f4e861211d8ba70791.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/jadeLearningShaders/_chap1/spaces/tangent_space/textures/eye_colorful_color.png"
-dest_files=["res://.godot/imported/eye_colorful_color.png-4e5be5cf148de3b1c79c8f761cddb223.s3tc.ctex"]
+source_file="res://assets/jadeLearningShaders/experiments/materials/x.png"
+dest_files=["res://.godot/imported/x.png-1bb98c1b74a992f4e861211d8ba70791.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
