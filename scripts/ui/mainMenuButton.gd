@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 func _onHover() -> void:
 	var shaderMaterial = background.material as ShaderMaterial
 	#shaderMaterial.set_shader_parameter("amplitude", 0.0)
-	print(shaderMaterial.get_shader_parameter("amplitude"))
+	#print(shaderMaterial.get_shader_parameter("amplitude"))
 	
 	var tween := get_tree().create_tween()
 	tween.tween_method(_set_shader_value, shaderMaterial.get_shader_parameter("amplitude"), 1.0, 2)
@@ -32,7 +32,7 @@ func _onQuit() -> void:
 
 func _onStart() -> void:
 #	some functionality to load the level here
-	print("Level Loaded")
+	get_tree().change_scene_to_file("res://scenes/jade/LevelSelect.tscn")
 
 func _onOptions() -> void:
 #	Some functionality to open up the options here

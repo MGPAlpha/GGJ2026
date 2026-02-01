@@ -1,17 +1,18 @@
 [gd_scene format=3 uid="uid://dp73w0bf04wqq"]
 
 [ext_resource type="Texture2D" uid="uid://dcxl84ipc0h14" path="res://assets/jadeLearningShaders/experiments/materials/splatter background.png" id="1_6y4c4"]
-[ext_resource type="Script" uid="uid://cyxfsttj4ei1j" path="res://MainMenu.gd" id="1_jsu6h"]
+[ext_resource type="Script" uid="uid://cyxfsttj4ei1j" path="res://FocusGrabber.gd" id="1_jsu6h"]
 [ext_resource type="Texture2D" uid="uid://damqlesax2tjr" path="res://assets/jadeLearningShaders/experiments/materials/logo.png" id="2_7o5cp"]
 [ext_resource type="PackedScene" uid="uid://e050bqiinmgc" path="res://assets/jadeLearningShaders/experiments/text_button.tscn" id="3_7o5cp"]
 
-[node name="MainMenu" type="MarginContainer" unique_id=1317189709]
+[node name="MainMenu" type="MarginContainer" unique_id=1317189709 node_paths=PackedStringArray("control_to_focus")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jsu6h")
+control_to_focus = NodePath("MarginContainer/HBoxContainer/Start/TextureRect/Button")
 
 [node name="Background" type="ColorRect" parent="." unique_id=479412727]
 layout_mode = 2

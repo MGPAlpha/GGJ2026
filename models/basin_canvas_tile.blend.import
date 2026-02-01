@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://by7im1i4lippo"
-path="res://.godot/imported/basin_canvas_tile.blend-2dfa0535271fa48923f54960c6f99c3f.scn"
+valid=false
 
 [deps]
 
 source_file="res://models/basin_canvas_tile.blend"
-dest_files=["res://.godot/imported/basin_canvas_tile.blend-2dfa0535271fa48923f54960c6f99c3f.scn"]
 
 [params]
 

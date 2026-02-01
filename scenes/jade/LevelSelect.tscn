@@ -1,15 +1,20 @@
 [gd_scene format=3 uid="uid://doawyu7jcn5xs"]
 
 [ext_resource type="Texture2D" uid="uid://bhsngqautd8ah" path="res://assets/jadeLearningShaders/experiments/materials/levelSelectBackground.png" id="1_ct0ao"]
+[ext_resource type="Script" uid="uid://cyxfsttj4ei1j" path="res://FocusGrabber.gd" id="1_v2dnw"]
 [ext_resource type="FontFile" uid="uid://bb8oel34x8uv4" path="res://assets/jadeLearningShaders/experiments/Painter Dude.otf" id="2_ktsqk"]
 [ext_resource type="PackedScene" uid="uid://cyfrcl713bjwu" path="res://assets/jadeLearningShaders/experiments/LevelButton.tscn" id="3_ktsqk"]
+[ext_resource type="PackedScene" uid="uid://e050bqiinmgc" path="res://assets/jadeLearningShaders/experiments/text_button.tscn" id="5_kvd6m"]
+[ext_resource type="Script" uid="uid://desto8mysbhyq" path="res://scripts/ui/levelSelectButton.gd" id="6_kvd6m"]
 
-[node name="LevelSelect" type="MarginContainer" unique_id=1469199937]
+[node name="LevelSelect" type="MarginContainer" unique_id=1469199937 node_paths=PackedStringArray("control_to_focus")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_v2dnw")
+control_to_focus = NodePath("VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer/TextureRect/Button")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=451428666]
 layout_mode = 2
@@ -60,17 +65,20 @@ size_flags_stretch_ratio = 6.0
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 100
+theme_override_constants/margin_bottom = 30
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/MarginContainer" unique_id=2008397200]
 layout_mode = 2
 size_flags_stretch_ratio = 5.0
 theme_override_constants/h_separation = 200
-theme_override_constants/v_separation = 30
+theme_override_constants/v_separation = 20
 columns = 5
 
 [node name="LevelButtonContainer" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=1337617322 instance=ExtResource("3_ktsqk")]
 layout_mode = 2
+
+[node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer/TextureRect" parent_id_path=PackedInt32Array(1337617322, 223155095) index="0" unique_id=2052369212]
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 
 [node name="LevelButtonContainer2" parent="VBoxContainer/MarginContainer/GridContainer" unique_id=410175266 instance=ExtResource("3_ktsqk")]
 layout_mode = 2
@@ -156,6 +164,22 @@ layout_mode = 2
 [node name="Button" parent="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer15/TextureRect" parent_id_path=PackedInt32Array(1320398199, 223155095) index="0" unique_id=2052369212]
 text = "15"
 
+[node name="Control" parent="VBoxContainer" unique_id=440904901 instance=ExtResource("5_kvd6m")]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 8
+ratio = 0.5
+stretch_mode = 1
+alignment_vertical = 0
+
+[node name="Button" parent="VBoxContainer/Control/TextureRect" parent_id_path=PackedInt32Array(440904901, 1425206597) index="0" unique_id=2023860768]
+scale = Vector2(1, 0.93453956)
+text = "Home"
+script = ExtResource("6_kvd6m")
+scene = "res://scenes/jade/MainMenu.tscn"
+
+[connection signal="pressed" from="VBoxContainer/Control/TextureRect/Button" to="VBoxContainer/Control/TextureRect/Button" method="_onSceneSelected"]
+
 [editable path="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer"]
 [editable path="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer2"]
 [editable path="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer3"]
@@ -171,3 +195,4 @@ text = "15"
 [editable path="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer13"]
 [editable path="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer14"]
 [editable path="VBoxContainer/MarginContainer/GridContainer/LevelButtonContainer15"]
+[editable path="VBoxContainer/Control"]
