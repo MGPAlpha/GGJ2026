@@ -14,9 +14,30 @@ func _process(delta: float) -> void:
 	
 func _onHover() -> void:
 	var shaderMaterial = background.material as ShaderMaterial
-	shaderMaterial.set_shader_parameter("amplitude", 1.0)
+	#shaderMaterial.set_shader_parameter("amplitude", 0.0)
 	print(shaderMaterial.get_shader_parameter("amplitude"))
 	
+	var tween := get_tree().create_tween()
+	tween.tween_method(_set_shader_value, shaderMaterial.get_shader_parameter("amplitude"), 1.0, 2)
+
 func _offHover() -> void:
 	var shaderMaterial = background.material as ShaderMaterial
-	shaderMaterial.set_shader_parameter("amplitude", 0.0)
+	#print(shaderMaterial.get_shader_parameter("amplitude"))
+	var tween := get_tree().create_tween()
+	tween.tween_method(_set_shader_value, shaderMaterial.get_shader_parameter("amplitude"), 0.0, 2)
+	#shaderMaterial.set_shader_parameter("amplitude", 0.0)
+	
+func _onQuit() -> void:
+	get_tree().quit()
+
+func _onStart() -> void:
+#	some functionality to load the level here
+	print("Level Loaded")
+
+func _onOptions() -> void:
+#	Some functionality to open up the options here
+	print("Options Loaded")
+
+func _set_shader_value(value: float):
+	var shaderMaterial = background.material as ShaderMaterial
+	shaderMaterial.set_shader_parameter("amplitude", value)

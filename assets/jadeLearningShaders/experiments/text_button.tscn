@@ -4,6 +4,8 @@
 [ext_resource type="Material" uid="uid://bjh5oqtwq4bi2" path="res://assets/jadeLearningShaders/experiments/materials/shaders/button_material.tres" id="1_kxq0e"]
 [ext_resource type="Texture2D" uid="uid://cijc44xov1ypy" path="res://assets/jadeLearningShaders/experiments/materials/paint_button.png" id="2_e6fh8"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jc7yw"]
+
 [node name="Control" type="AspectRatioContainer" unique_id=440904901 node_paths=PackedStringArray("background")]
 custom_minimum_size = Vector2(100, 50)
 anchors_preset = -1
@@ -36,8 +38,11 @@ offset_left = -0.3000002
 offset_top = -0.1500001
 offset_right = -0.1000061
 offset_bottom = 0.099998474
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jc7yw")
 text = "Text"
 flat = true
 
+[connection signal="focus_entered" from="TextureRect/Button" to="." method="_onHover"]
+[connection signal="focus_exited" from="TextureRect/Button" to="." method="_offHover"]
 [connection signal="mouse_entered" from="TextureRect/Button" to="." method="_onHover"]
 [connection signal="mouse_exited" from="TextureRect/Button" to="." method="_offHover"]
