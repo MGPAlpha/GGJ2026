@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://su36uk0e7wt" path="res://prefabs/board.tscn" id="1_uh120"]
 [ext_resource type="Script" uid="uid://c1jpop7rnvfvy" path="res://scripts/playercontroller.gd" id="2_xj5b5"]
 [ext_resource type="PackedScene" uid="uid://e050bqiinmgc" path="res://ui/text_button.tscn" id="3_ebt4o"]
-[ext_resource type="Script" path="res://scripts/goaldisplay.gd" id="3_xj5b5"]
+[ext_resource type="Script" uid="uid://bjt515cbll8uh" path="res://scripts/goaldisplay.gd" id="3_xj5b5"]
 
 [sub_resource type="Environment" id="Environment_uh120"]
 volumetric_fog_enabled = true
