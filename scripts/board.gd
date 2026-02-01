@@ -29,6 +29,7 @@ var player_node: PlayerCube
 }
 
 signal goal_set(goal_colors: Array[Array], colors: Array[Color])
+signal board_generated(center: Vector3)
 signal solved
 
 # Called when the node enters the scene tree for the first time.
@@ -104,6 +105,9 @@ func load_level_file(path: String):
 				add_child(player_node)
 				for side in player_colors:
 					player_node.set_face_color(side, player_colors[side], colors)
+
+	var board_center = (Vector2(size)-Vector2.ONE) * grid_tile_size / 2.0
+	board_generated.emit(Vector3(board_center.x, 0, board_center.y))
 
 	curr_line = file.get_line()
 	

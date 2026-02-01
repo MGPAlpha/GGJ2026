@@ -1,6 +1,7 @@
 class_name PlayerController extends Node
 
 @onready var board: Board = self.get_parent()
+@onready var camera_manager: CameraManager
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

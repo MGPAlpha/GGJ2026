@@ -2,10 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://su36uk0e7wt" path="res://prefabs/board.tscn" id="1_uh120"]
 [ext_resource type="Script" uid="uid://c1jpop7rnvfvy" path="res://scripts/playercontroller.gd" id="2_xj5b5"]
+[ext_resource type="Script" uid="uid://ceatlx1culj2k" path="res://scripts/camera_manager.gd" id="3_08e4x"]
 [ext_resource type="PackedScene" uid="uid://e050bqiinmgc" path="res://ui/text_button.tscn" id="3_ebt4o"]
 [ext_resource type="Script" uid="uid://bjt515cbll8uh" path="res://scripts/goaldisplay.gd" id="3_xj5b5"]
 
 [sub_resource type="Environment" id="Environment_uh120"]
+background_mode = 1
+background_color = Color(0.8051556, 0.00025470793, 0.7377618, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.5
 volumetric_fog_enabled = true
 
 [node name="Leveltest" type="Node3D" unique_id=1059751183]
@@ -16,19 +22,34 @@ level = "res://levels/testlevel.txt"
 [node name="Node" type="Node" parent="Board" unique_id=1132342733]
 script = ExtResource("2_xj5b5")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1366276693]
-transform = Transform3D(0.9688733, -7.2186688e-09, 0.24755709, -0.15397938, 0.78302085, 0.6026348, -0.19384237, -0.62199545, 0.75864804, 2.8010406, 5.6248302, 6.839347)
+[node name="CameraManager" type="Node3D" parent="." unique_id=330635 node_paths=PackedStringArray("camera", "top_down_pos", "isometric_pos")]
+script = ExtResource("3_08e4x")
+camera = NodePath("Camera3D")
+top_down_pos = NodePath("TopDownCameraPos")
+isometric_pos = NodePath("IsometricCameraPos")
+camera_move_time = null
+
+[node name="Camera3D" type="Camera3D" parent="CameraManager" unique_id=1366276693]
+transform = Transform3D(0.9688733, -7.2186688e-09, 0.24755709, -0.15397938, 0.78302085, 0.6026348, -0.19384237, -0.62199545, 0.75864804, 4.514702, 9.796441, 12.090926)
 projection = 1
 size = 12.0
 
+[node name="TopDownCameraPos" type="Node3D" parent="CameraManager" unique_id=424522854]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 18.202473, -3.0044708e-07)
+
+[node name="IsometricCameraPos" type="Node3D" parent="CameraManager" unique_id=238434735]
+transform = Transform3D(0.96887326, -1.4901161e-08, 0.2475571, -0.15397938, 0.78302085, 0.6026348, -0.19384237, -0.62199545, 0.75864804, 4.514702, 9.796441, 12.090926)
+
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=135356185]
 transform = Transform3D(-0.9688734, -4.5941903e-08, -0.247557, -0.15397938, 0.7830209, 0.60263485, 0.19384219, 0.62199575, -0.7586479, -3.047193, 0, 6.605297)
+visible = false
 light_energy = 3.385
 light_volumetric_fog_energy = 0.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1171788602]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.390832, 9.337826, 0.13924217)
-light_energy = 5.0
+light_energy = 1.95
+light_volumetric_fog_energy = 5.0
 shadow_enabled = true
 spot_range = 18.217
 spot_angle = 31.01
@@ -74,6 +95,7 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 script = ExtResource("3_xj5b5")
 
+[connection signal="board_generated" from="Board" to="CameraManager" method="_on_board_generated"]
 [connection signal="goal_set" from="Board" to="UI/MarginContainer/Control" method="_on_goal_set"]
 
 [editable path="UI/MarginContainer/Control2"]
