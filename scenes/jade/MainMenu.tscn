@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://damqlesax2tjr" path="res://ui/logo.png" id="2_7o5cp"]
 [ext_resource type="PackedScene" uid="uid://e050bqiinmgc" path="res://ui/text_button.tscn" id="3_7o5cp"]
 [ext_resource type="FontFile" uid="uid://bb8oel34x8uv4" path="res://ui/Painter Dude.otf" id="5_2mj0p"]
-[ext_resource type="Script" path="res://scripts/ui/optionsMenu.gd" id="5_6pirr"]
+[ext_resource type="Script" uid="uid://bb3f8kaiioxah" path="res://scripts/ui/optionsMenu.gd" id="5_6pirr"]
 [ext_resource type="FontFile" uid="uid://5rdfk4x5lf2f" path="res://ui/Drybrush.ttf" id="6_6pirr"]
 [ext_resource type="Texture2D" uid="uid://bqt6og5lgd7y2" path="res://ui/x.png" id="8_emtem"]
 
@@ -104,13 +104,14 @@ button = NodePath("TextureRect/Button")
 [node name="Button" parent="MarginContainer/HBoxContainer/Quit/TextureRect" parent_id_path=PackedInt32Array(69184226, 1425206597) index="0" unique_id=2023860768]
 text = "Quit"
 
-[node name="OPTIONS" type="Control" parent="." unique_id=364339807 node_paths=PackedStringArray("master_slider", "music_slider", "sound_effects_slider")]
-visible = false
+[node name="OPTIONS" type="Control" parent="." unique_id=364339807 node_paths=PackedStringArray("master_slider", "music_slider", "sound_effects_slider", "options_container", "credits_container")]
 layout_mode = 2
 script = ExtResource("5_6pirr")
-master_slider = NodePath("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/HSlider")
-music_slider = NodePath("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/HSlider")
-sound_effects_slider = NodePath("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/HBoxContainer/HSlider")
+master_slider = NodePath("MarginContainer/PanelContainer/Options Menu/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/HSlider")
+music_slider = NodePath("MarginContainer/PanelContainer/Options Menu/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/HSlider")
+sound_effects_slider = NodePath("MarginContainer/PanelContainer/Options Menu/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/HBoxContainer/HSlider")
+options_container = NodePath("MarginContainer/PanelContainer/Options Menu")
+credits_container = NodePath("MarginContainer/PanelContainer/Credits")
 
 [node name="ColorRect" type="ColorRect" parent="OPTIONS" unique_id=1408097792]
 layout_mode = 1
@@ -137,17 +138,17 @@ theme_override_constants/margin_bottom = 150
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_emtem")
 
-[node name="MarginContainer" type="MarginContainer" parent="OPTIONS/MarginContainer/PanelContainer" unique_id=48941680]
+[node name="Options Menu" type="MarginContainer" parent="OPTIONS/MarginContainer/PanelContainer" unique_id=48941680]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="OPTIONS/MarginContainer/PanelContainer/MarginContainer" unique_id=301942243]
+[node name="VBoxContainer" type="VBoxContainer" parent="OPTIONS/MarginContainer/PanelContainer/Options Menu" unique_id=301942243]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="OPTIONS/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=678961063]
+[node name="Label" type="Label" parent="OPTIONS/MarginContainer/PanelContainer/Options Menu/VBoxContainer" unique_id=678961063]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -158,15 +159,15 @@ text = "OPTIONS MENU"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="OPTIONS/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=150552111]
+[node name="MarginContainer" type="MarginContainer" parent="OPTIONS/MarginContainer/PanelContainer/Options Menu/VBoxContainer" unique_id=150552111]
 layout_mode = 2
 theme_override_constants/margin_top = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="OPTIONS/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1904146348]
+[node name="VBoxContainer" type="VBoxContainer" parent="OPTIONS/MarginContainer/PanelContainer/Options Menu/VBoxContainer/MarginContainer" unique_id=1904146348]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="OPTIONS/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=383725044]
+[node name="Label" type="Label" parent="OPTIONS/MarginContainer/PanelContainer/Options Menu/VBoxContainer/MarginContainer/VBoxContainer" unique_id=383725044]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -176,17 +177,17 @@ theme_override_font_sizes/font_size = 64
 text = "Sound Settings"
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="OPTIONS/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1780107685]
+[node name="MarginContainer" type="MarginContainer" parent="OPTIONS/MarginContainer/PanelContainer/Options Menu/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1780107685]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 170
 
-[node name="HBoxContainer" type="HBoxContainer" parent="OPTIONS/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=822006992]
+[node name="HBoxContainer" type="HBoxContainer" parent="OPTIONS/MarginContainer/PanelContainer/Options Menu/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=822006992]
 layout_mode = 2
 theme_override_constants/separation = 34
 
-[node name="Label2" type="Label" parent="OPTIONS/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1045920951]
+[node name="Label2" type="Label" parent="OPTIONS/MarginContainer/PanelContainer/Options Menu/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1045920951]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -197,7 +198,7 @@ theme_override_font_sizes/font_size = 48
 text = "Master:"
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="OPTIONS/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1890807138]
+[node name="HSlider" type="HSlider" parent="OPTIONS/MarginContainer/PanelContainer/Options Menu/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1890807138]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -207,16 +208,16 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="MarginContainer2" type="MarginContainer" parent="OPTIONS/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1805304238]
+[node name="MarginContainer2" type="MarginContainer" parent="OPTIONS/MarginContainer/PanelContainer/Options Menu/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1805304238]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 170
 
-[node name="HBoxContainer" type="HBoxContainer" parent="OPTIONS/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2" unique_id=1339782251]
+[node name="HBoxContainer" type="HBoxContainer" parent="OPTIONS/MarginContainer/PanelContainer/Options Menu/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2" unique_id=1339782251]
 layout_mode = 2
 theme_override_constants/separation = 34
 
-[node name="Label2" type="Label" parent="OPTIONS/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=524916281]
+[node name="Label2" type="Label" parent="OPTIONS/MarginContainer/PanelContainer/Options Menu/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=524916281]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -227,7 +228,7 @@ theme_override_font_sizes/font_size = 48
 text = "Music:"
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="OPTIONS/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1138734701]
+[node name="HSlider" type="HSlider" parent="OPTIONS/MarginContainer/PanelContainer/Options Menu/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1138734701]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -237,16 +238,16 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="MarginContainer3" type="MarginContainer" parent="OPTIONS/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1087029418]
+[node name="MarginContainer3" type="MarginContainer" parent="OPTIONS/MarginContainer/PanelContainer/Options Menu/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1087029418]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 170
 
-[node name="HBoxContainer" type="HBoxContainer" parent="OPTIONS/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3" unique_id=966520087]
+[node name="HBoxContainer" type="HBoxContainer" parent="OPTIONS/MarginContainer/PanelContainer/Options Menu/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3" unique_id=966520087]
 layout_mode = 2
 theme_override_constants/separation = 34
 
-[node name="Label2" type="Label" parent="OPTIONS/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/HBoxContainer" unique_id=1157394214]
+[node name="Label2" type="Label" parent="OPTIONS/MarginContainer/PanelContainer/Options Menu/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/HBoxContainer" unique_id=1157394214]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -257,7 +258,7 @@ theme_override_font_sizes/font_size = 48
 text = "Sound Effects:"
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="OPTIONS/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/HBoxContainer" unique_id=752748267]
+[node name="HSlider" type="HSlider" parent="OPTIONS/MarginContainer/PanelContainer/Options Menu/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/HBoxContainer" unique_id=752748267]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -267,12 +268,214 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="Control" type="Control" parent="OPTIONS/MarginContainer" unique_id=1010054837]
+[node name="Credits Button" parent="OPTIONS/MarginContainer/PanelContainer/Options Menu" unique_id=440904901 instance=ExtResource("3_7o5cp")]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Button" parent="OPTIONS/MarginContainer/PanelContainer/Options Menu/Credits Button/TextureRect" parent_id_path=PackedInt32Array(440904901, 1425206597) index="0" unique_id=2023860768]
+text = "Credits"
+
+[node name="Credits" type="MarginContainer" parent="OPTIONS/MarginContainer/PanelContainer" unique_id=620467097]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OPTIONS/MarginContainer/PanelContainer/Credits" unique_id=791814513]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OPTIONS/MarginContainer/PanelContainer/Credits/VBoxContainer" unique_id=1009163436]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("5_2mj0p")
+theme_override_font_sizes/font_size = 128
+text = "CREDITS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="OPTIONS/MarginContainer/PanelContainer/Credits/VBoxContainer" unique_id=2144180898]
+layout_mode = 2
+theme_override_constants/margin_top = 25
+
+[node name="text" type="VBoxContainer" parent="OPTIONS/MarginContainer/PanelContainer/Credits/VBoxContainer/MarginContainer" unique_id=990229940]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Jammers" type="VBoxContainer" parent="OPTIONS/MarginContainer/PanelContainer/Credits/VBoxContainer/MarginContainer/text" unique_id=1198222304]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="OPTIONS/MarginContainer/PanelContainer/Credits/VBoxContainer/MarginContainer/text/Jammers" unique_id=150830175]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("6_6pirr")
+theme_override_font_sizes/font_size = 64
+text = "JAMMERS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OPTIONS/MarginContainer/PanelContainer/Credits/VBoxContainer/MarginContainer/text/Jammers" unique_id=593801864]
+layout_mode = 2
+theme_override_constants/separation = 34
+alignment = 1
+
+[node name="Label4" type="Label" parent="OPTIONS/MarginContainer/PanelContainer/Credits/VBoxContainer/MarginContainer/text/Jammers/HBoxContainer" unique_id=1537816701]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("6_6pirr")
+theme_override_font_sizes/font_size = 48
+text = "RYAN ABUSAADA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="OPTIONS/MarginContainer/PanelContainer/Credits/VBoxContainer/MarginContainer/text/Jammers/HBoxContainer" unique_id=609517523]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("6_6pirr")
+theme_override_font_sizes/font_size = 48
+text = "Maeve Philipp"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="OPTIONS/MarginContainer/PanelContainer/Credits/VBoxContainer/MarginContainer/text/Jammers" unique_id=485238065]
+layout_mode = 2
+theme_override_constants/separation = 34
+alignment = 1
+
+[node name="Label2" type="Label" parent="OPTIONS/MarginContainer/PanelContainer/Credits/VBoxContainer/MarginContainer/text/Jammers/HBoxContainer2" unique_id=2024564349]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("6_6pirr")
+theme_override_font_sizes/font_size = 48
+text = "Joseph Seo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="OPTIONS/MarginContainer/PanelContainer/Credits/VBoxContainer/MarginContainer/text/Jammers/HBoxContainer2" unique_id=2044831224]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("6_6pirr")
+theme_override_font_sizes/font_size = 48
+text = "Jade SPooner"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="OPTIONS/MarginContainer/PanelContainer/Credits/VBoxContainer/MarginContainer/text" unique_id=1467856406]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="OPTIONS/MarginContainer/PanelContainer/Credits/VBoxContainer/MarginContainer/text/VBoxContainer2" unique_id=827943747]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("6_6pirr")
+theme_override_font_sizes/font_size = 64
+text = "Miscellaneous"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OPTIONS/MarginContainer/PanelContainer/Credits/VBoxContainer/MarginContainer/text/VBoxContainer2" unique_id=1787062308]
+layout_mode = 2
+theme_override_constants/separation = 34
+alignment = 1
+
+[node name="Label4" type="Label" parent="OPTIONS/MarginContainer/PanelContainer/Credits/VBoxContainer/MarginContainer/text/VBoxContainer2/HBoxContainer" unique_id=1030491858]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("6_6pirr")
+theme_override_font_sizes/font_size = 48
+text = "MUSIC BY:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="OPTIONS/MarginContainer/PanelContainer/Credits/VBoxContainer/MarginContainer/text/VBoxContainer2/HBoxContainer" unique_id=1850877902]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("6_6pirr")
+theme_override_font_sizes/font_size = 48
+text = "Sax Sound:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="OPTIONS/MarginContainer/PanelContainer/Credits/VBoxContainer/MarginContainer/text/VBoxContainer2" unique_id=1225617347]
+layout_mode = 2
+theme_override_constants/separation = 34
+alignment = 1
+
+[node name="Label2" type="Label" parent="OPTIONS/MarginContainer/PanelContainer/Credits/VBoxContainer/MarginContainer/text/VBoxContainer2/HBoxContainer2" unique_id=1944629272]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("6_6pirr")
+theme_override_font_sizes/font_size = 48
+text = "Matthew Pablo & Gabriel Decker"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="OPTIONS/MarginContainer/PanelContainer/Credits/VBoxContainer/MarginContainer/text/VBoxContainer2/HBoxContainer2" unique_id=886713835]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("6_6pirr")
+theme_override_font_sizes/font_size = 48
+text = "Soundchick2711"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" parent="OPTIONS/MarginContainer/PanelContainer/Credits" unique_id=1901130439 instance=ExtResource("3_7o5cp")]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Button" parent="OPTIONS/MarginContainer/PanelContainer/Credits/Back/TextureRect" parent_id_path=PackedInt32Array(1901130439, 1425206597) index="0" unique_id=2023860768]
+text = "Back"
+
+[node name="Control Menu" type="Control" parent="OPTIONS/MarginContainer" unique_id=1010054837]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="TextureButton" type="TextureButton" parent="OPTIONS/MarginContainer/Control" unique_id=1386018191]
+[node name="TextureButton" type="TextureButton" parent="OPTIONS/MarginContainer/Control Menu" unique_id=1386018191]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
 offset_left = 36.22
@@ -288,11 +491,15 @@ stretch_mode = 5
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Start/TextureRect/Button" to="MarginContainer/HBoxContainer/Start" method="_onStart"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Options/TextureRect/Button" to="OPTIONS" method="_showOptionsMenu"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Quit/TextureRect/Button" to="MarginContainer/HBoxContainer/Quit" method="_onQuit"]
-[connection signal="value_changed" from="OPTIONS/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/HSlider" to="OPTIONS" method="_changeMasterVolume"]
-[connection signal="value_changed" from="OPTIONS/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/HSlider" to="OPTIONS" method="_changeMusicVolume"]
-[connection signal="value_changed" from="OPTIONS/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/HBoxContainer/HSlider" to="OPTIONS" method="_changeSoundEffectVolume"]
-[connection signal="pressed" from="OPTIONS/MarginContainer/Control/TextureButton" to="OPTIONS" method="_hideOptionsMenu"]
+[connection signal="value_changed" from="OPTIONS/MarginContainer/PanelContainer/Options Menu/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/HSlider" to="OPTIONS" method="_changeMasterVolume"]
+[connection signal="value_changed" from="OPTIONS/MarginContainer/PanelContainer/Options Menu/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/HSlider" to="OPTIONS" method="_changeMusicVolume"]
+[connection signal="value_changed" from="OPTIONS/MarginContainer/PanelContainer/Options Menu/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/HBoxContainer/HSlider" to="OPTIONS" method="_changeSoundEffectVolume"]
+[connection signal="pressed" from="OPTIONS/MarginContainer/PanelContainer/Options Menu/Credits Button/TextureRect/Button" to="OPTIONS" method="_showCredits"]
+[connection signal="pressed" from="OPTIONS/MarginContainer/PanelContainer/Credits/Back/TextureRect/Button" to="OPTIONS" method="_hideCredits"]
+[connection signal="pressed" from="OPTIONS/MarginContainer/Control Menu/TextureButton" to="OPTIONS" method="_hideOptionsMenu"]
 
 [editable path="MarginContainer/HBoxContainer/Start"]
 [editable path="MarginContainer/HBoxContainer/Options"]
 [editable path="MarginContainer/HBoxContainer/Quit"]
+[editable path="OPTIONS/MarginContainer/PanelContainer/Options Menu/Credits Button"]
+[editable path="OPTIONS/MarginContainer/PanelContainer/Credits/Back"]
