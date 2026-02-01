@@ -42,6 +42,9 @@ func _onOptions() -> void:
 	# optionMenu.popup_exclusive_centered()
 	pass
 
+func _onHome() -> void:
+	get_tree().change_scene_to_file("res://scenes/jade/MainMenu.tscn")
+
 func _set_shader_value(value: float):
 	var shaderMaterial = background.material as ShaderMaterial
 	shaderMaterial.set_shader_parameter("amplitude", value)

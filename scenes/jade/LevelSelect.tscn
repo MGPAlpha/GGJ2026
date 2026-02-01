@@ -15,25 +15,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lr35k")
-level_button_grid = NodePath("VBoxContainer/MarginContainer/GridContainer")
+level_button_grid = NodePath("MarginContainer/VBoxContainer/MarginContainer/GridContainer")
 level_button_prefab = ExtResource("3_ktsqk")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=451428666]
 layout_mode = 2
 color = Color(0.13333334, 0.13333334, 0.23137255, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1234319481 node_paths=PackedStringArray("control_to_focus")]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1612272278]
+layout_mode = 2
+theme_override_constants/margin_bottom = 75
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1234319481 node_paths=PackedStringArray("control_to_focus")]
 layout_mode = 2
 script = ExtResource("1_v2dnw")
 control_to_focus = NodePath(".")
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=469912301]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=469912301]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 texture = ExtResource("1_ct0ao")
 expand_mode = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/TextureRect" unique_id=1428334946]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TextureRect" unique_id=1428334946]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -45,7 +49,7 @@ bbcode_enabled = true
 text = "LEVEL SELECT"
 fit_content = true
 
-[node name="Label" type="Label" parent="VBoxContainer/TextureRect" unique_id=1623119735]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TextureRect" unique_id=1623119735]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,7 +67,7 @@ text = "LEVEL SELECT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=136350869]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=136350869]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -72,14 +76,14 @@ theme_override_constants/margin_left = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 30
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/MarginContainer" unique_id=2008397200]
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=2008397200]
 layout_mode = 2
 size_flags_stretch_ratio = 5.0
 theme_override_constants/h_separation = 200
 theme_override_constants/v_separation = 20
 columns = 6
 
-[node name="Control" parent="VBoxContainer" unique_id=440904901 node_paths=PackedStringArray("button") instance=ExtResource("5_kvd6m")]
+[node name="Control" parent="MarginContainer" unique_id=440904901 node_paths=PackedStringArray("button") instance=ExtResource("5_kvd6m")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -88,7 +92,7 @@ stretch_mode = 1
 alignment_vertical = 0
 button = NodePath("TextureRect/Button")
 
-[node name="Button" parent="VBoxContainer/Control/TextureRect" parent_id_path=PackedInt32Array(440904901, 1425206597) index="0" unique_id=2023860768]
+[node name="Button" parent="MarginContainer/Control/TextureRect" parent_id_path=PackedInt32Array(440904901, 1425206597) index="0" unique_id=2023860768]
 anchor_left = 0.08285674
 anchor_top = 0.15346839
 anchor_right = 0.92152345
@@ -102,6 +106,6 @@ text = "Home"
 script = ExtResource("6_kvd6m")
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="VBoxContainer/Control/TextureRect/Button" to="VBoxContainer/Control/TextureRect/Button" method="_onSceneSelected"]
+[connection signal="pressed" from="MarginContainer/Control/TextureRect/Button" to="MarginContainer/Control" method="_onHome"]
 
-[editable path="VBoxContainer/Control"]
+[editable path="MarginContainer/Control"]

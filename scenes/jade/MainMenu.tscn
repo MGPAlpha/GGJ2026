@@ -105,6 +105,7 @@ button = NodePath("TextureRect/Button")
 text = "Quit"
 
 [node name="OPTIONS" type="Control" parent="." unique_id=364339807 node_paths=PackedStringArray("master_slider", "music_slider", "sound_effects_slider")]
+visible = false
 layout_mode = 2
 script = ExtResource("5_6pirr")
 master_slider = NodePath("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/HSlider")
