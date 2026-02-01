@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://desto8mysbhyq" path="res://scripts/ui/levelSelectButton.gd" id="1_83i0v"]
 [ext_resource type="Texture2D" uid="uid://cm80h3p70frmm" path="res://ui/levelButton.png" id="1_tt3xn"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_twsa1"]
+
 [node name="LevelButtonContainer" type="Control" unique_id=1199588296 node_paths=PackedStringArray("button")]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 3
@@ -34,5 +36,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_twsa1")
 text = "1"
 flat = true

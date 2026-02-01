@@ -7,11 +7,12 @@
 [ext_resource type="Shader" uid="uid://621pavsppj0w" path="res://materials/canvas_tile.tres" id="3_pa3ds"]
 [ext_resource type="PackedScene" uid="uid://c3d1geeg3i3o6" path="res://models/canvas_tile.glb" id="5_pa3ds"]
 [ext_resource type="PackedScene" uid="uid://d3ifrdqm1iqy0" path="res://models/basin_canvas_tile2.glb" id="7_pa3ds"]
-[ext_resource type="Shader" uid="uid://dnhundremme0n" path="res://materials/water.gdshader" id="8_msfd0"]
+[ext_resource type="Shader" path="res://materials/water.gdshader" id="8_msfd0"]
 [ext_resource type="Texture2D" uid="uid://babldjjtciciv" path="res://models/textures/Sponge__Normal.jpg" id="9_x1or4"]
 [ext_resource type="Texture2D" uid="uid://6cvvdl6tr3i1" path="res://materials/metal.jpg" id="10_etwfe"]
-[ext_resource type="Shader" uid="uid://bgri64qnv5olr" path="res://materials/glass.gdshader" id="10_x1or4"]
+[ext_resource type="Shader" path="res://materials/glass.gdshader" id="10_x1or4"]
 [ext_resource type="Texture2D" uid="uid://cvgk1a6oueyvp" path="res://materials/glass-1.png" id="11_0d73y"]
+[ext_resource type="Texture2D" uid="uid://ctkppytmh57rn" path="res://materials/GridOutline.png" id="13_w87tx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_msfd0"]
 render_priority = 0
@@ -29,6 +30,18 @@ shader_parameter/RandomID = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pa3ds"]
 albedo_texture = ExtResource("3_fns28")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jtu3l"]
+render_priority = 0
+shader = ExtResource("8_msfd0")
+shader_parameter/primary_color = Color(6.256998e-07, 0.32193023, 0.47927952, 1)
+shader_parameter/roughness = 0.2
+shader_parameter/normalmap_a = ExtResource("9_x1or4")
+shader_parameter/normalmap_a_strength = 0.3
+shader_parameter/normalmap_b_strength = 0.4
+shader_parameter/movement_direction = Vector2(0.01, 0.01)
+shader_parameter/movement_strength = 0.1
+shader_parameter/uv_scale = 0.095
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jtu3l"]
 albedo_texture = ExtResource("3_fns28")
@@ -65,18 +78,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2yove")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jtu3l"]
-render_priority = 0
-shader = ExtResource("8_msfd0")
-shader_parameter/primary_color = Color(6.256998e-07, 0.32193023, 0.47927952, 1)
-shader_parameter/roughness = 0.2
-shader_parameter/normalmap_a = ExtResource("9_x1or4")
-shader_parameter/normalmap_a_strength = 0.3
-shader_parameter/normalmap_b_strength = 0.4
-shader_parameter/movement_direction = Vector2(0.01, 0.01)
-shader_parameter/movement_strength = 0.1
-shader_parameter/uv_scale = 0.095
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w87tx"]
 albedo_texture = ExtResource("10_etwfe")
 
@@ -94,7 +95,14 @@ shader_parameter/trasnparency = 0.60000000894072
 [sub_resource type="BoxMesh" id="BoxMesh_0d73y"]
 size = Vector3(2, 0.1, 2)
 
-[node name="Tile" type="Node3D" unique_id=349656334 node_paths=PackedStringArray("basic_canvas", "basic_canvas_mesh", "source_basin", "source_basin_mesh", "clean_tile", "inert_tile", "inert_tile_mesh")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uaumx"]
+transparency = 1
+albedo_texture = ExtResource("13_w87tx")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pu20o"]
+size = Vector2(1, 1)
+
+[node name="Tile" type="Node3D" unique_id=349656334 node_paths=PackedStringArray("basic_canvas", "basic_canvas_mesh", "source_basin", "source_basin_mesh", "clean_tile", "inert_tile", "inert_tile_mesh", "preview", "preview_mesh")]
 script = ExtResource("1_nsn1e")
 basic_canvas = NodePath("BasicTile")
 basic_canvas_mesh = NodePath("BasicTile/Cube")
@@ -103,44 +111,46 @@ source_basin_mesh = NodePath("SourceTile/Cube_001")
 clean_tile = NodePath("CleanTile")
 inert_tile = NodePath("InertTile")
 inert_tile_mesh = NodePath("InertTile/Cube_001")
+preview = NodePath("Grid")
+preview_mesh = NodePath("Grid/MeshInstance3D")
 
 [node name="BasicTile" parent="." unique_id=2039495511 instance=ExtResource("5_pa3ds")]
 visible = false
 
-[node name="Cube" parent="BasicTile" index="0" unique_id=1716258384]
+[node name="Cube" parent="BasicTile" index="0" unique_id=1066149515]
 material_override = SubResource("ShaderMaterial_msfd0")
 
 [node name="SourceTile" parent="." unique_id=267073316 instance=ExtResource("7_pa3ds")]
 visible = false
 
-[node name="Cube" parent="SourceTile" index="0" unique_id=1527552185]
+[node name="Cube" parent="SourceTile" index="0" unique_id=1215990698]
 material_override = SubResource("StandardMaterial3D_msfd0")
 
-[node name="Cube_001" parent="SourceTile" index="1" unique_id=684760368]
+[node name="Cube_001" parent="SourceTile" index="1" unique_id=326218583]
 material_override = SubResource("ShaderMaterial_x1or4")
 
 [node name="CleanTile" parent="." unique_id=610791707 instance=ExtResource("7_pa3ds")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
 visible = false
 
-[node name="Cube" parent="CleanTile" index="0" unique_id=1527552185]
+[node name="Cube" parent="CleanTile" index="0" unique_id=1215990698]
 material_override = SubResource("StandardMaterial3D_pa3ds")
+
+[node name="Cube_001" parent="CleanTile" index="1" unique_id=326218583]
+transform = Transform3D(0.4108031, 0, 0, 0, 0.08516651, 0, 0, 0, 0.4108031, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_jtu3l")
 
 [node name="Cube_002" type="MeshInstance3D" parent="CleanTile" unique_id=2080553277]
 transform = Transform3D(0.4, 0, 0, 0, 0.1, 0, 0, 0, 0.4, -0.00528717, -0.038360562, 0)
 material_override = SubResource("StandardMaterial3D_jtu3l")
 mesh = SubResource("ArrayMesh_nkdtg")
 
-[node name="Cube_001" parent="CleanTile" index="2" unique_id=684760368]
-transform = Transform3D(0.4108031, 0, 0, 0, 0.08516651, 0, 0, 0, 0.4108031, 0, 0, 0)
-material_override = SubResource("ShaderMaterial_jtu3l")
-
 [node name="InertTile" parent="." unique_id=526049243 instance=ExtResource("3_g4m2s")]
 
-[node name="Cube" parent="InertTile" index="0" unique_id=137920780]
+[node name="Cube" parent="InertTile" index="0" unique_id=1444987366]
 material_override = SubResource("StandardMaterial3D_w87tx")
 
-[node name="Cube_001" parent="InertTile" index="1" unique_id=1651175283]
+[node name="Cube_001" parent="InertTile" index="1" unique_id=423701999]
 transform = Transform3D(0.48, 0, 0, 0, 0.1, 0, 0, 0, 0.48, 0, -0.012322571, 0)
 material_override = SubResource("ShaderMaterial_pu20o")
 
@@ -148,6 +158,14 @@ material_override = SubResource("ShaderMaterial_pu20o")
 transform = Transform3D(0.48, 0, 0, 0, 0.1, 0, 0, 0, 0.48, 0, 0.09399408, 0)
 material_override = SubResource("ShaderMaterial_5rkhw")
 mesh = SubResource("BoxMesh_0d73y")
+
+[node name="Grid" type="Node3D" parent="." unique_id=707874438]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Grid" unique_id=739863878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11159584, 0)
+material_override = SubResource("StandardMaterial3D_uaumx")
+mesh = SubResource("PlaneMesh_pu20o")
 
 [editable path="BasicTile"]
 [editable path="SourceTile"]

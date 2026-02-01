@@ -1,5 +1,5 @@
  0
-xx6x
+xx4x
  0
 
 oooo
@@ -10,6 +10,6 @@ xxxx
 xxxx
 xxxx
 
-0000
-0000
-0000
+x0xx
+x4xx
+040x

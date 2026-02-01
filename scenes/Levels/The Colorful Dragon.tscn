@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://biim2qhebjlie"]
+
+[ext_resource type="PackedScene" uid="uid://d26dnrkjxx3rm" path="res://scenes/baselevel.tscn" id="1_r2yx8"]
+
+[node name="Leveltest" unique_id=1059751183 instance=ExtResource("1_r2yx8")]
+
+[node name="Board" parent="." index="0" unique_id=285819464]
+level = "res://levels/The Colorful Dragon.txt"
+
+[editable path="UI/MarginContainer/Control2"]

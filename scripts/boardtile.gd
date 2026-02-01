@@ -9,11 +9,14 @@ class_name BoardTile extends Node3D
 @export var clean_tile : Node3D
 @export var inert_tile: Node3D
 @export var inert_tile_mesh: MeshInstance3D
+@export var preview: Node3D
+@export var preview_mesh: MeshInstance3D
 
 var basic_material: ShaderMaterial
 var source_material: ShaderMaterial
 var clean_material: StandardMaterial3D
 var inert_material: ShaderMaterial
+var preview_material: StandardMaterial3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,6 +37,10 @@ func _ready() -> void:
 	inert_material = inert_tile_mesh.material_override.duplicate()
 	inert_tile_mesh.material_override = inert_material
 	inert_material.set_shader_parameter("CanvasColor", default_color)
+	
+	preview.visible = false
+	preview_material = preview_mesh.material_override.duplicate()
+	preview_mesh.material_override = preview_material
 
 func set_color(color: Color):
 	basic_material.set_shader_parameter("CanvasColor", color)
