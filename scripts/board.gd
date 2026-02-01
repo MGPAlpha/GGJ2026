@@ -69,15 +69,21 @@ func load_level_file(path: String):
 		for i in len(line):
 			var tile_val = line[i]
 			match tile_val:
-				"P", "o":
+				"P", "o", "S":
 					var new_tile = BoardTileData.new()
 					new_tile.position = Vector2i(i,j)
 					new_tile.color_index = -1
+					match tile_val:
+						"o":
+							new_tile.mode = BoardTileData.TileMode.BASIC
+						"S":
+							new_tile.mode = BoardTileData.TileMode.SOURCE
 					var new_tile_node = tile_prefab.instantiate()
 					new_tile_node.name = "Tile (" + str(i) + "," + str(j) + ")"
 					new_tile_node.position = Vector3(i*grid_tile_size.x, 0, j*grid_tile_size.y)
-					new_tile.node = new_tile_node
 					add_child(new_tile_node)
+					new_tile_node.set_mode(new_tile.mode)
+					new_tile.node = new_tile_node
 					tiles[j][i] = new_tile
 				" ":
 					#logic for spawning walls
@@ -148,6 +154,7 @@ func try_move_player(direction: Vector2i) -> bool:
 	var new_tile = tiles[new_player_pos.y][new_player_pos.x]
 	if !new_tile:
 		return false
+	
 	# Perform movement
 	player_pos = new_player_pos
 	var move_rotation = Quaternion.from_euler(Vector3(PI/2*direction.y, 0, -PI/2*direction.x))
