@@ -193,3 +193,21 @@ func paint_tile(tile: BoardTileData, color_index: int):
 
 func get_player_pos_for_tile(tile: BoardTileData):
 	return Vector3(0, tile_height/2, 0) + tile.node.position
+	
+var cube_display_rotation
+var cube_display_pos
+func display_cube():
+	var curr_tile = tiles[player_pos.y][player_pos.x]
+	cube_display_pos = get_player_pos_for_tile(curr_tile) + Vector3.UP*3
+	cube_display_rotation = player_rotation
+	player_node.pop_out_cube(cube_display_pos, cube_display_rotation)
+	
+func rotate_display_cube(direction: Vector2i):
+	cube_display_rotation = Quaternion.from_euler(Vector3(PI/2*sign(direction.y), PI/2*sign(direction.x), 0)) * cube_display_rotation
+	player_node.pop_out_cube(cube_display_pos, cube_display_rotation)
+	
+func end_display_cube():
+	var curr_tile = tiles[player_pos.y][player_pos.x]
+	cube_display_pos = get_player_pos_for_tile(curr_tile)
+	cube_display_rotation = player_rotation
+	player_node.pop_out_cube(cube_display_pos, cube_display_rotation)

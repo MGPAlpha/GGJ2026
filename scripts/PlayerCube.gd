@@ -49,10 +49,10 @@ func set_face_color(face: Vector3i, color_index: int, color_list: Array[Color]):
 func wait():  
 	await get_tree().create_timer(2).timeout
 
-func rotate_cube_view(direction : Vector2i):
-	var move_rotation = Quaternion.from_euler(Vector3(PI/2*direction.y, PI/2*direction.x, 0))
-	var new_rotation = move_rotation * cube.quaternion
-	
+func pop_out_cube(new_position: Vector3, new_rotation: Quaternion):
 	var tween := create_tween()
 	tween.set_ease(tween.EASE_OUT)
+	tween.set_parallel()
+	tween.tween_property(self, "position", new_position, rotate_speed)
 	tween.tween_property(cube, "quaternion", new_rotation, rotate_speed)
+	await tween.finished

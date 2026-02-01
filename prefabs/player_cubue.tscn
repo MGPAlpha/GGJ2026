@@ -329,31 +329,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 [node name="NewCubeFaces" parent="CubeMesh" unique_id=1367083900 instance=ExtResource("2_njf18")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
-[node name="Cube" parent="CubeMesh/NewCubeFaces" index="0" unique_id=618723700]
+[node name="Cube" parent="CubeMesh/NewCubeFaces" index="0" unique_id=1028148159]
 material_override = SubResource("StandardMaterial3D_71dh6")
 mesh = SubResource("ArrayMesh_cronv")
 
-[node name="SpongeSide1" parent="CubeMesh/NewCubeFaces" index="1" unique_id=1081901620]
+[node name="SpongeSide1" parent="CubeMesh/NewCubeFaces" index="1" unique_id=825238151]
 material_override = SubResource("ShaderMaterial_t241o")
 mesh = SubResource("ArrayMesh_qitry")
 
-[node name="SpongeSide2" parent="CubeMesh/NewCubeFaces" index="2" unique_id=1393048553]
+[node name="SpongeSide2" parent="CubeMesh/NewCubeFaces" index="2" unique_id=199691992]
 material_override = SubResource("ShaderMaterial_wtdy0")
 mesh = SubResource("ArrayMesh_fshxg")
 
-[node name="SpongeSide3" parent="CubeMesh/NewCubeFaces" index="3" unique_id=1593028713]
+[node name="SpongeSide3" parent="CubeMesh/NewCubeFaces" index="3" unique_id=2100937750]
 material_override = SubResource("ShaderMaterial_oyako")
 mesh = SubResource("ArrayMesh_mgsj1")
 
-[node name="SpongSide4" parent="CubeMesh/NewCubeFaces" index="4" unique_id=553696382]
+[node name="SpongSide4" parent="CubeMesh/NewCubeFaces" index="4" unique_id=388909239]
 material_override = SubResource("ShaderMaterial_71dh6")
 mesh = SubResource("ArrayMesh_t85h6")
 
-[node name="SpongeTop" parent="CubeMesh/NewCubeFaces" index="5" unique_id=970951504]
+[node name="SpongeTop" parent="CubeMesh/NewCubeFaces" index="5" unique_id=1680050860]
 material_override = SubResource("ShaderMaterial_0vob3")
 mesh = SubResource("ArrayMesh_d1vxw")
 
-[node name="SpongeBot" parent="CubeMesh/NewCubeFaces" index="6" unique_id=657258648]
+[node name="SpongeBot" parent="CubeMesh/NewCubeFaces" index="6" unique_id=967577561]
 material_override = SubResource("ShaderMaterial_06wr6")
 mesh = SubResource("ArrayMesh_cxg6n")
 
