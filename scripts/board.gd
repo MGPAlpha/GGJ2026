@@ -149,7 +149,7 @@ func parse_color_index(color: String):
 	if color.is_valid_int():
 		return int(color)
 	return -1
-	
+
 func try_move_player(direction: Vector2i) -> bool:
 	# Checking if move is possible
 	var new_player_pos = player_pos + direction
@@ -167,7 +167,8 @@ func try_move_player(direction: Vector2i) -> bool:
 	print(player_pos)
 	print(player_rotation.get_euler())
 	print("Player Cube Up is now ", player_rotation * Vector3.UP)
-	player_node.rotate_cube(get_player_pos_for_tile(new_tile), player_rotation)
+	
+	await player_node.rotate_cube(get_player_pos_for_tile(new_tile), player_rotation)
 	
 	# Color Logic
 	var down_side = round(Vector3.DOWN * player_rotation)
@@ -185,6 +186,7 @@ func try_move_player(direction: Vector2i) -> bool:
 		BoardTileData.TileMode.CLEAN:
 			player_colors[down_side] = -1
 			player_node.set_face_color(down_side, -1, colors)
+	
 	return true
 	
 func paint_tile(tile: BoardTileData, color_index: int):

@@ -41,6 +41,7 @@ func rotate_cube(new_position : Vector3, new_quaternion : Quaternion):
 	tween.tween_property(cube, "quaternion", new_quaternion, roll_speed)
 	#tween.tween_method(roll.bind(rotation_basis * cube.global_transform.basis, roll_basis), 0.0, 1.0, roll_speed)
 	tween.tween_method(roll_height, 0.0, 1.0, roll_speed)
+	await tween.finished
 
 func roll(w: float, f: Basis, t: Basis) -> void:
 	cube.global_transform.basis = f.slerp(t, w)
