@@ -44,10 +44,10 @@ mesh = SubResource("BoxMesh_awyw7")
 
 [node name="SourceBasinTileMesh" parent="." unique_id=526049243 instance=ExtResource("3_g4m2s")]
 
-[node name="Cube" parent="SourceBasinTileMesh" index="0" unique_id=435291864]
+[node name="Cube" parent="SourceBasinTileMesh" index="0" unique_id=137920780]
 material_override = SubResource("StandardMaterial3D_mekmq")
 
-[node name="Cube_001" parent="SourceBasinTileMesh" index="1" unique_id=980973887]
+[node name="Cube_001" parent="SourceBasinTileMesh" index="1" unique_id=1651175283]
 material_override = SubResource("ShaderMaterial_fns28")
 
 [editable path="BasicTileMesh"]

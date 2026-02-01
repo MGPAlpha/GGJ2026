@@ -67,23 +67,20 @@ layout_mode = 2
 theme_override_constants/separation = 100
 alignment = 1
 
-[node name="Start" parent="MarginContainer/HBoxContainer" unique_id=1795515865 node_paths=PackedStringArray("button") instance=ExtResource("3_7o5cp")]
+[node name="Start" parent="MarginContainer/HBoxContainer" unique_id=1795515865 instance=ExtResource("3_7o5cp")]
 layout_mode = 2
-button = NodePath("TextureRect/Button")
 
 [node name="Button" parent="MarginContainer/HBoxContainer/Start/TextureRect" parent_id_path=PackedInt32Array(1795515865, 1425206597) index="0" unique_id=2023860768]
 text = "Start"
 
-[node name="Options" parent="MarginContainer/HBoxContainer" unique_id=1588871351 node_paths=PackedStringArray("button") instance=ExtResource("3_7o5cp")]
+[node name="Options" parent="MarginContainer/HBoxContainer" unique_id=1588871351 instance=ExtResource("3_7o5cp")]
 layout_mode = 2
-button = NodePath("TextureRect/Button")
 
 [node name="Button" parent="MarginContainer/HBoxContainer/Options/TextureRect" parent_id_path=PackedInt32Array(1588871351, 1425206597) index="0" unique_id=2023860768]
 text = "Options"
 
-[node name="Quit" parent="MarginContainer/HBoxContainer" unique_id=69184226 node_paths=PackedStringArray("button") instance=ExtResource("3_7o5cp")]
+[node name="Quit" parent="MarginContainer/HBoxContainer" unique_id=69184226 instance=ExtResource("3_7o5cp")]
 layout_mode = 2
-button = NodePath("TextureRect/Button")
 
 [node name="Button" parent="MarginContainer/HBoxContainer/Quit/TextureRect" parent_id_path=PackedInt32Array(69184226, 1425206597) index="0" unique_id=2023860768]
 text = "Quit"
