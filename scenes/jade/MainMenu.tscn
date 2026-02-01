@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dp73w0bf04wqq"]
 
 [ext_resource type="Texture2D" uid="uid://dcxl84ipc0h14" path="res://assets/jadeLearningShaders/experiments/materials/splatter background.png" id="1_6y4c4"]
-[ext_resource type="Script" uid="uid://cyxfsttj4ei1j" path="res://scripts/ui/FocusGrabber.gd" id="1_jsu6h"]
+[ext_resource type="Script" path="res://scripts/ui/FocusGrabber.gd" id="1_jsu6h"]
 [ext_resource type="Texture2D" uid="uid://damqlesax2tjr" path="res://assets/jadeLearningShaders/experiments/materials/logo.png" id="2_7o5cp"]
-[ext_resource type="PackedScene" uid="uid://e050bqiinmgc" path="res://assets/jadeLearningShaders/experiments/text_button.tscn" id="3_7o5cp"]
+[ext_resource type="PackedScene" uid="uid://e050bqiinmgc" path="res://ui/text_button.tscn" id="3_7o5cp"]
 
 [node name="MainMenu" type="MarginContainer" unique_id=1317189709 node_paths=PackedStringArray("control_to_focus")]
 anchors_preset = 15

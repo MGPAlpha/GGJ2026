@@ -4,6 +4,8 @@
 
 [resource]
 Button/colors/font_color = Color(0.9490196, 0.9137255, 0.89411765, 1)
+Button/colors/font_focus_color = Color(0.79558253, 0.7456706, 0.87870127, 1)
+Button/colors/font_hover_color = Color(0.79558253, 0.7456706, 0.87870127, 1)
 Button/constants/outline_size = 5
 Button/font_sizes/font_size = 64
 Button/fonts/font = ExtResource("1_0ymyj")

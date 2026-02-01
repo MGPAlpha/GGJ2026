@@ -6,8 +6,6 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	background.material = background.material.duplicate()
-	button.add_theme_color_override("font_focus_color", Color.RED)
-	button.add_theme_color_override("font_hover_color", Color.RED)
 	_offHover()
 
 

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://e050bqiinmgc"]
+
+[ext_resource type="Script" uid="uid://e7wyhbhqf6ck" path="res://scripts/ui/mainMenuButton.gd" id="1_jc7yw"]
+[ext_resource type="Material" uid="uid://bjh5oqtwq4bi2" path="res://assets/jadeLearningShaders/experiments/materials/shaders/button_material.tres" id="1_kxq0e"]
+[ext_resource type="Texture2D" uid="uid://cijc44xov1ypy" path="res://assets/jadeLearningShaders/experiments/materials/paint_button.png" id="2_e6fh8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jc7yw"]
+
+[node name="Control" type="AspectRatioContainer" unique_id=440904901 node_paths=PackedStringArray("background")]
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = -1
+anchor_right = 0.3125
+anchor_bottom = 0.18518518
+size_flags_horizontal = 3
+size_flags_vertical = 3
+ratio = 3.0
+stretch_mode = 0
+script = ExtResource("1_jc7yw")
+background = NodePath("TextureRect")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1425206597]
+material = ExtResource("1_kxq0e")
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+texture = ExtResource("2_e6fh8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="TextureRect" unique_id=2023860768]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.083000004
+anchor_top = 0.083000004
+anchor_right = 0.92100006
+anchor_bottom = 0.91800004
+offset_left = -0.3000002
+offset_top = -0.1500001
+offset_right = -0.1000061
+offset_bottom = 0.099998474
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jc7yw")
+text = "Text"
+flat = true
+
+[connection signal="focus_entered" from="TextureRect/Button" to="." method="_onHover"]
+[connection signal="focus_exited" from="TextureRect/Button" to="." method="_offHover"]
+[connection signal="mouse_entered" from="TextureRect/Button" to="." method="_onHover"]
+[connection signal="mouse_exited" from="TextureRect/Button" to="." method="_offHover"]
