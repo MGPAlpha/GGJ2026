@@ -3,5 +3,7 @@
 [ext_resource type="FontFile" uid="uid://5rdfk4x5lf2f" path="res://assets/jadeLearningShaders/experiments/Drybrush.ttf" id="1_0ymyj"]
 
 [resource]
+Button/colors/font_color = Color(0.9490196, 0.9137255, 0.89411765, 1)
+Button/constants/outline_size = 5
 Button/font_sizes/font_size = 64
 Button/fonts/font = ExtResource("1_0ymyj")
