@@ -282,45 +282,25 @@ func activate_preview():
 	var down = Vector2i(player_pos.x, player_pos.y + 1)
 	var left = Vector2i(player_pos.x - 1, player_pos.y)
 	var right = Vector2i(player_pos.x + 1, player_pos.y)
+	var directions = [up, down, left, right]
+	var vecDir = [Vector3.FORWARD, Vector3.BACK, Vector3.LEFT, Vector3.RIGHT]
 	
-	if (check_tile(up)):
-		var tile_data = tiles[up.y][up.x] as BoardTileData
-		var tile = tile_data.node as BoardTile
-		preview_cells[0] = up
-		var back_side = round(Vector3.FORWARD * player_rotation)
-		var back_color = player_colors[back_side]
-		var tile_material = tile.preview_mesh.material_override as StandardMaterial3D
-		tile_material.albedo_color = colors[back_color][0] if back_color != -1 else Color.WHITE
-		tile.preview.visible = true;
-	if (check_tile(down)):
-		var tile_data = tiles[down.y][down.x] as BoardTileData
-		var tile = tile_data.node as BoardTile
-		preview_cells[1] = down
-		var front_side = round(Vector3.BACK * player_rotation)
-		var front_color = player_colors[front_side]
-		tile.preview_mesh.material_override.albedo_color = colors[front_color][0] if front_color != -1 else Color.WHITE
-		tile.preview.visible = true;
-	if (check_tile(left)):
-		var tile_data = tiles[left.y][left.x] as BoardTileData
-		var tile = tile_data.node as BoardTile
-		preview_cells[2] = left
-		var left_side = round(Vector3.LEFT * player_rotation)
-		var left_color = player_colors[left_side]
-		tile.preview_mesh.material_override.albedo_color = colors[left_color][0] if left_color != -1 else Color.WHITE
-		tile.preview.visible = true;
-	if (check_tile(right)):
-		var tile_data = tiles[right.y][right.x] as BoardTileData
-		var tile = tile_data.node as BoardTile
-		preview_cells[3] = right
-		var right_side = round(Vector3.RIGHT * player_rotation)
-		var right_color = player_colors[right_side]
-		tile.preview_mesh.material_override.albedo_color = colors[right_color][0] if right_color != -1 else Color.WHITE
-		tile.preview.visible = true;
+	for i in range(directions.size()):
+		var direction = directions[i]
+		if (check_tile(direction)):
+			preview_cells[i] = direction
+			var tile_data = tiles[direction.y][direction.x] as BoardTileData
+			var tile = tile_data.node as BoardTile
+			var side = round(vecDir[i] * player_rotation)
+			var color = player_colors[side]
+			var tile_material = tile.preview_mesh.material_override as StandardMaterial3D
+			tile_material.albedo_color = colors[color][0] if color != -1 else Color.TRANSPARENT
+			tile.preview.visible = true;
 
 func check_tile(pos: Vector2i) -> bool:
 	if pos.x < 0 or pos.y < 0 or pos.x >= size.x or pos.y >= size.y:
 		return false
-	var new_tile = tiles[pos.y][pos.x]
+	var new_tile = tiles[pos.y][pos.x] as BoardTileData
 	if !new_tile:
 		return false
 	return true;

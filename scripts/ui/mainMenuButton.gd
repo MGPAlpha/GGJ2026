@@ -35,7 +35,7 @@ func _onQuit() -> void:
 
 func _onStart() -> void:
 #	some functionality to load the level here
-	get_tree().change_scene_to_file("res://scenes/jade/LevelSelect.tscn")
+	get_tree().change_scene_to_file("res://scenes/UI/LevelSelect.tscn")
 
 func _onOptions() -> void:
 #	Some functionality to open up the options here
@@ -43,7 +43,7 @@ func _onOptions() -> void:
 	pass
 
 func _onHome() -> void:
-	get_tree().change_scene_to_file("res://scenes/jade/MainMenu.tscn")
+	get_tree().change_scene_to_file("res://scenes/UI/MainMenu.tscn")
 
 func _set_shader_value(value: float):
 	var shaderMaterial = background.material as ShaderMaterial
