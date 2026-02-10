@@ -21,12 +21,12 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("reload"):
 		if LevelManager.reload_level(): return
 	if move_busy: return
-	if Input.is_action_just_pressed("camera_swap"):
-		move_busy = true
-		await camera_manager.toggle_camera_mode()
-		move_busy = false
-	elif !pop_out_active:
-		if Input.is_action_just_pressed("move_up"):
+	if !pop_out_active:
+		if Input.is_action_just_pressed("camera_swap"):
+			move_busy = true
+			await camera_manager.toggle_camera_mode()
+			move_busy = false
+		elif Input.is_action_just_pressed("move_up"):
 			move_busy = true
 			await board.try_move_player(Vector2i.UP)
 			move_busy = false
