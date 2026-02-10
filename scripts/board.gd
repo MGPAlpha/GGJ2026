@@ -261,7 +261,17 @@ func get_player_pos_for_tile(tile: BoardTileData):
 	
 var cube_display_rotation
 var cube_display_pos
+var cube_display_ghost: PlayerCube
 func display_cube():
+	cube_display_ghost = player_node.duplicate()
+	var blink_tween := create_tween()
+	blink_tween.bind_node(cube_display_ghost)
+	blink_tween.tween_property(cube_display_ghost, "visible", false, 0)
+	blink_tween.tween_property(cube_display_ghost, "visible", false, .2)
+	blink_tween.tween_property(cube_display_ghost, "visible", true, 0)
+	blink_tween.tween_property(cube_display_ghost, "visible", true, .6)
+	blink_tween.set_loops()
+	add_child(cube_display_ghost)
 	var curr_tile = tiles[player_pos.y][player_pos.x]
 	cube_display_pos = get_player_pos_for_tile(curr_tile) + Vector3.UP*3
 	cube_display_rotation = player_rotation
@@ -275,7 +285,8 @@ func end_display_cube():
 	var curr_tile = tiles[player_pos.y][player_pos.x]
 	cube_display_pos = get_player_pos_for_tile(curr_tile)
 	cube_display_rotation = player_rotation
-	player_node.pop_out_cube(cube_display_pos, cube_display_rotation)
+	await player_node.pop_out_cube(cube_display_pos, cube_display_rotation)
+	cube_display_ghost.queue_free()
 	
 func activate_preview():
 	var up = Vector2i(player_pos.x, player_pos.y - 1)
