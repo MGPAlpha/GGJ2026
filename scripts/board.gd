@@ -276,6 +276,7 @@ func display_cube():
 	cube_display_pos = get_player_pos_for_tile(curr_tile) + Vector3.UP*3
 	cube_display_rotation = player_rotation
 	player_node.pop_out_cube(cube_display_pos, cube_display_rotation)
+	return cube_display_pos
 	
 func rotate_display_cube(direction: Vector2i):
 	cube_display_rotation = Quaternion.from_euler(Vector3(PI/2*sign(direction.y), PI/2*sign(direction.x), 0)) * cube_display_rotation

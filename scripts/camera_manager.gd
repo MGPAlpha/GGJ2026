@@ -8,6 +8,7 @@ class_name CameraManager extends Node3D
 
 var using_top_down: bool = false
 signal camera_mode_changed(top_down: bool)
+@onready var default_cam_size = camera.size
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,7 +41,18 @@ func set_camera_mode(is_top_down: bool):
 	tween.set_parallel()
 	tween.tween_property(camera, "position", new_pos.position, camera_move_time)
 	tween.tween_property(camera, "quaternion", new_pos.quaternion, camera_move_time)
+	tween.tween_property(camera, "size", default_cam_size, camera_move_time)
 	await tween.finished
+	
+func focus_iso_camera(pos: Vector3):
+	var focus_cam_dir = isometric_pos.basis * Vector3.BACK
+	var focus_cam_pos = (isometric_pos.position - pos).dot(focus_cam_dir) * focus_cam_dir + pos
+	var focus_cam_quaternion = isometric_pos.quaternion
+	var tween := create_tween()
+	tween.set_parallel()
+	tween.tween_property(camera, "position", focus_cam_pos, camera_move_time)
+	tween.tween_property(camera, "quaternion", focus_cam_quaternion, camera_move_time)
+	tween.tween_property(camera, "size", default_cam_size * .7, camera_move_time)
 	
 func set_camera_mode_instant(is_top_down: bool):
 	using_top_down = is_top_down

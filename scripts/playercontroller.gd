@@ -43,7 +43,8 @@ func _process(_delta: float) -> void:
 			await board.try_move_player(Vector2i.RIGHT)
 			move_busy = false
 		elif Input.is_action_just_pressed("pop_cube"):
-			board.display_cube()
+			var cube_pos = board.display_cube()
+			camera_manager.focus_iso_camera(cube_pos)
 			pop_out_active = true
 	else:
 		if Input.is_action_just_pressed("move_left"):
@@ -57,6 +58,7 @@ func _process(_delta: float) -> void:
 		elif Input.is_action_just_pressed("pop_cube"):
 			move_busy = true
 			pop_out_active = false
+			camera_manager.set_camera_mode(camera_manager.using_top_down)
 			await board.end_display_cube()
 			move_busy = false
 			
