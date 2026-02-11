@@ -30,15 +30,18 @@ func _ready() -> void:
 	#for side in cube_sides:
 		#cube_sides[side].material_override = StandardMaterial3D.new()
 
-func rotate_cube(new_position : Vector3, new_quaternion : Quaternion):
+var rotation_tween: Tween
+
+func rotate_cube(new_position : Vector3, new_quaternion : Quaternion, time: float = roll_speed):
 #	Implemented using this post as the basis.
 #	https://www.reddit.com/r/godot/comments/17pf75f/how_do_you_correctly_roll_a_cube_with_tweens_in/
 #	This line here doesn't make sense, need to refactor	
 	var tween := create_tween()
+	rotation_tween = tween
 	tween.set_parallel()
-	tween.tween_property(self, "position", new_position, roll_speed)
-	tween.tween_property(cube, "quaternion", new_quaternion, roll_speed)
-	tween.tween_method(roll_height, 0.0, 1.0, roll_speed)
+	tween.tween_property(self, "position", new_position, time)
+	tween.tween_property(cube, "quaternion", new_quaternion, time)
+	tween.tween_method(roll_height, 0.0, 1.0, time)
 	await tween.finished
 	playNote()
 	

@@ -19,14 +19,18 @@ func _process(_delta: float) -> void:
 		LevelManager.return_to_menu()
 		return
 	if Input.is_action_just_pressed("reload"):
-		if LevelManager.reload_level(): return
+		board.reset()
 	if move_busy: return
-	if Input.is_action_just_pressed("camera_swap"):
-		move_busy = true
-		await camera_manager.toggle_camera_mode()
-		move_busy = false
-	elif !pop_out_active:
-		if Input.is_action_just_pressed("move_up"):
+	if !pop_out_active:
+		if Input.is_action_just_pressed("camera_swap"):
+			move_busy = true
+			await camera_manager.toggle_camera_mode()
+			move_busy = false
+		elif Input.is_action_just_pressed("undo"):
+			board.action_stack.undo()
+		elif Input.is_action_just_pressed("redo"):
+			board.action_stack.redo()
+		elif Input.is_action_just_pressed("move_up"):
 			move_busy = true
 			await board.try_move_player(Vector2i.UP)
 			move_busy = false
@@ -43,7 +47,8 @@ func _process(_delta: float) -> void:
 			await board.try_move_player(Vector2i.RIGHT)
 			move_busy = false
 		elif Input.is_action_just_pressed("pop_cube"):
-			board.display_cube()
+			var cube_pos = board.display_cube()
+			camera_manager.focus_iso_camera(cube_pos)
 			pop_out_active = true
 	else:
 		if Input.is_action_just_pressed("move_left"):
@@ -57,6 +62,7 @@ func _process(_delta: float) -> void:
 		elif Input.is_action_just_pressed("pop_cube"):
 			move_busy = true
 			pop_out_active = false
+			camera_manager.set_camera_mode(camera_manager.using_top_down)
 			await board.end_display_cube()
 			move_busy = false
 			
