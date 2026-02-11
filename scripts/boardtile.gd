@@ -56,7 +56,7 @@ func _ready() -> void:
 func set_color(color: Color, pattern: Texture):
 	basic_material.set_shader_parameter("CanvasColor", color)
 	source_material.set_shader_parameter("PaintColor", color)
-	inert_material.set_shader_parameter("CanvasColor", color)
+	#inert_material.set_shader_parameter("CanvasColor", color)
 	
 	basic_tile_sprite_3d.texture = pattern
 	source_tile_sprite_3d.texture = pattern

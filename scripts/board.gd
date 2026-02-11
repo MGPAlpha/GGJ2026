@@ -174,11 +174,13 @@ func load_level_file(path: String):
 		goal_colors[j] = new_row
 		for i in len(curr_line):
 			if i >= size.x: break
-			if curr_line[i].is_valid_int() and tiles[j][i]:
+			if tiles[j][i]:
 				var color
 				match tiles[j][i].mode:
 					BoardTileData.TileMode.BASIC, BoardTileData.TileMode.SOURCE:
 						color = parse_color_index(curr_line[i])
+					_:
+						color = -1
 				new_row[i] = color
 			
 		curr_line = file.get_line()
