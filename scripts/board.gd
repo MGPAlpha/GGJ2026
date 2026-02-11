@@ -50,6 +50,8 @@ var player_node: PlayerCube
 	Vector3i.BACK: -1
 }
 
+var action_stack: ActionStack = ActionStack.new()
+
 var preview_cells: Array[Vector2i]
 
 signal goal_set(goal_colors: Array[Array], colors: Array[Color])
@@ -204,13 +206,16 @@ func try_move_player(direction: Vector2i) -> bool:
 	deactivate_preview()
 	
 	# Perform movement
+	var initial_pos = player_pos
+	var initial_rot = player_rotation
+	var move_action = ActionStack.StackableAction.new()
+	
 	player_pos = new_player_pos
 	var move_rotation = Quaternion.from_euler(Vector3(PI/2*direction.y, 0, -PI/2*direction.x))
 	var new_rotation = move_rotation * player_rotation
 	player_rotation = new_rotation
-	print(player_pos)
-	print(player_rotation.get_euler())
-	print("Player Cube Up is now ", player_rotation * Vector3.UP)
+	
+	move_action.changes.push_back(ActionStack.PlayerMoveBoardChange.new(self, initial_pos, initial_rot, player_pos, new_rotation))
 	
 	await player_node.rotate_cube(get_player_pos_for_tile(new_tile), player_rotation)
 	
@@ -221,13 +226,19 @@ func try_move_player(direction: Vector2i) -> bool:
 			print(player_colors[Vector3i.UP])
 			var down_color = player_colors[down_side]
 			if down_color > -1 and down_color != new_tile.color_index:
+				var initial_color = new_tile.color_index
 				paint_tile(new_tile, down_color)
+				move_action.changes.push_back(ActionStack.TileColorBoardChange.new(self, new_player_pos, initial_color, down_color))
 		BoardTileData.TileMode.SOURCE:
 			var new_face_color = new_tile.color_index
 			if new_face_color > -1:
+				var initial_color = player_colors[down_side]
 				player_colors[down_side] = new_face_color
 				player_node.set_face_color(down_side, new_face_color, colors)
+				move_action.changes.push_back(ActionStack.PlayerColorBoardChange.new(self, down_side, initial_color, new_face_color))
 		BoardTileData.TileMode.CLEAN:
+			var initial_color = player_colors[down_side]
+			move_action.changes.push_back(ActionStack.PlayerColorBoardChange.new(self, down_side, initial_color, -1))
 			player_colors[down_side] = -1
 			player_node.set_face_color(down_side, -1, colors)
 	
@@ -236,6 +247,8 @@ func try_move_player(direction: Vector2i) -> bool:
 	var is_solved = check_for_solve()
 	if !is_solved:
 		activate_preview()
+
+	action_stack.push_action(move_action)
 	
 	return true
 	
@@ -246,7 +259,6 @@ func check_for_solve():
 			var tile = row[i]
 			if tile and tile.mode == BoardTileData.TileMode.BASIC:
 				if (goal_colors[j][i] is int and goal_colors[j][i] > -1) and goal_colors[j][i] != tile.color_index:
-					print("Failed solve at (", i, ",", j, ") Color is ", tile.color_index, " and should be ", goal_colors[j][i])
 					return false
 	solved.emit()
 	print("Solved!")
@@ -254,7 +266,10 @@ func check_for_solve():
 	
 func paint_tile(tile: BoardTileData, color_index: int):
 	tile.color_index = color_index
-	tile.node.set_color(colors[color_index][0], colors[color_index][1])
+	if color_index < 0:
+		tile.node.set_color(tile.node.default_color, tile.node.default_pattern)	
+	else:
+		tile.node.set_color(colors[color_index][0], colors[color_index][1])
 
 func get_player_pos_for_tile(tile: BoardTileData):
 	return Vector3(0, tile_height/2, 0) + tile.node.position

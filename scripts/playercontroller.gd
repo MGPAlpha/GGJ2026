@@ -26,6 +26,10 @@ func _process(_delta: float) -> void:
 			move_busy = true
 			await camera_manager.toggle_camera_mode()
 			move_busy = false
+		elif Input.is_action_just_pressed("undo"):
+			board.action_stack.undo()
+		elif Input.is_action_just_pressed("redo"):
+			board.action_stack.redo()
 		elif Input.is_action_just_pressed("move_up"):
 			move_busy = true
 			await board.try_move_player(Vector2i.UP)
