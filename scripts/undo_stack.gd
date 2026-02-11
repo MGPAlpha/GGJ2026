@@ -19,6 +19,10 @@ func push_action(action: StackableAction):
 	stack.resize(stack_index)
 	stack.push_back(action)
 	stack_index += 1
+	
+func reset():
+	while stack_index > 0:
+		undo()
 
 class StackableAction:
 	var changes: Array[StackableActionChange]

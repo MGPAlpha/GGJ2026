@@ -19,7 +19,7 @@ func _process(_delta: float) -> void:
 		LevelManager.return_to_menu()
 		return
 	if Input.is_action_just_pressed("reload"):
-		if LevelManager.reload_level(): return
+		board.reset()
 	if move_busy: return
 	if !pop_out_active:
 		if Input.is_action_just_pressed("camera_swap"):

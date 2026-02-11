@@ -306,6 +306,10 @@ func end_display_cube():
 	await player_node.pop_out_cube(cube_display_pos, cube_display_rotation)
 	cube_display_ghost.queue_free()
 	
+func reset():
+	action_stack.reset()
+	player_node.rotation_tween.custom_step(-1)
+
 func activate_preview():
 	var up = Vector2i(player_pos.x, player_pos.y - 1)
 	var down = Vector2i(player_pos.x, player_pos.y + 1)
