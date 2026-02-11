@@ -52,12 +52,13 @@ class PlayerMoveBoardChange extends StackableActionChange:
 		new_rotation = rot_f
 	
 	func set_pos_rot(pos: Vector2i, rot: Quaternion):
+		board.deactivate_preview()
 		board.player_pos = pos
 		board.player_rotation = rot
 		var real_pos = board.get_player_pos_for_tile(board.tiles[pos.y][pos.x])
 		print("Pos: ", pos, " 3d pos: ", real_pos)
-		board.player_node.position = real_pos
-		board.player_node.cube.quaternion = rot
+		await board.player_node.rotate_cube(real_pos, rot, .2)
+		board.activate_preview()
 	
 	func apply_change():
 		set_pos_rot(new_position, new_rotation)

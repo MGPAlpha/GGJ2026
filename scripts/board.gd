@@ -279,6 +279,8 @@ var cube_display_pos
 var cube_display_ghost: PlayerCube
 func display_cube():
 	cube_display_ghost = player_node.duplicate()
+	var correct_player_pos = get_player_pos_for_tile(tiles[player_pos.y][player_pos.x])
+	cube_display_ghost.rotate_cube(correct_player_pos, player_rotation, 0)
 	var blink_tween := create_tween()
 	blink_tween.bind_node(cube_display_ghost)
 	blink_tween.tween_property(cube_display_ghost, "visible", false, 0)
