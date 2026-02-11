@@ -28,7 +28,7 @@ func _draw():
 		for i in goal_colors[j].size():
 			var color_index = goal_colors[j][i]
 			if color_index == null: continue
-			var color: Color = colors[color_index][0] if color_index != null and color_index > -1 else Color.GRAY 
+			var color: Color = colors[color_index][0] if color_index != null and color_index > -1 else Color.WHITE if color_index == -1 else Color.DIM_GRAY 
 			var pattern: Texture2D = colors[color_index][1] if color_index != null and color_index > -1 else null
 			draw_rect(Rect2(start_pos + Vector2(i*d,j*d), Vector2(d,d)), color)
 			

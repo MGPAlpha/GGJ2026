@@ -180,7 +180,7 @@ func load_level_file(path: String):
 					BoardTileData.TileMode.BASIC, BoardTileData.TileMode.SOURCE:
 						color = parse_color_index(curr_line[i])
 					_:
-						color = -1
+						color = -2
 				new_row[i] = color
 			
 		curr_line = file.get_line()
