@@ -52,12 +52,14 @@ var player_node: PlayerCube
 
 var action_stack: ActionStack = ActionStack.new()
 
+var move_count: int = 0
+
 var preview_cells: Array[Vector2i]
 
 signal goal_set(goal_colors: Array[Array], colors: Array[Color])
 signal board_generated(center: Vector3)
 signal solved
-signal player_moved
+signal move_count_changed(count: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -242,7 +244,7 @@ func try_move_player(direction: Vector2i) -> bool:
 			player_colors[down_side] = -1
 			player_node.set_face_color(down_side, -1, colors)
 	
-	player_moved.emit()		
+	adjust_move_count(1)
 	
 	var is_solved = check_for_solve()
 	if !is_solved:
@@ -251,7 +253,12 @@ func try_move_player(direction: Vector2i) -> bool:
 	action_stack.push_action(move_action)
 	
 	return true
-	
+
+func adjust_move_count(diff: int):
+	move_count += diff
+	if move_count < 0: move_count = 0
+	move_count_changed.emit(move_count)
+
 func check_for_solve():
 	for j in tiles.size():
 		var row = tiles[j]

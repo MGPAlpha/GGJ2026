@@ -13,11 +13,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
-func _increaseMoveCount():
-	move_count += 1
-	move_label.text = str(move_count)
-	
-func _clearMoveCount():
-	move_count = 0
+func _set_move_count(count: int):
+	move_count = count
 	move_label.text = str(move_count)
 	
