@@ -66,9 +66,11 @@ class PlayerMoveBoardChange extends StackableActionChange:
 	
 	func apply_change():
 		set_pos_rot(new_position, new_rotation)
+		board.adjust_move_count(1)
 		
 	func undo_change():
 		set_pos_rot(initial_position, initial_rotation)
+		board.adjust_move_count(-1)
 		
 class TileColorBoardChange extends StackableActionChange:
 	var board: Board

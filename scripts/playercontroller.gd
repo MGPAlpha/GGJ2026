@@ -18,11 +18,12 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("return_to_level_select"):
 		LevelManager.return_to_menu()
 		return
-	if Input.is_action_just_pressed("reload"):
-		board.reset()
 	if move_busy: return
 	if !pop_out_active:
-		if Input.is_action_just_pressed("camera_swap"):
+		if Input.is_action_just_pressed("reload"):
+			board.reset()
+			return
+		elif Input.is_action_just_pressed("camera_swap"):
 			move_busy = true
 			await camera_manager.toggle_camera_mode()
 			move_busy = false

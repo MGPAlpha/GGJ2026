@@ -56,7 +56,7 @@ func roll_height(w: float) -> void:
 
 func set_face_color(face: Vector3i, color_index: int, color_list: Array[Array]):
 	var color = color_list[color_index][0] if color_index >= 0 else default_color
-	var pattern = color_list[color_index][1] if color_index >= 0 else default_pattern
+	var pattern = color_list[color_index][1] if color_index >= 0 else null
 	
 	var material = cube_sides[face].material_override as ShaderMaterial
 	material.set_shader_parameter("PaintColor", color)

@@ -105,7 +105,7 @@ spotlight = NodePath("../SpotLight3D")
 
 [connection signal="board_generated" from="Board" to="CameraManager" method="_on_board_generated"]
 [connection signal="goal_set" from="Board" to="UI/MarginContainer/Control" method="_on_goal_set"]
-[connection signal="player_moved" from="Board" to="UI/MarginContainer/UI2/HBoxContainer/Flip count" method="_increaseMoveCount"]
+[connection signal="move_count_changed" from="Board" to="UI/MarginContainer/UI2/HBoxContainer/Flip count" method="_set_move_count"]
 [connection signal="solved" from="Board" to="StartAndEndManager" method="_on_solved"]
 [connection signal="camera_mode_changed" from="CameraManager" to="UI/MarginContainer/UI2" method="_on_camera_manager_camera_mode_changed"]
 
