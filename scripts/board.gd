@@ -267,7 +267,7 @@ func check_for_solve():
 		for i in row.size():
 			var tile = row[i]
 			if tile and tile.mode == BoardTileData.TileMode.BASIC:
-				if (goal_colors[j][i] is int and goal_colors[j][i] > -1) and goal_colors[j][i] != tile.color_index:
+				if (goal_colors[j][i] is int and goal_colors[j][i] > -2) and goal_colors[j][i] != tile.color_index:
 					return false
 	solved.emit()
 	print("Solved!")
