@@ -3,25 +3,22 @@
  x
 
 oPo
-oIo
-oIo
-oIo
- I oooo
-IIIIIII
-II oooo
+ooo
+ooo
+ I ooo
+IIIooo
+II ooo
 
 xxx
 xxx
 xxx
-xxx
- x xxxx
-xxxxxxx
-xx xxxx
+ x xxx
+xxxxxx
+xx xxx
 
 0x1
 0x1
 0x1
-0x1
- x 1111
-xxxxxxx
-xx 0000
+ x 111
+xxxxxx
+xx 000

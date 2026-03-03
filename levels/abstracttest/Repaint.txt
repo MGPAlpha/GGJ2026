@@ -2,14 +2,14 @@
 x0x0
  1
 
-     III
-PooooIII
-     III
+     II
+PooooII
+     II
 
-     xxx
-xxxxxxxx
-     xxx
+     xx
+xxxxxxx
+     xx
 
-     xxx
-00000xxx
-     xxx 
+     xx
+00000xx
+     xx
