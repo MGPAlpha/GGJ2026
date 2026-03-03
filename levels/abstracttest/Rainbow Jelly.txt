@@ -1,0 +1,24 @@
+ 4
+0123
+ 5
+
+  IIIII
+ IIIPIII
+ IIIIIII
+ o o o o
+oo o o oo
+o  o o  o
+
+  xxxxx
+ xxxxxxx
+ xxxxxxx
+ x x x x
+xx x x xx
+x  x x  x
+
+  xxxxx
+ xxx4xxx
+ xxxxxxx
+ 0 5 3 2
+53 2 5 14
+2  4 1  0
